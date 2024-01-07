@@ -1,0 +1,3 @@
+[submodule "pysvglabel"]
+	path = pysvglabel
+	url = https://github.com/ducky64/pysvglabel
