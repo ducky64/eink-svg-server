@@ -1,3 +1,2 @@
-urllib
 icalendar
 recurring_ical_events
