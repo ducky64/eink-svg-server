@@ -3,6 +3,8 @@ from urllib.request import urlopen
 from icalendar import Calendar
 import recurring_ical_events
 
+from pysvglabel.labelcore import SvgTemplate
+
 ICAL_URL = "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics"
 CACHE_FILE = "cache.ics"
 
