@@ -27,13 +27,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.2938725"
-     inkscape:cx="253.50257"
-     inkscape:cy="129.45634"
-     inkscape:window-width="1450"
-     inkscape:window-height="1243"
-     inkscape:window-x="1763"
-     inkscape:window-y="371"
+     inkscape:zoom="1.829812"
+     inkscape:cx="359.59978"
+     inkscape:cy="77.603599"
+     inkscape:window-width="2350"
+     inkscape:window-height="1606"
+     inkscape:window-x="1644"
+     inkscape:window-y="176"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -44,7 +44,14 @@
        spacingy="4.2333333" />
   </sodipodi:namedview>
   <defs
-     id="defs2" />
+     id="defs2">
+    <rect
+       x="0"
+       y="966.86218"
+       width="659.99998"
+       height="193.28987"
+       id="rect882" />
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -100,32 +107,6 @@
          x="8.4666662"
          y="35.983337"
          id="tspan6539">(Room 53-135 ENGR IV)</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="0"
-       y="-29.633333"
-       id="text4644-5-9"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="0"
-         y="-29.633333"
-         id="tspan6539-4"># pysvglabel: init</tspan><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="0"
-         y="-24.341671"
-         id="tspan589">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(1, 1))</tspan><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="0"
-         y="-19.050009"
-         id="tspan1313" /><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="0"
-         y="-13.758347"
-         id="tspan593" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
@@ -221,5 +202,36 @@
        x="4.2333331"
        y="0"
        ry="7.5199102e-15" />
+    <text
+       xml:space="preserve"
+       id="text880"
+       style="font-size:15px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';text-align:start;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect882);display:inline;fill:none;stroke:#000000;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-6.5368652"
+       y="0"
+       transform="matrix(0.28222223,0,0,0.28222223,0,-327.4207)"><tspan
+         x="0"
+         y="980.15206"
+         id="tspan3359"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan3357"># pysvglabel: init
+</tspan></tspan><tspan
+         x="0"
+         y="998.90206"
+         id="tspan3363"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan3361">from caltemplate_helpers import *
+</tspan></tspan><tspan
+         x="0"
+         y="1017.6521"
+         id="tspan3367"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan3365">
+</tspan></tspan><tspan
+         x="0"
+         y="1036.4021"
+         id="tspan3371"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan3369">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+</tspan></tspan></text>
   </g>
 </svg>

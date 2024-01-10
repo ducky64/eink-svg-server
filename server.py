@@ -1,7 +1,10 @@
+import xml.etree.ElementTree as ET
 import os.path
 from urllib.request import urlopen
 from icalendar import Calendar
 import recurring_ical_events
+
+from caltemplate_helpers import *
 
 # because pysvglabel isn't structured as a package, we hack around it by adding it to PYTHONPATH
 # TODO clean this up by a lot
@@ -32,3 +35,9 @@ if __name__ == '__main__':
 
     for event in events:
         print(event)
+
+    label = template._create_instance()
+    instance = template.apply_instance({}, [], 0)
+    label.append(instance)
+    root = ET.ElementTree(label)
+    root.write("applied.svg")
