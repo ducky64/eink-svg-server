@@ -4,7 +4,12 @@ from urllib.request import urlopen
 from icalendar import Calendar
 import recurring_ical_events
 
+from svglib.svglib import svg2rlg
+import svglib.svglib
+from reportlab.graphics import renderPM
+
 from caltemplate_helpers import *
+
 
 # because pysvglabel isn't structured as a package, we hack around it by adding it to PYTHONPATH
 # TODO clean this up by a lot
@@ -16,6 +21,7 @@ ICAL_URL = "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0
 CACHE_FILE = "cache.ics"
 
 TEMPLATE_FILE = "template.svg"
+template = SvgTemplate(TEMPLATE_FILE)
 
 
 from functools import cached_property
@@ -46,17 +52,26 @@ class WebRequestHandler(BaseHTTPRequestHandler):
         return SimpleCookie(self.headers.get("Cookie"))
 
     def do_GET(self):
+        label = template._create_instance()
+        instance = template.apply_instance({}, [], 0)
+        label.append(instance)
+        root = ET.ElementTree(label)
+        svg = ET.tostring(root, encoding='utf8')
+        rlg = svglib.data_to_rlg(svg)  # svg2rlg(input_svg_path)
+        png_data = renderPM.drawToString(rlg, output_png_path, fmt='PNG')
+
+        # TODO plumb through output dimensions
+        # png_data = cairosvg.svg2png(bytestring=svg.encode(), output_width=448, output_height=600)
+
         self.send_response(200)
-        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Type", "image/png")
         self.end_headers()
-        self.wfile.write("ducks".encode('utf-8'))
+        self.wfile.write(png_data)
 
     def do_POST(self):
         self.do_GET()
 
 if __name__ == '__main__':
-    template = SvgTemplate(TEMPLATE_FILE)
-
     if not os.path.isfile(CACHE_FILE):  # fetch if needed
         print(f"fetching from {ICAL_URL}")
         data = urlopen(ICAL_URL).read()
@@ -72,11 +87,6 @@ if __name__ == '__main__':
     for event in events:
         print(event)
 
-    label = template._create_instance()
-    instance = template.apply_instance({}, [], 0)
-    label.append(instance)
-    root = ET.ElementTree(label)
-    root.write("applied.svg")
 
     server = HTTPServer(("0.0.0.0", 8000), WebRequestHandler)
     print("Server started")
