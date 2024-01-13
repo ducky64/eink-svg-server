@@ -3,7 +3,7 @@ import os.path
 from urllib.request import urlopen
 from icalendar import Calendar
 import recurring_ical_events
-import time
+import cairosvg
 
 from caltemplate_helpers import *
 
@@ -12,15 +12,13 @@ from caltemplate_helpers import *
 # TODO clean this up by a lot
 import sys
 sys.path.append("pysvglabel")
-from labelcore import SvgTemplate, InkscapeSubprocess
+from labelcore import SvgTemplate
 
 ICAL_URL = "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics"
 CACHE_FILE = "cache.ics"
 
 TEMPLATE_FILE = "template.svg"
 template = SvgTemplate(TEMPLATE_FILE)
-
-inkscape = InkscapeSubprocess()
 
 
 from functools import cached_property
@@ -54,15 +52,10 @@ class WebRequestHandler(BaseHTTPRequestHandler):
         label = template._create_instance()
         instance = template.apply_instance({}, [], 0)
         label.append(instance)
-        root = ET.ElementTree(label)
-        root.write("temp.svg")
-        if os.path.exists('temp.png'):
-            os.remove('temp.png')
-        inkscape.convert('temp.svg', 'temp.png')
-        while not os.path.exists('temp.png'):  # wait for file creation
-            time.sleep(0.1)
-        with open('temp.png', 'rb') as f:
-            png_data = f.read()
+        root = ET.ElementTree(label).getroot()
+
+        png_data = cairosvg.svg2png(bytestring=ET.tostring(root, 'utf-8'),
+                                    output_width=448, output_height=600)
 
         self.send_response(200)
         self.send_header("Content-Type", "image/png")
@@ -87,7 +80,6 @@ if __name__ == '__main__':
 
     for event in events:
         print(event)
-
 
     server = HTTPServer(("0.0.0.0", 8000), WebRequestHandler)
     print("Server started")
