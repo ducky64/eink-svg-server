@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="64"
-   height="32"
-   viewBox="0 0 63.999998 31.999999"
+   width="240"
+   height="528"
+   viewBox="0 0 240 527.99997"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   sodipodi:docname="sub_timelabel.svg"
+   sodipodi:docname="sub_event.svg"
    inkscape:export-filename="template.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -29,13 +29,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="14.638496"
-     inkscape:cx="26.027264"
-     inkscape:cy="9.358885"
+     inkscape:zoom="1.829812"
+     inkscape:cx="226.25275"
+     inkscape:cy="300.57733"
      inkscape:window-width="2350"
      inkscape:window-height="1606"
-     inkscape:window-x="1982"
-     inkscape:window-y="198"
+     inkscape:window-x="2589"
+     inkscape:window-y="326"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -43,7 +43,9 @@
        id="grid21772"
        units="px"
        spacingx="7.9999997"
-       spacingy="7.9999997" />
+       spacingy="7.9999997"
+       originx="0"
+       originy="0" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -59,21 +61,24 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(8.4666666)">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect4425"
+       width="239.99998"
+       height="31.999998"
+       x="-8.4666662"
+       y="0"
+       ry="15.118111" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="39.595833"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="-0.52916688"
        y="21.710938"
        id="text4644-5-6-3-1"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-         x="39.595833"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         x="-0.52916688"
          y="21.710938"
-         id="tspan6611-9-3">{time}</tspan></text>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999994;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
-       d="m 55.533331,15.999999 h -8"
-       id="path14340"
-       sodipodi:nodetypes="cc" />
+         id="tspan6611-9-3">{title}</tspan></text>
   </g>
 </svg>

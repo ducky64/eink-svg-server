@@ -18,3 +18,9 @@ def time_elts(start_hr: float, end_hr: float) -> List[Tuple[float, Dict[str, Any
   scale = 1.0 / (end_hr - start_hr)
   return [((hr - start_hr) * scale, {'time': hr_to_str(hr)})
           for hr in range(ceil(start_hr), floor(end_hr) + 1)]
+
+def events_elts(start_hr: float, end_hr: float) -> List[Tuple[float, Dict[str, Any]]]:
+  """returns the event elements between start_hr and end_hr, inclusive"""
+  scale = 1.0 / (end_hr - start_hr)
+  return [((hr - start_hr) * scale, {'title': hr})
+          for hr in range(ceil(start_hr), floor(end_hr) + 1)]
