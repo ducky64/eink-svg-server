@@ -18,7 +18,6 @@ ICAL_URL = "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0
 CACHE_FILE = "cache.ics"
 
 TEMPLATE_FILE = "template.svg"
-template = SvgTemplate(TEMPLATE_FILE)
 
 
 from functools import cached_property
@@ -49,6 +48,8 @@ class WebRequestHandler(BaseHTTPRequestHandler):
         return SimpleCookie(self.headers.get("Cookie"))
 
     def do_GET(self):
+        # reload the template each time
+        template = SvgTemplate(TEMPLATE_FILE)
         label = template._create_instance()
         instance = template.apply_instance({}, [], 0)
         label.append(instance)

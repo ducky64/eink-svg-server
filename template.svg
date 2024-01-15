@@ -15,9 +15,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   shape-rendering="crispEdges"
-   text-rendering="crispEdges">
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview7"
      pagecolor="#ffffff"
@@ -29,13 +27,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.829812"
-     inkscape:cx="359.59978"
-     inkscape:cy="77.603599"
+     inkscape:zoom="2.5877449"
+     inkscape:cx="223.74693"
+     inkscape:cy="-18.742187"
      inkscape:window-width="2350"
-     inkscape:window-height="1606"
-     inkscape:window-x="1644"
-     inkscape:window-y="176"
+     inkscape:window-height="1605"
+     inkscape:window-x="1563"
+     inkscape:window-y="120"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -66,120 +64,129 @@
        x="4.2333331"
        y="4.2333331"
        ry="7.5199102e-15" />
+    <g
+       id="g13768"
+       transform="translate(-23.283333)">
+      <rect
+         style="fill:#bfbfbf;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         id="rect9937"
+         width="16.933334"
+         height="139.70001"
+         x="55.033333"
+         y="8.4666662" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         x="55.033333"
+         y="127"
+         id="text4644-5-6-3-6"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+           x="55.033333"
+           y="127"
+           id="tspan6611-9-9">🐍SubtemplateArray(</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+           x="55.033333"
+           y="130.52777"
+           id="tspan12953">  'sub_timelabel.svg',</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+           x="55.033333"
+           y="134.05556"
+           id="tspan12961">  time_elts(kStartHr, kEndHr),</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+           x="55.033333"
+           y="137.58333"
+           id="tspan12955">  align=Align.RIGHT,</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+           x="55.033333"
+           y="141.1111"
+           id="tspan12957">  vertical=True</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+           x="55.033333"
+           y="144.63887"
+           id="tspan12959">)</tspan></text>
+    </g>
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        id="rect8135-9"
        width="63.5"
        height="25.400002"
-       x="4.233336"
-       y="42.333332"
+       x="-80.433334"
+       y="33.866665"
        ry="7.5199102e-15" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        id="rect4425"
-       width="38.099998"
+       width="63.5"
        height="139.70001"
-       x="71.966667"
+       x="46.566666"
        y="8.4666662"
        ry="1.25" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="8.144206"
-       y="12.617317"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.7px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="8.4666662"
+       y="17.53278"
        id="text4644"><tspan
          sodipodi:role="line"
-         id="tspan4642"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="8.144206"
-         y="12.617317">28 Mon</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.7px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+         x="8.4666662"
+         y="17.53278"
+         id="tspan20977">{day}</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.7px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+         x="8.4666662"
+         y="33.40778"
+         id="tspan20981">{wday}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="37.704502"
+       y="-22.470978"
+       id="text4644-5"
+       transform="rotate(90)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+         x="37.704502"
+         y="-22.470978"
+         id="tspan6539">ELLIOTT ROOM</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
+         x="37.704502"
+         y="-10.123753"
+         id="tspan21054">(Room 53-135 ENGR IV)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="8.4666662"
-       y="25.4"
-       id="text4644-5"><tspan
-         sodipodi:role="line"
-         id="tspan4642-6"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="8.4666662"
-         y="25.4">ELLIOTT ROOM</tspan><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="8.4666662"
-         y="35.983337"
-         id="tspan6539">(Room 53-135 ENGR IV)</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="8.4666662"
-       y="80.433334"
+       x="-67.73333"
+       y="84.666664"
        id="text4644-5-6"><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="8.4666662"
-         y="80.433334"
+         x="-67.73333"
+         y="84.666664"
          id="tspan6609">Next: 14:00</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="8.4666662"
-         y="91.01667"
+         x="-67.73333"
+         y="95.25"
          id="tspan6611">Duck Pond Meeting</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="8.4666662"
-       y="101.6"
-       id="text4644-5-6-3"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="8.4666662"
-         y="101.6"
-         id="tspan6611-9">Quack quack ... quacks?</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="70.931641"
-       y="148.12532"
-       id="text4644-5-6-3-1"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="70.931641"
-         y="148.12532"
-         id="tspan6611-9-3">6p</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="70.931641"
-       y="135.42532"
-       id="text4644-5-6-3-1-3"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="70.931641"
-         y="135.42532"
-         id="tspan6611-9-3-2">5p</tspan></text>
-    <text
-       xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="8.4666691"
-       y="59.266666"
+       x="-76.199997"
+       y="50.799999"
        id="text4644-5-7"><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="8.4666691"
-         y="59.266666"
+         x="-76.199997"
+         y="50.799999"
          id="tspan6539-9">Open</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="7.4827495"
-       y="67.31163"
-       id="text4644-5-7-8"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-dasharray:none"
-         x="7.4827495"
-         y="67.31163"
-         id="tspan6539-9-4">In-Use</tspan></text>
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265112;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        id="rect8135"
@@ -213,27 +220,56 @@
        transform="matrix(0.28222223,0,0,0.28222223,0,-327.4207)"><tspan
          x="0"
          y="980.15206"
-         id="tspan3359"><tspan
+         id="tspan21391"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan3357"># pysvglabel: init
+           id="tspan21389"># pysvglabel: init
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan3363"><tspan
+         id="tspan21395"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan3361">from caltemplate_helpers import *
+           id="tspan21393">from caltemplate_helpers import *
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan3367"><tspan
+         id="tspan21399"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan3365">
+           id="tspan21397">
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan3371"><tspan
+         id="tspan21403"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan3369">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
-</tspan></tspan></text>
+           id="tspan21401">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+</tspan></tspan><tspan
+         x="0"
+         y="1055.1521"
+         id="tspan21407"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan21405">
+</tspan></tspan><tspan
+         x="0"
+         y="1073.9021"
+         id="tspan21411"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan21409">kStartHr = 8
+</tspan></tspan><tspan
+         x="0"
+         y="1092.6521"
+         id="tspan21415"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan21413">kEndHr = 20
+</tspan></tspan><tspan
+         x="0"
+         y="1111.4021"
+         id="tspan21419"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan21417">day = 28
+</tspan></tspan><tspan
+         x="0"
+         y="1130.1521"
+         id="tspan21423"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan21421">wday = &quot;Mon&quot;</tspan></tspan></text>
   </g>
 </svg>
