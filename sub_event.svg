@@ -62,7 +62,7 @@
      id="layer1"
      transform="translate(8.4666666)">
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        id="rect4425"
        width="239.99998"
        height="31.999998"
