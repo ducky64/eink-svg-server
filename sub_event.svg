@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.829812"
-     inkscape:cx="226.25275"
-     inkscape:cy="300.57733"
+     inkscape:zoom="3.659624"
+     inkscape:cx="137.03594"
+     inkscape:cy="150.28866"
      inkscape:window-width="2350"
      inkscape:window-height="1606"
-     inkscape:window-x="2589"
-     inkscape:window-y="326"
+     inkscape:window-x="1455"
+     inkscape:window-y="423"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="g48560">
     <inkscape:grid
        type="xygrid"
        id="grid21772"
@@ -61,14 +61,43 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(8.4666666)">
-    <rect
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       id="rect4425"
-       width="239.99998"
-       height="31.999998"
-       x="-8.4666662"
-       y="0"
-       ry="15.118111" />
+    <g
+       id="g48560">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         id="rect4425"
+         width="239.99998"
+         height="31.999998"
+         x="-8.4666662"
+         y="0"
+         ry="15.118111" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         x="55.533329"
+         y="15.999999"
+         id="text4644-5-6-3-1-1"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="55.533329"
+           y="15.999999"
+           id="tspan6611-9-3-1">🐍DimensionModifier(</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="55.533329"
+           y="29.333374"
+           id="tspan47810">  set={'height': _area_height * size_frac}</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="55.533329"
+           y="42.666748"
+           id="tspan47812">)</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="55.533329"
+           y="56.000126"
+           id="tspan47808" /></text>
+    </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"

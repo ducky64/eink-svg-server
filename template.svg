@@ -27,13 +27,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.2938725"
-     inkscape:cx="124.04623"
-     inkscape:cy="47.531732"
+     inkscape:zoom="1.829812"
+     inkscape:cx="198.10778"
+     inkscape:cy="-75.690836"
      inkscape:window-width="2350"
-     inkscape:window-height="1605"
+     inkscape:window-height="1607"
      inkscape:window-x="1563"
-     inkscape:window-y="120"
+     inkscape:window-y="118"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -45,6 +45,12 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <rect
+       x="-176"
+       y="32"
+       width="0"
+       height="16"
+       id="rect41220" />
     <rect
        x="0"
        y="966.86218"
@@ -140,7 +146,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="120.00002"
            y="506.66681"
-           id="tspan12961-5">  events_elts(kStartHr, kEndHr),</tspan><tspan
+           id="tspan12961-5">  events_elts(day, kStartHr, kEndHr),</tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="120.00002"
@@ -268,63 +274,73 @@
     <text
        xml:space="preserve"
        id="text880"
-       style="font-size:15px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';text-align:start;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect882);display:inline;fill:none;stroke:#000000;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-size:15px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';text-align:start;letter-spacing:0px;word-spacing:0px;white-space:pre;display:inline;fill:none;stroke:#000000;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;shape-inside:url(#rect882)"
        x="-6.5368652"
        y="0"
        transform="matrix(1.0666668,0,0,1.0666668,0,-1381.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan39732"><tspan
+         id="tspan45556"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39730"># pysvglabel: init
+           id="tspan45554"># pysvglabel: init
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan39736"><tspan
+         id="tspan45560"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39734">from caltemplate_helpers import *
+           id="tspan45558">from caltemplate_helpers import *
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan39740"><tspan
+         id="tspan45564"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39738">from datetime import datetime
+           id="tspan45562">from datetime import datetime
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan39744"><tspan
+         id="tspan45568"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39742">
+           id="tspan45566">import pytz
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan39748"><tspan
+         id="tspan45572"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39746">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+           id="tspan45570">
 </tspan></tspan><tspan
          x="0"
          y="1073.9021"
-         id="tspan39752"><tspan
+         id="tspan45576"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39750">
+           id="tspan45574">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
 </tspan></tspan><tspan
          x="0"
          y="1092.6521"
-         id="tspan39756"><tspan
+         id="tspan45580"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39754">day = datetime(2024, 1, 9)
+           id="tspan45578">
 </tspan></tspan><tspan
          x="0"
          y="1111.4021"
-         id="tspan39760"><tspan
+         id="tspan45584"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39758">kStartHr = 8
+           id="tspan45582">day = datetime(2024, 1, 9, tzinfo=pytz.timezone('US/Pacific'))
 </tspan></tspan><tspan
          x="0"
          y="1130.1521"
-         id="tspan39764"><tspan
+         id="tspan45588"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39762">kEndHr = 20
+           id="tspan45586">kStartHr = 8
+</tspan></tspan><tspan
+         x="0"
+         y="1148.9021"
+         id="tspan45592"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan45590">kEndHr = 20
 </tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text41218"
+       style="font-size:12px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect41220);display:inline;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   </g>
 </svg>
