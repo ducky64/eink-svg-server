@@ -7,6 +7,8 @@ class Event(TypedDict):  # internal interchange format for calendar events
   start: datetime
   end: datetime
 
+WDAY_MAP = {0: 'Mon', 1: 'Tue', 2: 'Wed', 3: 'Thu', 4: 'Fri', 5: 'Sat', 6: 'Sun'}
+
 def time_elts(start_hr: float, end_hr: float) -> List[Tuple[float, Dict[str, Any]]]:
   """returns the time env elements between start_hr and end_hr, inclusive"""
   def hr_to_str(hr: float) -> str:
