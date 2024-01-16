@@ -41,15 +41,18 @@ class WebRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         # reload the template each time
+        print("GET: start")
         template = SvgTemplate(TEMPLATE_FILE)
         label = template._create_instance()
+
+        print("GET: apply")
         instance = template.apply_instance({}, [], 0)
         label.append(instance)
         root = ET.ElementTree(label).getroot()
-
+        print("GET: rendering")
         png_data = cairosvg.svg2png(bytestring=ET.tostring(root, 'utf-8'),
                                     output_width=448, output_height=600)
-
+        print("GET: sending")
         self.send_response(200)
         self.send_header("Content-Type", "image/png")
         self.end_headers()
