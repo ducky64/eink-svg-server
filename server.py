@@ -9,7 +9,7 @@ sys.path.append("pysvglabel")
 from labelcore import SvgTemplate
 
 
-TEMPLATE_FILE = "template.svg"
+TEMPLATE_FILE = "template_3cb.svg"
 
 
 from functools import cached_property
@@ -51,7 +51,8 @@ class WebRequestHandler(BaseHTTPRequestHandler):
         root = ET.ElementTree(label).getroot()
         print("GET: rendering")
         png_data = cairosvg.svg2png(bytestring=ET.tostring(root, 'utf-8'),
-                                    output_width=448, output_height=600)
+                                    # output_width=448, output_height=600)
+                                    output_width=480, output_height=800)
         print("GET: sending")
         self.send_response(200)
         self.send_header("Content-Type", "image/png")
