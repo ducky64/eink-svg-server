@@ -1,13 +1,14 @@
 from typing import Optional
 from flask import Flask, jsonify
 from pydantic import BaseModel, Base64Bytes
+import base64
 
 from render import render as label_render, TEST_ICAL_URL
 
 
 class DisplayResponse(BaseModel):
   nextUpdateSec: int  # seconds to next update
-  image: Optional[Base64Bytes] = None  # display image data
+  image_b64: Optional[str] = None  # display image data
   err: Optional[str] = None
 
 
@@ -22,10 +23,11 @@ def version():
 def render():
   try:
     png_data, events = label_render(TEST_ICAL_URL)
+    png_b64 = base64.b64encode(png_data).decode("utf-8")
     response = DisplayResponse(nextUpdateSec=60,
-                               image=png_data)
+                               image_b64=png_b64)
   except Exception as e:
     app.logger.exception(f"generate: exception: {repr(e)}")
     response = DisplayResponse(nextUpdateSec=60,
                                error=repr(e))
-  return jsonify(response.model_dump())
+  return jsonify(response.model_dump(exclude_none=True))
