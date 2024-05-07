@@ -2,3 +2,6 @@ icalendar
 recurring_ical_events
 pycairo
 cairosvg
+
+pydantic
+flask
