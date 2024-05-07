@@ -2,7 +2,7 @@ from typing import Optional
 from flask import Flask, jsonify
 from pydantic import BaseModel, Base64Bytes
 
-from render import render, TEST_ICAL_URL
+from render import render as label_render, TEST_ICAL_URL
 
 
 class DisplayResponse(BaseModel):
@@ -21,7 +21,7 @@ def version():
 @app.route("/render", methods=['GET'])
 def render():
   try:
-    png_data, events = render(TEST_ICAL_URL)
+    png_data, events = label_render(TEST_ICAL_URL)
     response = DisplayResponse(nextUpdateSec=60,
                                image=png_data)
   except Exception as e:
