@@ -22,7 +22,7 @@ def version():
 @app.route("/render", methods=['GET'])
 def render():
   try:
-    png_data, event, events = label_render(kTestIcalUrl, kTestTitle)
+    png_data, events = label_render(kTestIcalUrl, kTestTitle)
     png_b64 = base64.b64encode(png_data).decode("utf-8")
     response = DisplayResponse(nextUpdateSec=60,
                                image_b64=png_b64)
