@@ -7,6 +7,12 @@ kStartHr = 8
 kEndHr = 20
 
 
+def split_title(title: str) -> List[str]:
+  out = title.split('\n')
+  if len(out) < 2:
+    out.append('')
+  return out
+
 def time_elts(start_dt: datetime, end_dt: datetime) -> List[Tuple[float, Dict[str, Any]]]:
   """returns the time env elements between start_hr and end_hr, inclusive"""
   scale = 1.0 / (end_dt - start_dt).seconds

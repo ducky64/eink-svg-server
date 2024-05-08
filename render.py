@@ -15,12 +15,11 @@ from labelcore import SvgTemplate
 kTemplateFile = "template_3cb.svg"
 
 kTestIcalUrl = "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics"
-kTestTitle = "ELLIOTT ROOM"
-kTestTitle2 = "(Room 53-135 ENGR IV)"
+kTestTitle = "ELLIOTT ROOM\n(Room 53-135 ENGR IV)"
 
 kFudgeAdvanceTime = timedelta(minutes=5)  # add this for the "current" time to account for clock drift and whatnot
 
-def render(ical_url, title, title2) -> Tuple[bytes, List[Event]]:
+def render(ical_url, title) -> Tuple[bytes, List[Event]]:
   """Renders the calendar to a PNG, given the ical url and title,
   returning the PNG data and full list of events"""
   template = SvgTemplate(kTemplateFile)
@@ -35,7 +34,6 @@ def render(ical_url, title, title2) -> Tuple[bytes, List[Event]]:
 
   instance = template.apply_instance({
     'title': title,
-    'title2': title2,
     'current_events': current_events,
     'events': events,
     'day': day_start},
@@ -50,6 +48,6 @@ def render(ical_url, title, title2) -> Tuple[bytes, List[Event]]:
 
 
 if __name__ == '__main__':
-  png_data, events = render(kTestIcalUrl, kTestTitle, kTestTitle2)
+  png_data, events = render(kTestIcalUrl, kTestTitle)
   with open('temp.png', 'wb') as f:
     f.write(png_data)
