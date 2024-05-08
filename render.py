@@ -1,11 +1,13 @@
 from itertools import chain
-from typing import Tuple, List, Optional
+from typing import Tuple
 from urllib.request import urlopen
-from icalendar import Calendar, Event
+from icalendar import Calendar
 from datetime import datetime, timedelta
 import recurring_ical_events
 import xml.etree.ElementTree as ET
 import cairosvg
+from PIL import Image
+import io
 
 # because pysvglabel isn't structured as a package, we hack around it by adding it to PYTHONPATH
 # TODO clean this up by a lot
@@ -55,6 +57,12 @@ def render(ical_url: str, title: str, currenttime: datetime) -> Tuple[bytes, dat
 
   png_data = cairosvg.svg2png(bytestring=ET.tostring(root, 'utf-8'),
                               output_width=480, output_height=800)
+
+  image = Image.open(io.BytesIO(png_data))
+  image = image.convert(mode='P')
+  img_byte_arr = io.BytesIO()
+  image.save(img_byte_arr, format='PNG', optimize=True)
+  png_data = img_byte_arr.getvalue()
 
   # compute the next update time
   endtime = day_start.replace(hour=caltemplate_helpers.kEndHr)
