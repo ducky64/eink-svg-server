@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Optional
 from flask import Flask, jsonify
 from pydantic import BaseModel
@@ -14,6 +15,9 @@ class DisplayResponse(BaseModel):
 
 app = Flask(__name__)
 
+import logging
+logging.basicConfig(level=logging.INFO)
+
 
 @app.route("/version", methods=['GET'])
 def version():
@@ -22,12 +26,19 @@ def version():
 @app.route("/render", methods=['GET'])
 def render():
   try:
-    png_data, events = label_render(kTestIcalUrl, kTestTitle)
+    startime = datetime.now().astimezone()
+
+    png_data, nexttime = label_render(kTestIcalUrl, kTestTitle)
     png_b64 = base64.b64encode(png_data).decode("utf-8")
-    response = DisplayResponse(nextUpdateSec=60,
+    next_update_sec = (nexttime - startime).seconds
+
+    title_printable = kTestTitle.split('\n')[0]
+    app.logger.info(f"render: {title_printable} size={len(png_data)}: next update {nexttime} ({next_update_sec} s)")
+
+    response = DisplayResponse(nextUpdateSec=next_update_sec,
                                image_b64=png_b64)
   except Exception as e:
-    app.logger.exception(f"generate: exception: {repr(e)}")
+    app.logger.exception(f"render: exception: {repr(e)}")
     response = DisplayResponse(nextUpdateSec=60,
                                error=repr(e))
   return jsonify(response.model_dump(exclude_none=True))
