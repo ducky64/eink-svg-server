@@ -57,18 +57,21 @@ def render(ical_url, title) -> Tuple[bytes, datetime]:
                               output_width=480, output_height=800)
 
   # compute the next update time
-  if current.hour >= caltemplate_helpers.kEndHr:
-    nexttime = day_start + timedelta(days=1, hours=1)
-  elif current.hour < caltemplate_helpers.kStartHr:
-    nexttime = day_start + timedelta(hours=caltemplate_helpers.kStartHr)
-  else:
-    event_times = list(chain.from_iterable([[event.get('DTSTART').dt, event.get('DTEND').dt] for event in events]))
-    event_times.extend([  # refresh a couple times a day
-      day_start.replace(hour=12),
-      day_start.replace(hour=16),
-    ])
-    event_times = [time for time in event_times if time > current]
-    nexttime = sorted(event_times)[0]
+  endtime = day_start.replace(hour=caltemplate_helpers.kEndHr)
+  event_times = list(chain.from_iterable([[event.get('DTSTART').dt, event.get('DTEND').dt] for event in events]))
+  past_end_events = [time for time in event_times if time > endtime]
+  event_times = [time for time in event_times if time <= endtime]  # prune out events past the end
+  if past_end_events:  # if there were events past the end, replace it with one at the end
+    event_times.append(endtime)
+  event_times.extend([  # refresh a couple times a day
+    day_start.replace(hour=1),
+    day_start.replace(hour=caltemplate_helpers.kStartHr),
+    day_start.replace(hour=12),
+    day_start.replace(hour=16),
+    day_start.replace(hour=1) + timedelta(days=1)  # next day
+  ])
+  event_times = [time for time in event_times if time > current]
+  nexttime = sorted(event_times)[0]
 
   return (png_data, nexttime)
 

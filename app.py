@@ -26,14 +26,17 @@ def version():
 @app.route("/render", methods=['GET'])
 def render():
   try:
-    startime = datetime.now().astimezone()
+    starttime = datetime.now().astimezone()
 
     png_data, nexttime = label_render(kTestIcalUrl, kTestTitle)
     png_b64 = base64.b64encode(png_data).decode("utf-8")
-    next_update_sec = (nexttime - startime).seconds
+    next_update_sec = (nexttime - starttime).seconds
+
+    endtime = datetime.now().astimezone()
+    runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
 
     title_printable = kTestTitle.split('\n')[0]
-    app.logger.info(f"render: {title_printable} size={len(png_data)}: next update {nexttime} ({next_update_sec} s)")
+    app.logger.info(f"render: {title_printable}: {len(png_data)} B, {runtime} s: next {nexttime} ({next_update_sec} s)")
 
     response = DisplayResponse(nextUpdateSec=next_update_sec,
                                image_b64=png_b64)
