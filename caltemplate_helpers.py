@@ -26,7 +26,7 @@ def time_elts(start_dt: datetime, end_dt: datetime) -> List[Tuple[float, Dict[st
   return [dt_to_elt_tuple(day_dt + timedelta(hours=hr))
           for hr in range(start_dt.hour, end_dt.hour + 1)]  # assumes dt on hour boundary
 
-def events_elts(events: List[Event], start_dt: datetime, end_dt: datetime) -> List[Tuple[float, Dict[str, Any]]]:
+def events_elts(events: List[Event], current_events: List[Event], start_dt: datetime, end_dt: datetime) -> List[Tuple[float, Dict[str, Any]]]:
   """returns the event elements between start_hr and end_hr, inclusive"""
   elts = []
   scale = 1.0 / (end_dt - start_dt).seconds
@@ -43,6 +43,7 @@ def events_elts(events: List[Event], start_dt: datetime, end_dt: datetime) -> Li
     elts.append(((ev_start - start_dt).seconds * scale, {
       'title': event.get('SUMMARY'),
       'size_frac': (ev_end - ev_start).seconds * scale,
+      'fill': '#ff0000' if event in current_events else '#000000',
     }))
 
   return elts
