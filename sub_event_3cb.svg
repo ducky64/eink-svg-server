@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="272"
+   width="320"
    height="528"
-   viewBox="0 0 272 527.99997"
+   viewBox="0 0 320 527.99997"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    sodipodi:docname="sub_event_3cb.svg"
    inkscape:export-filename="template.png"
    inkscape:export-xdpi="96"
@@ -29,23 +29,25 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2.5877449"
-     inkscape:cx="173.31693"
-     inkscape:cy="248.67211"
+     inkscape:zoom="7.3192479"
+     inkscape:cx="302.01191"
+     inkscape:cy="42.422392"
      inkscape:window-width="1500"
      inkscape:window-height="1606"
-     inkscape:window-x="1500"
-     inkscape:window-y="423"
+     inkscape:window-x="2705"
+     inkscape:window-y="340"
      inkscape:window-maximized="0"
      inkscape:current-layer="g48560">
     <inkscape:grid
        type="xygrid"
        id="grid21772"
        units="px"
-       spacingx="7.9999997"
-       spacingy="7.9999997"
+       spacingx="3.9999999"
+       spacingy="3.9999999"
        originx="0"
-       originy="0" />
+       originy="0"
+       visible="true"
+       empspacing="4" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -66,7 +68,7 @@
       <rect
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
          id="rect4425"
-         width="272"
+         width="319.99997"
          height="31.999998"
          x="-8.4666662"
          y="0"

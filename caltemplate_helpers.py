@@ -2,7 +2,9 @@ from typing import Tuple, List, Dict, Any
 from datetime import datetime, timedelta
 from icalendar import Event
 
-WDAY_MAP = {0: 'Mon', 1: 'Tue', 2: 'Wed', 3: 'Thu', 4: 'Fri', 5: 'Sat', 6: 'Sun'}
+kWdayMap = {0: 'Mon', 1: 'Tue', 2: 'Wed', 3: 'Thu', 4: 'Fri', 5: 'Sat', 6: 'Sun'}
+kStartHr = 8
+kEndHr = 20
 
 
 def time_elts(start_dt: datetime, end_dt: datetime) -> List[Tuple[float, Dict[str, Any]]]:

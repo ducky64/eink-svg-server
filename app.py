@@ -1,9 +1,9 @@
 from typing import Optional
 from flask import Flask, jsonify
-from pydantic import BaseModel, Base64Bytes
+from pydantic import BaseModel
 import base64
 
-from render import render as label_render, TEST_ICAL_URL
+from render import render as label_render, kTestIcalUrl, kTestTitle
 
 
 class DisplayResponse(BaseModel):
@@ -22,7 +22,7 @@ def version():
 @app.route("/render", methods=['GET'])
 def render():
   try:
-    png_data, events = label_render(TEST_ICAL_URL)
+    png_data, event, events = label_render(kTestIcalUrl, kTestTitle)
     png_b64 = base64.b64encode(png_data).decode("utf-8")
     response = DisplayResponse(nextUpdateSec=60,
                                image_b64=png_b64)

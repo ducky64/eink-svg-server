@@ -1,4 +1,4 @@
-from typing import Tuple, List
+from typing import Tuple, List, Optional
 from urllib.request import urlopen
 from icalendar import Calendar, Event
 from datetime import datetime, timedelta
@@ -12,13 +12,15 @@ import sys
 sys.path.append("pysvglabel")
 from labelcore import SvgTemplate
 
-TEMPLATE_FILE = "template_3cb.svg"
+kTemplateFile = "template_3cb.svg"
 
-TEST_ICAL_URL = "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics"
+kTestIcalUrl = "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics"
+kTestTitle = "ELLIOTT ROOM\n(Room 53-135 ENGR IV)"
 
-
-def render(ical_url) -> Tuple[bytes, List[Event]]:
-  template = SvgTemplate(TEMPLATE_FILE)
+def render(ical_url, title) -> Tuple[bytes, Optional[Event], List[Event]]:
+  """Renders the calendar to a PNG, given the ical url and title,
+  returning the PNG data, optional current event, and full list of events"""
+  template = SvgTemplate(kTemplateFile)
   label = template._create_instance()
 
   data = urlopen(ical_url).read()
@@ -27,6 +29,7 @@ def render(ical_url) -> Tuple[bytes, List[Event]]:
   events = recurring_ical_events.of(calendar).between(start, start + timedelta(days=1))
 
   instance = template.apply_instance({
+    'title': title,
     'events': events,
     'day': start},
     [], 0)
@@ -40,6 +43,6 @@ def render(ical_url) -> Tuple[bytes, List[Event]]:
 
 
 if __name__ == '__main__':
-  png_data, events = render(TEST_ICAL_URL)
+  png_data, events = render(kTestIcalUrl, kTestTitle)
   with open('temp.png', 'wb') as f:
     f.write(png_data)
