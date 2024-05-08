@@ -1,4 +1,5 @@
 from datetime import datetime
+import pytz
 from typing import Optional
 from flask import Flask, jsonify
 from pydantic import BaseModel
@@ -26,9 +27,9 @@ def version():
 @app.route("/render", methods=['GET'])
 def render():
   try:
-    starttime = datetime.now().astimezone()
+    starttime = datetime.now(pytz.timezone('America/Los_Angeles'))
 
-    png_data, nexttime = label_render(kTestIcalUrl, kTestTitle)
+    png_data, nexttime = label_render(kTestIcalUrl, kTestTitle, starttime)
     png_b64 = base64.b64encode(png_data).decode("utf-8")
     next_update_sec = (nexttime - starttime).seconds
 

@@ -26,7 +26,7 @@ kTestTitle = "TESLA ROOM\nRoom 53-125 ENGR IV"
 
 kFudgeAdvanceTime = timedelta(minutes=5)  # add this for the "current" time to account for clock drift and whatnot
 
-def render(ical_url, title) -> Tuple[bytes, datetime]:
+def render(ical_url: str, title: str, currenttime: datetime) -> Tuple[bytes, datetime]:
   """Renders the calendar to a PNG, given the ical url and title,
   returning the PNG data and next update time"""
   template = SvgTemplate(kTemplateFile)
@@ -34,13 +34,13 @@ def render(ical_url, title) -> Tuple[bytes, datetime]:
 
   data = urlopen(ical_url).read()
   calendar = Calendar.from_ical(data)
-  current = datetime.now().astimezone() + kFudgeAdvanceTime
-  day_start = current.replace(hour=0, minute=0, second=0, microsecond=0)
+  currenttime = currenttime + kFudgeAdvanceTime
+  day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
   events = recurring_ical_events.of(calendar).between(day_start, day_start + timedelta(days=1))
 
   # don't highlight current events past the end cutoff
-  if current.hour < caltemplate_helpers.kEndHr:
-    current_events = recurring_ical_events.of(calendar).between(current, current)
+  if currenttime.hour < caltemplate_helpers.kEndHr:
+    current_events = recurring_ical_events.of(calendar).between(currenttime, currenttime)
   else:
     current_events = []
 
@@ -70,14 +70,14 @@ def render(ical_url, title) -> Tuple[bytes, datetime]:
     day_start.replace(hour=16),
     day_start.replace(hour=1) + timedelta(days=1)  # next day
   ])
-  event_times = [time for time in event_times if time > current]
+  event_times = [time for time in event_times if time > currenttime]
   nexttime = sorted(event_times)[0]
 
   return (png_data, nexttime)
 
 
 if __name__ == '__main__':
-  png_data, nexttime = render(kTestIcalUrl, kTestTitle)
+  png_data, nexttime = render(kTestIcalUrl, kTestTitle, datetime.now().astimezone())
   with open('temp.png', 'wb') as f:
     f.write(png_data)
     print(f"render: {kTestTitle} size={len(png_data)}: next update {nexttime}")
