@@ -30,8 +30,8 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="1.2787957"
-     inkscape:cx="258.44629"
-     inkscape:cy="33.234394"
+     inkscape:cx="206.83523"
+     inkscape:cy="466.4545"
      inkscape:window-width="1500"
      inkscape:window-height="1250"
      inkscape:window-x="2287"
@@ -257,6 +257,17 @@
          x="120"
          y="-13.333373"
          id="tspan25">{split_title(title)[1]}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="6.9518209"
+       y="788.84894"
+       id="text4644-5-8"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         x="6.9518209"
+         y="788.84894"
+         id="tspan25-9">ducky64.github.io/ecal-docs</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:63.9999px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
