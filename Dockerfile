@@ -1,6 +1,6 @@
 # based on example from https://docs.docker.com/compose/gettingstarted/
 FROM python:3.9-alpine
-RUN apk add build-base cairo cairo-dev pkgconfig
+RUN apk add build-base cairo cairo-dev pkgconfig font-opensans
 
 WORKDIR /usr/app
 
