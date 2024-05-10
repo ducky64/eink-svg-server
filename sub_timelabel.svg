@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="64"
+   width="72"
    height="32"
-   viewBox="0 0 63.999998 31.999999"
+   viewBox="0 0 71.999997 31.999999"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    sodipodi:docname="sub_timelabel.svg"
    inkscape:export-filename="template.png"
    inkscape:export-xdpi="96"
@@ -29,9 +29,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="14.638496"
-     inkscape:cx="26.027264"
-     inkscape:cy="9.358885"
+     inkscape:zoom="20.70196"
+     inkscape:cx="32.847132"
+     inkscape:cy="18.04177"
      inkscape:window-width="2350"
      inkscape:window-height="1606"
      inkscape:window-x="1982"
@@ -43,7 +43,10 @@
        id="grid21772"
        units="px"
        spacingx="7.9999997"
-       spacingy="7.9999997" />
+       spacingy="7.9999997"
+       originx="0"
+       originy="0"
+       visible="true" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -71,7 +74,12 @@
          y="21.710938"
          id="tspan6611-9-3">{time}</tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999994;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.99999985;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 55.53333,15.999999 h -8"
+       id="path14340-1"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        d="m 55.533331,15.999999 h -8"
        id="path14340"
        sodipodi:nodetypes="cc" />
