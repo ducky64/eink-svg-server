@@ -71,7 +71,7 @@ ical_cache: Dict[str, ICalCacheRecord] = {}
 def get_cached_ical(url: str) -> bytes:
   record = ical_cache.get(url, None)
   fetch_time = datetime.now()
-  if record is None or (fetch_time - record.fetch_time > kCacheValidTime):
+  if record is None or ((fetch_time - record.fetch_time) > kCacheValidTime):
     app.logger.info(f"cache: refill: {url}")
     data = urlopen(url).read()
     calendar = Calendar.from_ical(data)
