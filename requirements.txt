@@ -1,8 +1,9 @@
-icalendar
-recurring_ical_events
-pycairo
-cairosvg
-pillow
+icalendar == 5.0.12
+recurring_ical_events == 2.2.1
+pycairo == 1.26.0
+cairosvg == 2.7.1
+pillow == 10.3.0
 
-pydantic
-flask
+pydantic == 2.7.4
+flask == 3.0.3
+apscheduler == 3.10.4
