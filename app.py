@@ -11,7 +11,7 @@ from urllib.request import urlopen
 from icalendar import Calendar
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from render import render as label_render
+from render import render as label_render, next_update
 
 
 app = Flask(__name__)
@@ -113,7 +113,8 @@ def render():
 
     device = get_device(request.args.get('mac', default=''))
     ical_data = get_cached_ical(device.ical_url)
-    png_data, nexttime = label_render(device.template_filename, ical_data, device.title, starttime)
+    png_data = label_render(device.template_filename, ical_data, device.title, starttime)
+    nexttime = next_update(ical_data, starttime)
     png_b64 = base64.b64encode(png_data).decode("utf-8")
     next_update_sec = (nexttime - starttime).seconds
 
@@ -139,7 +140,7 @@ def image():
 
     device = get_device(request.args.get('mac', default=''))
     ical_data = get_cached_ical(device.ical_url)
-    png_data, nexttime = label_render(device.template_filename, ical_data, device.title, starttime)
+    png_data = label_render(device.template_filename, ical_data, device.title, starttime)
 
     endtime = datetime.now().astimezone()
     runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
@@ -160,7 +161,7 @@ def meta():
 
     device = get_device(request.args.get('mac', default=''))
     ical_data = get_cached_ical(device.ical_url)
-    png_data, nexttime = label_render(device.template_filename, ical_data, device.title, starttime)
+    nexttime = next_update(ical_data, starttime)
     next_update_sec = (nexttime - starttime).seconds
 
     endtime = datetime.now().astimezone()

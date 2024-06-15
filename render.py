@@ -18,9 +18,9 @@ from labelcore import SvgTemplate
 
 kFudgeAdvanceTime = timedelta(minutes=1)  # add this for the "current" time to account for clock drift and whatnot
 
-def render(template_filename: str, calendar: list, title: str, currenttime: datetime) -> Tuple[bytes, datetime]:
-  """Renders the calendar to a PNG, given the ical url and title,
-  returning the PNG data and next update time"""
+
+def render(template_filename: str, calendar: list, title: str, currenttime: datetime) -> bytes:
+  """Renders the calendar to a PNG, given the ical url and title, returning the PNG data"""
   template = SvgTemplate(template_filename)
   label = template._create_instance()
 
@@ -47,10 +47,19 @@ def render(template_filename: str, calendar: list, title: str, currenttime: date
                               output_width=480, output_height=800)
 
   image = Image.open(io.BytesIO(png_data))
-  image = image.convert(mode='P')
+  image = image.convert(mode='P')  # palette conversion for additional compression
   img_byte_arr = io.BytesIO()
   image.save(img_byte_arr, format='PNG', optimize=True)
   png_data = img_byte_arr.getvalue()
+
+  return png_data
+
+
+def next_update(calendar: list, currenttime: datetime) -> datetime:
+  """Returns the next update time for some calendar"""
+  currenttime = currenttime + kFudgeAdvanceTime
+  day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
+  events = recurring_ical_events.of(calendar).between(day_start, day_start + timedelta(days=1))
 
   # compute the next update time
   endtime = day_start.replace(hour=caltemplate_helpers.kEndHr)
@@ -69,4 +78,4 @@ def render(template_filename: str, calendar: list, title: str, currenttime: date
   event_times = [time for time in event_times if time > currenttime]
   nexttime = sorted(event_times)[0]
 
-  return (png_data, nexttime)
+  return nexttime
