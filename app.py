@@ -56,7 +56,7 @@ def get_device(mac: str) -> DeviceRecord:
   if device_opt is not None:
     return device_opt
   else:
-    app.logger.error(f"render: unknown device: {mac}")
+    app.logger.warning(f"render: unknown device: {mac}")
     return list(kDeviceMap.items())[-1][-1]
 
 
