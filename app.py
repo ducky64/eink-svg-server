@@ -28,7 +28,8 @@ class DeviceRecord(NamedTuple):
   ota_filename: Optional[str] = None  # relpath filename of OTA file to send
 
 
-DEVICE_MAP = {
+kTimezone = pytz.timezone('America/Los_Angeles')
+kDeviceMap = {
   'e17514': DeviceRecord(  # v1 board deployed
     title="ELLIOTT ROOM\nRoom 53-135 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics",
@@ -51,12 +52,12 @@ DEVICE_MAP = {
 }
 
 def get_device(mac: str) -> DeviceRecord:
-  device_opt = DEVICE_MAP.get(mac, None)
+  device_opt = kDeviceMap.get(mac, None)
   if device_opt is not None:
     return device_opt
   else:
     app.logger.error(f"render: unknown device: {mac}")
-    return list(DEVICE_MAP.items())[-1][-1]
+    return list(kDeviceMap.items())[-1][-1]
 
 
 kCacheValidTime = timedelta(hours=4)  # cache is stale after this time
@@ -79,7 +80,7 @@ def get_cached_ical(url: str) -> bytes:
   return record.calendar
 
 def refresh_cache():
-  for mac, device in DEVICE_MAP.items():
+  for mac, device in kDeviceMap.items():
     get_cached_ical(device.ical_url)
 
 refresh_cache()  # pre-fill the cache on startup
@@ -109,7 +110,7 @@ def version():
 @app.route("/render", methods=['GET'])
 def render():
   try:
-    starttime = datetime.now(pytz.timezone('America/Los_Angeles'))
+    starttime = datetime.now(kTimezone)
 
     device = get_device(request.args.get('mac', default=''))
     ical_data = get_cached_ical(device.ical_url)
@@ -136,7 +137,7 @@ def render():
 @app.route("/image", methods=['GET'])
 def image():
   try:
-    starttime = datetime.now(pytz.timezone('America/Los_Angeles'))
+    starttime = datetime.now(kTimezone)
 
     device = get_device(request.args.get('mac', default=''))
     ical_data = get_cached_ical(device.ical_url)
@@ -157,7 +158,7 @@ def image():
 @app.route("/meta", methods=['GET'])
 def meta():
   try:
-    starttime = datetime.now(pytz.timezone('America/Los_Angeles'))
+    starttime = datetime.now(kTimezone)
 
     device = get_device(request.args.get('mac', default=''))
     ical_data = get_cached_ical(device.ical_url)
