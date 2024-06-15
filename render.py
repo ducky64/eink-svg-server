@@ -1,6 +1,5 @@
 from itertools import chain
 from typing import Tuple
-from icalendar import Calendar
 from datetime import datetime, timedelta
 import recurring_ical_events
 import xml.etree.ElementTree as ET
@@ -19,13 +18,12 @@ from labelcore import SvgTemplate
 
 kFudgeAdvanceTime = timedelta(minutes=1)  # add this for the "current" time to account for clock drift and whatnot
 
-def render(template_filename: str, ical_data: bytes, title: str, currenttime: datetime) -> Tuple[bytes, datetime]:
+def render(template_filename: str, calendar: list, title: str, currenttime: datetime) -> Tuple[bytes, datetime]:
   """Renders the calendar to a PNG, given the ical url and title,
   returning the PNG data and next update time"""
   template = SvgTemplate(template_filename)
   label = template._create_instance()
 
-  calendar = Calendar.from_ical(ical_data)
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
   events = recurring_ical_events.of(calendar).between(day_start, day_start + timedelta(days=1))

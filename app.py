@@ -1,4 +1,4 @@
-from typing import NamedTuple, Dict
+from typing import Any, NamedTuple, Dict
 
 from datetime import datetime, timedelta
 import pytz
@@ -8,6 +8,7 @@ from pydantic import BaseModel
 import base64
 import io
 from urllib.request import urlopen
+from icalendar import Calendar
 
 from render import render as label_render
 
@@ -55,7 +56,7 @@ kCacheValidTime = timedelta(hours=4)  # cache is stale after this time
 
 class ICalCacheRecord(NamedTuple):
   fetch_time: datetime
-  data: bytes
+  calendar: Any  # ical data
 
 ical_cache: Dict[str, ICalCacheRecord] = {}
 
@@ -64,9 +65,10 @@ def get_cached_ical(url: str) -> bytes:
   fetch_time = datetime.now()
   if record is None or (fetch_time - record.fetch_time > kCacheValidTime):
     data = urlopen(url).read()
-    record = ICalCacheRecord(fetch_time, data)
+    calendar = Calendar.from_ical(data)
+    record = ICalCacheRecord(fetch_time, calendar)
     ical_cache[url] = record
-  return record.data
+  return record.calendar
 
 
 # TODO LEGACY - TO BE REMOVED
