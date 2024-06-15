@@ -1,6 +1,5 @@
 from itertools import chain
 from typing import Tuple
-from urllib.request import urlopen
 from icalendar import Calendar
 from datetime import datetime, timedelta
 import recurring_ical_events
@@ -18,24 +17,15 @@ import caltemplate_helpers
 sys.path.append("pysvglabel")
 from labelcore import SvgTemplate
 
-kTemplateFile = "template_3cb.svg"
+kFudgeAdvanceTime = timedelta(minutes=1)  # add this for the "current" time to account for clock drift and whatnot
 
-# kTestIcalUrl = "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics"
-# kTestTitle = "ELLIOTT ROOM\nRoom 53-135 ENGR IV"
-
-kTestIcalUrl = "https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics"
-kTestTitle = "TESLA ROOM\nRoom 53-125 ENGR IV"
-
-kFudgeAdvanceTime = timedelta(minutes=5)  # add this for the "current" time to account for clock drift and whatnot
-
-def render(ical_url: str, title: str, currenttime: datetime) -> Tuple[bytes, datetime]:
+def render(template_filename: str, ical_data: bytes, title: str, currenttime: datetime) -> Tuple[bytes, datetime]:
   """Renders the calendar to a PNG, given the ical url and title,
   returning the PNG data and next update time"""
-  template = SvgTemplate(kTemplateFile)
+  template = SvgTemplate(template_filename)
   label = template._create_instance()
 
-  data = urlopen(ical_url).read()
-  calendar = Calendar.from_ical(data)
+  calendar = Calendar.from_ical(ical_data)
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
   events = recurring_ical_events.of(calendar).between(day_start, day_start + timedelta(days=1))
@@ -82,10 +72,3 @@ def render(ical_url: str, title: str, currenttime: datetime) -> Tuple[bytes, dat
   nexttime = sorted(event_times)[0]
 
   return (png_data, nexttime)
-
-
-if __name__ == '__main__':
-  png_data, nexttime = render(kTestIcalUrl, kTestTitle, datetime.now().astimezone())
-  with open('temp.png', 'wb') as f:
-    f.write(png_data)
-    print(f"render: {kTestTitle} size={len(png_data)}: next update {nexttime}")
