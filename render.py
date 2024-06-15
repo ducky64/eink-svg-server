@@ -43,8 +43,7 @@ def render(template_filename: str, calendar: list, title: str, currenttime: date
   label.append(instance)
   root = ET.ElementTree(label).getroot()
 
-  png_data = cairosvg.svg2png(bytestring=ET.tostring(root, 'utf-8'),
-                              output_width=480, output_height=800)
+  png_data = cairosvg.svg2png(bytestring=ET.tostring(root, 'utf-8'))
 
   image = Image.open(io.BytesIO(png_data))
   image = image.convert(mode='P')  # palette conversion for additional compression
