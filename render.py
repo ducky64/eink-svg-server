@@ -16,7 +16,7 @@ import caltemplate_helpers
 sys.path.append("pysvglabel")
 from labelcore import SvgTemplate
 
-kFudgeAdvanceTime = timedelta(minutes=1)  # add this for the "current" time to account for clock drift and whatnot
+kFudgeAdvanceTime = timedelta(minutes=5)  # add this for the "current" time to account for clock drift and whatnot
 
 
 def render(template_filename: str, calendar: list, title: str, currenttime: datetime) -> bytes:
