@@ -9,8 +9,15 @@ import base64
 import io
 from urllib.request import urlopen
 from icalendar import Calendar
+from apscheduler.schedulers.background import BackgroundScheduler
 
 from render import render as label_render
+
+
+app = Flask(__name__)
+
+import logging
+logging.basicConfig(level=logging.INFO)
 
 
 class DeviceRecord(NamedTuple):
@@ -64,11 +71,21 @@ def get_cached_ical(url: str) -> bytes:
   record = ical_cache.get(url, None)
   fetch_time = datetime.now()
   if record is None or (fetch_time - record.fetch_time > kCacheValidTime):
+    app.logger.info(f"cache: refill: {url}")
     data = urlopen(url).read()
     calendar = Calendar.from_ical(data)
     record = ICalCacheRecord(fetch_time, calendar)
     ical_cache[url] = record
   return record.calendar
+
+def refresh_cache():
+  for mac, device in DEVICE_MAP.items():
+    get_cached_ical(device.ical_url)
+
+refresh_cache()  # pre-fill the cache on startup
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=refresh_cache, trigger="interval", seconds=3600)  # TODO synchronize on update points
+scheduler.start()
 
 
 # TODO LEGACY - TO BE REMOVED
@@ -81,12 +98,6 @@ class MetaResponse(BaseModel):
   nextUpdateSec: int  # seconds to next update
   ota: bool = False  # whether to run OTA
   err: Optional[str] = None
-
-
-app = Flask(__name__)
-
-import logging
-logging.basicConfig(level=logging.INFO)
 
 
 @app.route("/version", methods=['GET'])
