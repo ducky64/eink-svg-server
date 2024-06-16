@@ -38,8 +38,9 @@ def render(template_filename: str, calendar: list, title: str, currenttime: date
     'title': title,
     'current_events': current_events,
     'events': events,
-    'day': day_start},
-    [], 0)
+    'day': day_start,
+    'currenttime': currenttime,
+  }, [], 0)
   label.append(instance)
   root = ET.ElementTree(label).getroot()
 
