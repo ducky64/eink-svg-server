@@ -25,29 +25,32 @@ class DeviceRecord(NamedTuple):
   ical_url: str
   template_filename: str
   ota_ver: int = 0  # OTA if reported version is less than this
-  ota_filename: Optional[str] = None  # relpath filename of OTA file to send
+  ota_data: Optional[bytes] = None  # bytes of OTA firmware file, validate file on app start
 
+def read_file(filename: str) -> bytes:
+  with open(filename, 'rb') as file:
+    return file.read()
 
 kTimezone = pytz.timezone('America/Los_Angeles')
 kDeviceMap = {
-  'e17514': DeviceRecord(  # v1 board deployed
+  'e17514': DeviceRecord(  # v1 board development
     title="ELLIOTT ROOM\nRoom 53-135 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
-    ota_ver=0
+    ota_ver=99,
+    # ota_data=read_file("../edg-pcbs/IoTDisplay/.pio/build/iotdisplay/firmware.bin"),
   ),
-  'd9a8ec': DeviceRecord(  # v1 board development
+  'd9a8ec': DeviceRecord(  # v1 board deployed
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
-    ota_ver=2
-
+    ota_ver=99,
   ),
   'xx': DeviceRecord(
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
-    ota_ver=2
+    ota_ver=99,
   )
 }
 
@@ -165,14 +168,40 @@ def meta():
     nexttime = next_update(ical_data, starttime)
     next_update_sec = (nexttime - starttime).seconds
 
+    try:
+      fwVer = int(request.args.get('fwVer', default=''))
+    except ValueError:
+      import sys
+      fwVer = sys.maxsize
+    if device.ota_ver > fwVer and device.ota_data is not None:
+      run_ota = True
+    else:
+      run_ota = False
+
     endtime = datetime.now().astimezone()
     runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
 
     title_printable = device.title.split('\n')[0]
     app.logger.info(f"meta: {title_printable} ({runtime} s): next {nexttime} ({next_update_sec} s)")
 
-    response = MetaResponse(nextUpdateSec=next_update_sec)
+    response = MetaResponse(nextUpdateSec=next_update_sec, ota=run_ota)
     return jsonify(response.model_dump(exclude_none=True))
   except Exception as e:
     app.logger.exception(f"meta: exception: {repr(e)}")
+    return repr(e), 400
+
+
+@app.route("/ota", methods=['GET'])
+def ota():
+  try:
+    device = get_device(request.args.get('mac', default=''))
+
+    title_printable = device.title.split('\n')[0]
+    ota_data = device.ota_data
+    assert ota_data is not None
+    app.logger.info(f"ota: {title_printable}: {len(ota_data)} B")
+
+    return send_file(io.BytesIO(ota_data), mimetype='application/octet-stream')
+  except Exception as e:
+    app.logger.exception(f"ota: exception: {repr(e)}")
     return repr(e), 400
