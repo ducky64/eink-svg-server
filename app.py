@@ -37,7 +37,7 @@ kDeviceMap = {
     title="ELLIOTT ROOM\nRoom 53-135 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0%40group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
-    ota_ver=0,
+    # ota_ver=4,
     # ota_data=read_file("../edg-pcbs/IoTDisplay/.pio/build/iotdisplay/firmware.bin"),
   ),
   'd9a8ec': DeviceRecord(  # v1 board deployed
@@ -142,9 +142,14 @@ def image():
   try:
     starttime = datetime.now(kTimezone)
 
+    rendertime = starttime
+    force_time = request.args.get('forceTime', default=None)
+    if force_time is not None:
+      rendertime = datetime.strptime(force_time, '%b %d %Y %H:%M').astimezone()
+
     device = get_device(request.args.get('mac', default=''))
     ical_data = get_cached_ical(device.ical_url)
-    png_data = label_render(device.template_filename, ical_data, device.title, starttime)
+    png_data = label_render(device.template_filename, ical_data, device.title, rendertime)
 
     endtime = datetime.now().astimezone()
     runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
