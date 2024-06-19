@@ -8,6 +8,7 @@ COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
 COPY pysvglabel/ ./pysvglabel/
+COPY ext_art/ ./ext_art/
 
 COPY *.py *.svg ./
 ENV FLASK_RUN_HOST=0.0.0.0
