@@ -1,6 +1,8 @@
 from typing import Any, NamedTuple, Dict
 
 from datetime import datetime, timedelta
+from dateutil import parser
+from dateutil.utils import default_tzinfo
 import pytz
 from typing import Optional
 from flask import Flask, jsonify, send_file, request
@@ -43,6 +45,12 @@ kDeviceMap = {
   'd9a8ec': DeviceRecord(  # v1 board deployed
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
+    template_filename="template_3cb.svg",
+    ota_ver=0,
+  ),
+  'maxwell': DeviceRecord(
+    title="MAXWELL ROOM\n(Room 57-124 ENGR IV)",
+    ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
     ota_ver=0,
   ),
@@ -122,7 +130,7 @@ def render():
     png_b64 = base64.b64encode(png_data).decode("utf-8")
     next_update_sec = (nexttime - starttime).seconds
 
-    endtime = datetime.now().astimezone()
+    endtime = datetime.now(kTimezone)
     runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
 
     title_printable = device.title.split('\n')[0]
@@ -145,13 +153,15 @@ def image():
     rendertime = starttime
     force_time = request.args.get('forceTime', default=None)
     if force_time is not None:
-      rendertime = datetime.strptime(force_time, '%b %d %Y %H:%M').astimezone()
+      rendertime = parser.parse(force_time)
+      if not rendertime.tzinfo:
+        rendertime = rendertime.astimezone(kTimezone)
 
     device = get_device(request.args.get('mac', default=''))
     ical_data = get_cached_ical(device.ical_url)
     png_data = label_render(device.template_filename, ical_data, device.title, rendertime)
 
-    endtime = datetime.now().astimezone()
+    endtime = datetime.now(kTimezone)
     runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
 
     title_printable = device.title.split('\n')[0]

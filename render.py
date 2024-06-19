@@ -1,5 +1,4 @@
 from itertools import chain
-from typing import Tuple
 from datetime import datetime, timedelta
 import recurring_ical_events
 import xml.etree.ElementTree as ET
