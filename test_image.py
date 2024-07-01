@@ -20,8 +20,8 @@ app.kDeviceMap = {
 }
 
 
-class EndToEndTestCase(unittest.TestCase):
-  def test_endtoend_inuse(self):
+class ImageTestCase(unittest.TestCase):
+  def test_image_inuse(self):
     with patch('app.datetime') as mock_datetime:
       mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
 
@@ -32,7 +32,7 @@ class EndToEndTestCase(unittest.TestCase):
         with open('ref_inuse.png', 'rb') as f:
           self.assertEqual(f.read(), response.data)
 
-  def test_endtoend_empty(self):
+  def test_image_empty(self):
     with patch('app.datetime') as mock_datetime:
       mock_datetime.now.return_value = datetime(2024, 7, 1, 15, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
 
