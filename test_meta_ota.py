@@ -59,8 +59,31 @@ class MetaOtaTestCase(unittest.TestCase):
         response = client.get('/ota?fwVer=0')
         self.assertEqual(response.data, app.kDeviceMap[''].ota_data)
 
+  def test_ota_after(self):
+    app.kDeviceMap = {
+      '': app.DeviceRecord(
+        title="",
+        ical_url="TestCalendar.ics",
+        template_filename="",
+        ota_ver=5,
+        ota_data=b'this is real firmware data, I swear',
+        ota_after=datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      ),
+    }
+    with app.app.test_client() as client:
+      app.ota_done_devices = set()  # clear OTA records
 
-  def test_ota_antirollback(self):
+      with patch('app.datetime') as mock_datetime:
+        mock_datetime.now.return_value = datetime(2024, 7, 1, 7, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+        response = client.get('/meta?fwVer=0')
+        self.assertEqual(response.json['ota'], False)
+
+      with patch('app.datetime') as mock_datetime:
+        mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+        response = client.get('/meta?fwVer=4')
+        self.assertEqual(response.json['ota'], True)
+
+  def test_ota_antiretry(self):
     app.kDeviceMap = {
       '': app.DeviceRecord(
         title="",
