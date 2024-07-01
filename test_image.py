@@ -14,8 +14,6 @@ app.kDeviceMap = {
     title="TestCalendar",
     ical_url="TestCalendar.ics",
     template_filename="template_3cb.svg",
-    # ota_ver=4,
-    # ota_data=read_file("../edg-pcbs/IoTDisplay/.pio/build/iotdisplay/firmware.bin"),
   ),
 }
 

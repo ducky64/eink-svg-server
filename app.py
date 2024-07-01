@@ -1,13 +1,11 @@
-from typing import Any, NamedTuple, Dict
+from typing import Any, NamedTuple, Dict, Set
 
 from datetime import datetime, timedelta
 from dateutil import parser
-from dateutil.utils import default_tzinfo
 import pytz
 from typing import Optional
 from flask import Flask, jsonify, send_file, request
 from pydantic import BaseModel
-import base64
 import io
 from urllib.request import urlopen
 from icalendar import Calendar
@@ -70,6 +68,8 @@ def get_device(mac: str) -> DeviceRecord:
     app.logger.warning(f"render: unknown device: {mac}")
     return list(kDeviceMap.items())[-1][-1]
 
+ota_done_devices: Set[DeviceRecord] = set()
+
 
 kCacheValidTime = timedelta(hours=4)  # cache is stale after this time
 
@@ -100,12 +100,6 @@ scheduler.add_job(func=refresh_cache, trigger="interval", seconds=3600)  # TODO 
 scheduler.start()
 
 
-# TODO LEGACY - TO BE REMOVED
-class DisplayResponse(BaseModel):
-  nextUpdateSec: int  # seconds to next update
-  image_b64: Optional[str] = None  # display image data
-  err: Optional[str] = None
-
 class MetaResponse(BaseModel):
   nextUpdateSec: int  # seconds to next update
   ota: bool = False  # whether to run OTA
@@ -114,35 +108,7 @@ class MetaResponse(BaseModel):
 
 @app.route("/version", methods=['GET'])
 def version():
-  return "0.2"
-
-
-# TODO LEGACY - TO BE REMOVED
-@app.route("/render", methods=['GET'])
-def render():
-  try:
-    starttime = datetime.now(kTimezone)
-
-    device = get_device(request.args.get('mac', default=''))
-    ical_data = get_cached_ical(device.ical_url)
-    png_data = label_render(device.template_filename, ical_data, device.title, starttime)
-    nexttime = next_update(ical_data, starttime)
-    png_b64 = base64.b64encode(png_data).decode("utf-8")
-    next_update_sec = (nexttime - starttime).seconds
-
-    endtime = datetime.now(kTimezone)
-    runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
-
-    title_printable = device.title.split('\n')[0]
-    app.logger.info(f"render: {title_printable}: {len(png_data)} B, {runtime} s: next {nexttime} ({next_update_sec} s)")
-
-    response = DisplayResponse(nextUpdateSec=next_update_sec,
-                               image_b64=png_b64)
-  except Exception as e:
-    app.logger.exception(f"render: exception: {repr(e)}")
-    response = DisplayResponse(nextUpdateSec=60,
-                               error=repr(e))
-  return jsonify(response.model_dump(exclude_none=True))
+  return "0.3"
 
 
 @app.route("/image", methods=['GET'])
@@ -188,7 +154,7 @@ def meta():
     except ValueError:
       import sys
       fwVer = sys.maxsize
-    if device.ota_ver > fwVer and device.ota_data is not None:
+    if (device.ota_ver > fwVer) and (device.ota_data is not None) and (device not in ota_done_devices):
       run_ota = True
     else:
       run_ota = False
@@ -210,6 +176,7 @@ def meta():
 def ota():
   try:
     device = get_device(request.args.get('mac', default=''))
+    ota_done_devices.add(device)
     title_printable = device.title.split('\n')[0]
     ota_data = device.ota_data
     assert ota_data is not None
