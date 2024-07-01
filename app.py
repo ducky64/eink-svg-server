@@ -94,7 +94,7 @@ def refresh_cache():
   for mac, device in kDeviceMap.items():
     get_cached_ical(device.ical_url)
 
-refresh_cache()  # pre-fill the cache on startup
+# refresh_cache()  # pre-fill the cache on startup
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=refresh_cache, trigger="interval", seconds=3600)  # TODO synchronize on update points
 scheduler.start()
