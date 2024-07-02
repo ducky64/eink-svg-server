@@ -21,7 +21,7 @@ class MetaOtaTestCase(unittest.TestCase):
           patch.object(app, 'kDeviceMap', kDeviceMap),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
-      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(app.kTimezone)
 
       response = client.get('/meta?fwVer=5')
       self.assertEqual(response.json['ota'], False)
@@ -44,7 +44,7 @@ class MetaOtaTestCase(unittest.TestCase):
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
       app.ota_done_devices = set()  # clear OTA records
-      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(app.kTimezone)
 
       response = client.get('/meta?fwVer=5')
       self.assertEqual(response.json['ota'], False)
@@ -69,7 +69,7 @@ class MetaOtaTestCase(unittest.TestCase):
         template_filename="",
         ota_ver=5,
         ota_data=b'this is real firmware data, I swear',
-        ota_after=datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+        ota_after=datetime(2024, 7, 1, 8, 0, 0).astimezone(app.kTimezone)
       ),
     }
     with (patch('app.datetime') as mock_datetime,
@@ -78,11 +78,11 @@ class MetaOtaTestCase(unittest.TestCase):
           app.app.test_client() as client):
       app.ota_done_devices = set()  # clear OTA records
 
-      mock_datetime.now.return_value = datetime(2024, 7, 1, 7, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 7, 0, 0).astimezone(app.kTimezone)
       response = client.get('/meta?fwVer=0')
       self.assertEqual(response.json['ota'], False)
 
-      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(app.kTimezone)
       response = client.get('/meta?fwVer=4')
       self.assertEqual(response.json['ota'], True)
 
@@ -101,7 +101,7 @@ class MetaOtaTestCase(unittest.TestCase):
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
       app.ota_done_devices = set()  # clear OTA records
-      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(app.kTimezone)
 
       response = client.get('/meta?fwVer=4')
       self.assertEqual(response.json['ota'], True)
