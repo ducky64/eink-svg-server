@@ -1,8 +1,8 @@
 from itertools import chain
 from datetime import datetime, timedelta
-import recurring_ical_events
+import recurring_ical_events  # type: ignore
 import xml.etree.ElementTree as ET
-import cairosvg
+import cairosvg  # type: ignore
 from PIL import Image
 import io
 

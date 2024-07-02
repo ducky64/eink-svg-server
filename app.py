@@ -1,15 +1,15 @@
 from typing import Any, NamedTuple, Dict, Set
 
 from datetime import datetime, timedelta
-from dateutil import parser
-import pytz
+from dateutil import parser  # type: ignore
+import pytz  # type: ignore
 from typing import Optional
 from flask import Flask, jsonify, send_file, request
-from pydantic import BaseModel
+from pydantic import BaseModel  # type: ignore
 import io
 from urllib.request import urlopen
 from icalendar import Calendar
-from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.schedulers.background import BackgroundScheduler  # type: ignore
 
 from render import render as label_render, next_update
 
