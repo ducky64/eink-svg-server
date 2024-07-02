@@ -39,19 +39,19 @@ def read_file(filename: str) -> Optional[bytes]:
 
 kTimezone = pytz.timezone('America/Los_Angeles')
 kDeviceMap = {
-  'ecda3b46255c': DeviceRecord(
+  'ecda3b46255c': DeviceRecord(  # v1.1-3
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
     ota_ver=4,
     ota_data=read_file("firmware_750c_Z08_4.bin"),
   ),
-  'maxwell': DeviceRecord(
+  'ecda3b46254c': DeviceRecord(  # v1.1-1
     title="MAXWELL ROOM\nRoom 57-124 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
   ),
-  '': DeviceRecord(  # dallback
+  '': DeviceRecord(  # fallback
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
@@ -69,7 +69,7 @@ def get_device(mac: str) -> DeviceRecord:
 ota_done_devices: Set[DeviceRecord] = set()
 
 
-kCacheValidTime = timedelta(hours=4)  # cache is stale after this time
+kCacheValidTime = timedelta(minutes=10)  # cache is stale after this time
 
 class ICalCacheRecord(NamedTuple):
   fetch_time: datetime
@@ -88,13 +88,20 @@ def get_cached_ical(url: str) -> icalendar.cal.Component:
     ical_cache[url] = record
   return record.calendar
 
-def refresh_cache():
-  for mac, device in kDeviceMap.items():
-    get_cached_ical(device.ical_url)
 
-# refresh_cache()  # pre-fill the cache on startup
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=refresh_cache, trigger="interval", seconds=3600)  # TODO synchronize on update points
+
+def schedule_cache(url: str):
+  starttime = datetime.now(kTimezone)
+  ical_data = get_cached_ical(url)
+  nexttime = next_update(ical_data, starttime) - timedelta(minutes=5)
+  app.logger.info(f"cache: next {url} at {nexttime}")
+  scheduler.add_job(func=schedule_cache, args=[url], trigger="date", run_date=nexttime, id=url, replace_existing=True)
+
+all_urls = set([device.ical_url for mac, device in kDeviceMap.items()])
+for url in all_urls:
+  scheduler.add_job(func=schedule_cache, args=[url],
+                    trigger="date", run_date=datetime.now() + timedelta(seconds=5), id=url)
 scheduler.start()
 
 
@@ -146,6 +153,8 @@ def meta():
     ical_data = get_cached_ical(device.ical_url)
     nexttime = next_update(ical_data, starttime)
     next_update_sec = (nexttime - starttime).seconds
+
+    schedule_cache(device.ical_url)
 
     try:
       fwVer = int(request.args.get('fwVer', default=''))
