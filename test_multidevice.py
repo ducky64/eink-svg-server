@@ -9,7 +9,7 @@ app.app.testing = True
 app.get_cached_ical = test_get_cached_ical
 
 
-app.kDeviceMap = {
+kDeviceMap = {
   'a1b1': app.DeviceRecord(
     title="TestCalendar",
     ical_url="TestCalendar.ics",
@@ -25,7 +25,7 @@ app.kDeviceMap = {
 
 class MultiDeviceTestCase(unittest.TestCase):
   def test_a1b1(self):
-    with patch('app.datetime') as mock_datetime:
+    with patch('app.datetime') as mock_datetime, patch.object(app, 'kDeviceMap', kDeviceMap):
       mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
 
       with app.app.test_client() as client:
@@ -34,7 +34,7 @@ class MultiDeviceTestCase(unittest.TestCase):
         self.assertEqual(response.json['nextUpdateSec'], 60*60)  # event end at 9pm
 
   def test_a2b2(self):
-    with patch('app.datetime') as mock_datetime:
+    with patch('app.datetime') as mock_datetime, patch.object(app, 'kDeviceMap', kDeviceMap):
       mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
 
       with app.app.test_client() as client:
