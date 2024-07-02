@@ -25,7 +25,7 @@ jobs:
         pip install mypy
         mypy --version
     - name: mypy
-      run: mypy --install-types .
+      run: mypy .
 
   unittest_latest_3_11:
     if: github.event.pull_request.draft == false
