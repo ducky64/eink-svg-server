@@ -47,7 +47,7 @@ kDeviceMap = {
     ota_data=read_file("firmware_750c_Z08_4.bin"),
   ),
   'maxwell': DeviceRecord(
-    title="MAXWELL ROOM\n(Room 57-124 ENGR IV)",
+    title="MAXWELL ROOM\nRoom 57-124 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
   ),
