@@ -1,4 +1,4 @@
-from typing import Any, NamedTuple, Dict, Set
+from typing import Any, NamedTuple, Dict, Set, List
 
 from datetime import datetime, timedelta
 from dateutil import parser  # type: ignore
@@ -8,7 +8,7 @@ from flask import Flask, jsonify, send_file, request
 from pydantic import BaseModel  # type: ignore
 import io
 from urllib.request import urlopen
-from icalendar import Calendar
+import icalendar
 from apscheduler.schedulers.background import BackgroundScheduler  # type: ignore
 
 from render import render as label_render, next_update
@@ -76,17 +76,17 @@ kCacheValidTime = timedelta(hours=4)  # cache is stale after this time
 
 class ICalCacheRecord(NamedTuple):
   fetch_time: datetime
-  calendar: Any  # ical data
+  calendar: icalendar.cal.Component  # ical data
 
 ical_cache: Dict[str, ICalCacheRecord] = {}
 
-def get_cached_ical(url: str) -> bytes:
+def get_cached_ical(url: str) -> icalendar.cal.Component:
   record = ical_cache.get(url, None)
   fetch_time = datetime.now()
   if record is None or ((fetch_time - record.fetch_time) > kCacheValidTime):
     app.logger.info(f"cache: refill: {url}")
     data = urlopen(url).read()
-    calendar = Calendar.from_ical(data)
+    calendar = icalendar.Calendar.from_ical(data)
     record = ICalCacheRecord(fetch_time, calendar)
     ical_cache[url] = record
   return record.calendar
