@@ -1,4 +1,4 @@
-from typing import Any, NamedTuple, Dict, Set, List
+from typing import NamedTuple, Dict, Set
 
 from datetime import datetime, timedelta
 from dateutil import parser  # type: ignore
