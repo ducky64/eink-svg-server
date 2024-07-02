@@ -31,6 +31,11 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+    - uses: szenius/set-timezone@v2.0
+      with:
+        timezoneLinux: "America/Los_Angeles"
+        timezoneMacos: "America/Los_Angeles"
+        timezoneWindows: "	Pacific Standard Time"
     - uses: actions/checkout@v2
       with:
         submodules: 'true'
