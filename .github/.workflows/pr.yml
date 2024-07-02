@@ -1,4 +1,4 @@
-name: Python unit tests
+name: Tests
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
     if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-python@v1
       with:
         python-version: '3.11'
@@ -36,7 +36,7 @@ jobs:
     if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-python@v1
       with:
         python-version: '3.11'
@@ -45,3 +45,14 @@ jobs:
       run: pip install -r requirements.txt
     - name: unittest
       run: python -m unittest discover
+
+  docker:
+    needs: pre_job
+    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker build
+        run: docker build -t eink-svg-server .
+      - name: Unittest
+        run: docker run eink-svg-server python -m unittest discover
