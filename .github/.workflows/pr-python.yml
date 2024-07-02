@@ -1,0 +1,47 @@
+name: Python unit tests
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    types: [assigned, opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  pre_job:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+
+  mypy_latest_3_11:
+    needs: pre_job
+    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.11'
+
+    - name: install mypy
+      run: |
+        pip install mypy
+        mypy --version
+    - name: mypy
+      run: mypy --install-types .
+
+  unittest_latest_3_11:
+    needs: pre_job
+    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.11'
+
+    - name: install dependencies
+      run: pip install -r requirements.txt
+    - name: unittest
+      run: python -m unittest discover
