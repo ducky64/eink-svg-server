@@ -1,0 +1,60 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    types: [assigned, opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  mypy_latest_3_11:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.11'
+    - name: install dependencies
+      run: pip install -r requirements.txt
+    - name: install mypy
+      run: |
+        pip install mypy
+        mypy --version
+    - name: mypy
+      run: mypy .
+
+  unittest_latest_3_11:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+    - uses: szenius/set-timezone@v2.0
+      with:
+        timezoneLinux: "America/Los_Angeles"
+        timezoneMacos: "America/Los_Angeles"
+        timezoneWindows: "Pacific Standard Time"
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.11'
+    - name: install dependencies
+      run: pip install -r requirements.txt
+    - name: unittest
+      run: python -m unittest discover
+
+  docker:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+    - name: Docker build
+      run: docker build -t eink-svg-server .
+    - name: Unittest
+      run: docker run eink-svg-server python -m unittest discover

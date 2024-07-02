@@ -1,9 +1,10 @@
 from itertools import chain
 from datetime import datetime, timedelta
-import recurring_ical_events
+import recurring_ical_events  # type: ignore
 import xml.etree.ElementTree as ET
-import cairosvg
+import cairosvg  # type: ignore
 from PIL import Image
+import icalendar
 import io
 
 # because pysvglabel isn't structured as a package, we hack around it by adding it to PYTHONPATH
@@ -18,7 +19,7 @@ from labelcore import SvgTemplate
 kFudgeAdvanceTime = timedelta(minutes=5)  # add this for the "current" time to account for clock drift and whatnot
 
 
-def render(template_filename: str, calendar: list, title: str, currenttime: datetime) -> bytes:
+def render(template_filename: str, calendar: icalendar.cal.Component, title: str, currenttime: datetime) -> bytes:
   """Renders the calendar to a PNG, given the ical url and title, returning the PNG data"""
   template = SvgTemplate(template_filename)
   label = template._create_instance()
@@ -37,8 +38,8 @@ def render(template_filename: str, calendar: list, title: str, currenttime: date
     'title': title,
     'current_events': current_events,
     'events': events,
-    'day': day_start,
-    'currenttime': currenttime,
+    'day': day_start,  # type: ignore
+    'currenttime': currenttime,  # type: ignore
   }, [], 0)
   label.append(instance)
   root = ET.ElementTree(label).getroot()
@@ -54,7 +55,7 @@ def render(template_filename: str, calendar: list, title: str, currenttime: date
   return png_data
 
 
-def next_update(calendar: list, currenttime: datetime) -> datetime:
+def next_update(calendar: icalendar.cal.Component, currenttime: datetime) -> datetime:
   """Returns the next update time for some calendar"""
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
