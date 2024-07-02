@@ -8,15 +8,9 @@ on:
     types: [assigned, opened, synchronize, reopened, ready_for_review]
 
 jobs:
-  pre_job:
-    runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-
   mypy_latest_3_11:
     needs: pre_job
-    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -33,7 +27,7 @@ jobs:
 
   unittest_latest_3_11:
     needs: pre_job
-    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -48,7 +42,7 @@ jobs:
 
   docker:
     needs: pre_job
-    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
