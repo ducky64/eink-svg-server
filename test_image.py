@@ -27,6 +27,8 @@ class ImageTestCase(unittest.TestCase):
         response = client.get('/image')
 
         self.assertEqual(response.status_code, 200)
+        with open('test_inuse.png', 'wb') as f:
+          f.write(response.data)
         with open('ref_inuse.png', 'rb') as f:
           self.assertEqual(f.read(), response.data)
 
@@ -38,5 +40,7 @@ class ImageTestCase(unittest.TestCase):
         response = client.get('/image')
 
         self.assertEqual(response.status_code, 200)
+        with open('test_empty.png', 'wb') as f:
+          f.write(response.data)
         with open('ref_empty.png', 'rb') as f:
           self.assertEqual(f.read(), response.data)
