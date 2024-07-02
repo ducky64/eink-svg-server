@@ -46,6 +46,13 @@ kDeviceMap = {
     ota_ver=4,
     ota_data=read_file("firmware_750c_Z08_4.bin"),
   ),
+  'ecda3b46bd60': DeviceRecord(  # v1.1-3 dev unit
+    title="TESLA ROOM\nRoom 53-125 ENGR IV",
+    ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
+    template_filename="template_3cb.svg",
+    ota_ver=4,
+    ota_data=read_file("firmware_750c_Z08_4.bin"),
+  ),
   'ecda3b46254c': DeviceRecord(  # v1.1-1
     title="MAXWELL ROOM\nRoom 57-124 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
@@ -150,6 +157,7 @@ def meta():
     starttime = datetime.now(kTimezone)
 
     device = get_device(request.args.get('mac', default=''))
+    title_printable = device.title.split('\n')[0]
     ical_data = get_cached_ical(device.ical_url)
     nexttime = next_update(ical_data, starttime)
     next_update_sec = (nexttime - starttime).seconds
@@ -161,16 +169,17 @@ def meta():
     except ValueError:
       import sys
       fwVer = sys.maxsize
-    if (device.ota_ver > fwVer) and (device.ota_data is not None) and (device not in ota_done_devices) \
+    run_ota = False
+    if (device.ota_ver > fwVer) and (device.ota_data is not None) \
         and (device.ota_after is None or starttime >= device.ota_after):
-      run_ota = True
-    else:
-      run_ota = False
+      if device not in ota_done_devices:
+        run_ota = True
+      else:
+        app.logger.warning(f"ota: antiretry: {title_printable}")
 
     endtime = datetime.now().astimezone()
     runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
 
-    title_printable = device.title.split('\n')[0]
     app.logger.info(f"meta: {title_printable} ({runtime} s): next {nexttime} ({next_update_sec} s)")
 
     response = MetaResponse(nextUpdateSec=next_update_sec, ota=run_ota)
