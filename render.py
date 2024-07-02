@@ -38,8 +38,8 @@ def render(template_filename: str, calendar: icalendar.cal.Component, title: str
     'title': title,
     'current_events': current_events,
     'events': events,
-    'day': day_start,
-    'currenttime': currenttime,
+    'day': day_start,  # type: ignore
+    'currenttime': currenttime,  # type: ignore
   }, [], 0)
   label.append(instance)
   root = ET.ElementTree(label).getroot()
