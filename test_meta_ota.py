@@ -19,15 +19,15 @@ class MetaOtaTestCase(unittest.TestCase):
     }
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'kDeviceMap', kDeviceMap),
-          patch.object(app, 'get_cached_ical', test_get_cached_ical)):
-      with app.app.test_client() as client:
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+          patch.object(app, 'get_cached_ical', test_get_cached_ical),
+          app.app.test_client() as client):
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
 
-        response = client.get('/meta?fwVer=5')
-        self.assertEqual(response.json['ota'], False)
+      response = client.get('/meta?fwVer=5')
+      self.assertEqual(response.json['ota'], False)
 
-        response = client.get('/meta?fwVer=0')
-        self.assertEqual(response.json['ota'], False)
+      response = client.get('/meta?fwVer=0')
+      self.assertEqual(response.json['ota'], False)
 
   def test_ota(self):
     kDeviceMap = {
@@ -41,25 +41,25 @@ class MetaOtaTestCase(unittest.TestCase):
     }
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'kDeviceMap', kDeviceMap),
-          patch.object(app, 'get_cached_ical', test_get_cached_ical)):
-      with app.app.test_client() as client:
-        app.ota_done_devices = set()  # clear OTA records
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+          patch.object(app, 'get_cached_ical', test_get_cached_ical),
+          app.app.test_client() as client):
+      app.ota_done_devices = set()  # clear OTA records
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
 
-        response = client.get('/meta?fwVer=5')
-        self.assertEqual(response.json['ota'], False)
+      response = client.get('/meta?fwVer=5')
+      self.assertEqual(response.json['ota'], False)
 
-        response = client.get('/meta?fwVer=6')
-        self.assertEqual(response.json['ota'], False)
+      response = client.get('/meta?fwVer=6')
+      self.assertEqual(response.json['ota'], False)
 
-        response = client.get('/meta?fwVer=0')
-        self.assertEqual(response.json['ota'], True)
+      response = client.get('/meta?fwVer=0')
+      self.assertEqual(response.json['ota'], True)
 
-        response = client.get('/meta?fwVer=4')
-        self.assertEqual(response.json['ota'], True)
+      response = client.get('/meta?fwVer=4')
+      self.assertEqual(response.json['ota'], True)
 
-        response = client.get('/ota?fwVer=0')
-        self.assertEqual(response.data, app.kDeviceMap[''].ota_data)
+      response = client.get('/ota?fwVer=0')
+      self.assertEqual(response.data, app.kDeviceMap[''].ota_data)
 
   def test_ota_after(self):
     kDeviceMap = {
@@ -74,17 +74,17 @@ class MetaOtaTestCase(unittest.TestCase):
     }
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'kDeviceMap', kDeviceMap),
-          patch.object(app, 'get_cached_ical', test_get_cached_ical)):
-      with app.app.test_client() as client:
-        app.ota_done_devices = set()  # clear OTA records
+          patch.object(app, 'get_cached_ical', test_get_cached_ical),
+          app.app.test_client() as client):
+      app.ota_done_devices = set()  # clear OTA records
 
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 7, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
-        response = client.get('/meta?fwVer=0')
-        self.assertEqual(response.json['ota'], False)
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 7, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      response = client.get('/meta?fwVer=0')
+      self.assertEqual(response.json['ota'], False)
 
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
-        response = client.get('/meta?fwVer=4')
-        self.assertEqual(response.json['ota'], True)
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      response = client.get('/meta?fwVer=4')
+      self.assertEqual(response.json['ota'], True)
 
   def test_ota_antiretry(self):
     kDeviceMap = {
@@ -98,18 +98,18 @@ class MetaOtaTestCase(unittest.TestCase):
     }
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'kDeviceMap', kDeviceMap),
-          patch.object(app, 'get_cached_ical', test_get_cached_ical)):
-      with app.app.test_client() as client:
-        app.ota_done_devices = set()  # clear OTA records
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+          patch.object(app, 'get_cached_ical', test_get_cached_ical),
+          app.app.test_client() as client):
+      app.ota_done_devices = set()  # clear OTA records
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
 
-        response = client.get('/meta?fwVer=4')
-        self.assertEqual(response.json['ota'], True)
+      response = client.get('/meta?fwVer=4')
+      self.assertEqual(response.json['ota'], True)
 
-        client.get('/ota?fwVer=0')  # simulate downloading firmware
+      client.get('/ota?fwVer=0')  # simulate downloading firmware
 
-        response = client.get('/meta?fwVer=5')
-        self.assertEqual(response.json['ota'], False)  # as expected
+      response = client.get('/meta?fwVer=5')
+      self.assertEqual(response.json['ota'], False)  # as expected
 
-        response = client.get('/meta?fwVer=4')
-        self.assertEqual(response.json['ota'], False)  # once firmware downloaded, no more OTA requests allowed
+      response = client.get('/meta?fwVer=4')
+      self.assertEqual(response.json['ota'], False)  # once firmware downloaded, no more OTA requests allowed

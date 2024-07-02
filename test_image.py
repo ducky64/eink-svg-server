@@ -21,27 +21,27 @@ class ImageTestCase(unittest.TestCase):
   def test_image_inuse(self):
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'kDeviceMap', kDeviceMap),
-          patch.object(app, 'get_cached_ical', test_get_cached_ical)):
-      with app.app.test_client() as client:
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
-        response = client.get('/image')
+          patch.object(app, 'get_cached_ical', test_get_cached_ical),
+          app.app.test_client() as client):
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      response = client.get('/image')
 
-        self.assertEqual(response.status_code, 200)
-        with open('test_inuse.png', 'wb') as f:
-          f.write(response.data)
-        with open('ref_inuse.png', 'rb') as f:
-          self.assertEqual(f.read(), response.data)
+      self.assertEqual(response.status_code, 200)
+      with open('test_inuse.png', 'wb') as f:
+        f.write(response.data)
+      with open('ref_inuse.png', 'rb') as f:
+        self.assertEqual(f.read(), response.data)
 
   def test_image_empty(self):
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'kDeviceMap', kDeviceMap),
-          patch.object(app, 'get_cached_ical', test_get_cached_ical)):
-      with app.app.test_client() as client:
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 15, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
-        response = client.get('/image')
+          patch.object(app, 'get_cached_ical', test_get_cached_ical),
+          app.app.test_client() as client):
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 15, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      response = client.get('/image')
 
-        self.assertEqual(response.status_code, 200)
-        with open('test_empty.png', 'wb') as f:
-          f.write(response.data)
-        with open('ref_empty.png', 'rb') as f:
-          self.assertEqual(f.read(), response.data)
+      self.assertEqual(response.status_code, 200)
+      with open('test_empty.png', 'wb') as f:
+        f.write(response.data)
+      with open('ref_empty.png', 'rb') as f:
+        self.assertEqual(f.read(), response.data)

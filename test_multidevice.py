@@ -25,19 +25,19 @@ class MultiDeviceTestCase(unittest.TestCase):
   def test_a1b1(self):
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'kDeviceMap', kDeviceMap),
-          patch.object(app, 'get_cached_ical', test_get_cached_ical)):
-      with app.app.test_client() as client:
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
-        response = client.get('/meta?mac=a1b1')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['nextUpdateSec'], 60*60)  # event end at 9pm
+          patch.object(app, 'get_cached_ical', test_get_cached_ical),
+          app.app.test_client() as client):
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      response = client.get('/meta?mac=a1b1')
+      self.assertEqual(response.status_code, 200)
+      self.assertEqual(response.json['nextUpdateSec'], 60*60)  # event end at 9pm
 
   def test_a2b2(self):
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'kDeviceMap', kDeviceMap),
-          patch.object(app, 'get_cached_ical', test_get_cached_ical)):
-      with app.app.test_client() as client:
-        mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
-        response = client.get('/meta?mac=a2b2')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['nextUpdateSec'], 4*60*60)  # update interval at 4pm
+          patch.object(app, 'get_cached_ical', test_get_cached_ical),
+          app.app.test_client() as client):
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      response = client.get('/meta?mac=a2b2')
+      self.assertEqual(response.status_code, 200)
+      self.assertEqual(response.json['nextUpdateSec'], 4*60*60)  # update interval at 4pm
