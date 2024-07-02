@@ -13,9 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
     - uses: actions/setup-python@v1
       with:
         python-version: '3.11'
+    - name: install dependencies
+      run: pip install -r requirements.txt
     - name: install mypy
       run: |
         pip install mypy
@@ -28,10 +32,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
     - uses: actions/setup-python@v1
       with:
         python-version: '3.11'
-
     - name: install dependencies
       run: pip install -r requirements.txt
     - name: unittest
@@ -41,8 +46,10 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Docker build
-        run: docker build -t eink-svg-server .
-      - name: Unittest
-        run: docker run eink-svg-server python -m unittest discover
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+    - name: Docker build
+      run: docker build -t eink-svg-server .
+    - name: Unittest
+      run: docker run eink-svg-server python -m unittest discover
