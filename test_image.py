@@ -23,7 +23,7 @@ class ImageTestCase(unittest.TestCase):
           patch.object(app, 'kDeviceMap', kDeviceMap),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
-      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(app.kTimezone)
       response = client.get('/image')
 
       self.assertEqual(response.status_code, 200)
@@ -37,7 +37,7 @@ class ImageTestCase(unittest.TestCase):
           patch.object(app, 'kDeviceMap', kDeviceMap),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
-      mock_datetime.now.return_value = datetime(2024, 7, 1, 15, 0, 0).astimezone(pytz.timezone('America/Los_Angeles'))
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 15, 0, 0).astimezone(app.kTimezone)
       response = client.get('/image')
 
       self.assertEqual(response.status_code, 200)
