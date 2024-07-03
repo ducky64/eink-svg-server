@@ -29,9 +29,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.8084902"
-     inkscape:cx="157.31354"
-     inkscape:cy="510.37047"
+     inkscape:zoom="3.6169804"
+     inkscape:cx="112.11009"
+     inkscape:cy="586.40074"
      inkscape:window-width="2338"
      inkscape:window-height="1647"
      inkscape:window-x="2680"
@@ -224,33 +224,33 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1381.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan22"><tspan
+         id="tspan3"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan2"># pysvglabel: init
+           id="tspan1"># pysvglabel: init
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan24"><tspan
+         id="tspan5"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan23">from caltemplate_helpers import *
+           id="tspan4">from caltemplate_helpers import *
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan27"><tspan
+         id="tspan7"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan26">from datetime import datetime, timedelta
+           id="tspan6">from datetime import datetime, timedelta
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan29"><tspan
+         id="tspan9"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan28">
+           id="tspan8">
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan31"><tspan
+         id="tspan11"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan30">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+           id="tspan10">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
 </tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -261,33 +261,33 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1225.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan33"><tspan
+         id="tspan13"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan32"># pysvglabel: row
+           id="tspan12"># pysvglabel: row
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan35"><tspan
+         id="tspan15"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan34">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan14">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan37"><tspan
+         id="tspan17"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan36"> + timedelta(hours=kStartHr)
+           id="tspan16"> + timedelta(hours=kStartHr)
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan39"><tspan
+         id="tspan19"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan38">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan18">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan41"><tspan
+         id="tspan21"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan40"> + timedelta(hours=kEndHr)</tspan></tspan></text>
+           id="tspan20"> + timedelta(hours=kEndHr)</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text41218"
@@ -364,7 +364,7 @@
       <rect
          style="fill:#bfbfbf;fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
          id="rect9937-6"
-         width="96.000008"
+         width="128"
          height="128"
          x="96.000023"
          y="640" />
