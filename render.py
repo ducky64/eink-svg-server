@@ -1,5 +1,7 @@
 from itertools import chain
 from datetime import datetime, timedelta
+from typing import List, Tuple
+
 import recurring_ical_events  # type: ignore
 import xml.etree.ElementTree as ET
 import cairosvg  # type: ignore
@@ -19,6 +21,18 @@ from labelcore import SvgTemplate
 kFudgeAdvanceTime = timedelta(minutes=5)  # add this for the "current" time to account for clock drift and whatnot
 
 
+def eastereggs(title: str, currenttime: datetime) -> List[Tuple[datetime, datetime, str]]:
+  """Returns a list of easter eggs for the duck image. as (start, end, image) tuples."""
+  day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
+  eggs: List[Tuple[datetime, datetime, str]] = []
+  if day_start.weekday() >= 4:  # happy duck on Fri / weekend
+    eggs.append((day_start, day_start+timedelta(hours=25), 'ext_art/sub_duck.svg'))
+  if day_start.weekday() == 2 and title.lower().startswith('TESLA ROOM'.lower()):  # board games night
+    eggs.append((day_start + timedelta(hours=18, minutes=30),
+                 day_start+timedelta(hours=20), 'ext_art/sub_duck_boardgames.svg'))
+  return eggs
+
+
 def render(template_filename: str, calendar: icalendar.cal.Component, title: str, currenttime: datetime) -> bytes:
   """Renders the calendar to a PNG, given the ical url and title, returning the PNG data"""
   template = SvgTemplate(template_filename)
@@ -34,12 +48,19 @@ def render(template_filename: str, calendar: icalendar.cal.Component, title: str
   else:
     current_events = []
 
+  duck_image = 'ext_art/sub_duck_serious.svg'  # default
+  eggs = eastereggs(title, currenttime)
+  for egg in eggs:
+    if currenttime >= egg[0] and currenttime < egg[1]:
+      duck_image = egg[2]
+
   instance = template.apply_instance({
     'title': title,
     'current_events': current_events,
     'events': events,
     'day': day_start,  # type: ignore
     'currenttime': currenttime,  # type: ignore
+    'duck_image': duck_image,
   }, [], 0)
   label.append(instance)
   root = ET.ElementTree(label).getroot()
@@ -55,11 +76,12 @@ def render(template_filename: str, calendar: icalendar.cal.Component, title: str
   return png_data
 
 
-def next_update(calendar: icalendar.cal.Component, currenttime: datetime) -> datetime:
+def next_update(calendar: icalendar.cal.Component, title: str, currenttime: datetime) -> datetime:
   """Returns the next update time for some calendar"""
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
   events = recurring_ical_events.of(calendar).between(day_start, day_start + timedelta(days=1))
+  eggs = eastereggs(title, currenttime)
 
   # compute the next update time
   endtime = day_start.replace(hour=caltemplate_helpers.kEndHr)
@@ -75,6 +97,7 @@ def next_update(calendar: icalendar.cal.Component, currenttime: datetime) -> dat
     day_start.replace(hour=16),
     day_start.replace(hour=1) + timedelta(days=1)  # next day
   ])
+  event_times += [egg[0] for egg in eggs] + [egg[1] for egg in eggs]  # add easter eggs
   event_times = [time for time in event_times if time > currenttime]
   nexttime = sorted(event_times)[0]
 
