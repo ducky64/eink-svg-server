@@ -98,17 +98,18 @@ def get_cached_ical(url: str) -> icalendar.cal.Component:
 
 scheduler = BackgroundScheduler()
 
-def schedule_cache(url: str):
+def schedule_cache(url: str, title: str):
   starttime = datetime.now(kTimezone)
   ical_data = get_cached_ical(url)
-  nexttime = next_update(ical_data, starttime) - timedelta(minutes=5)
+  nexttime = next_update(ical_data, title, starttime) - timedelta(minutes=5)
   app.logger.info(f"cache: next {url} at {nexttime}")
-  scheduler.add_job(func=schedule_cache, args=[url], trigger="date", run_date=nexttime, id=url, replace_existing=True)
+  scheduler.add_job(func=schedule_cache, args=[url, title], trigger="date", run_date=nexttime,
+                    id=url, replace_existing=True)
 
-all_urls = set([device.ical_url for mac, device in kDeviceMap.items()])
-for url in all_urls:
-  scheduler.add_job(func=schedule_cache, args=[url],
-                    trigger="date", run_date=datetime.now() + timedelta(seconds=5), id=url)
+for mac, device in kDeviceMap.items():
+  scheduler.add_job(func=schedule_cache, args=[device.ical_url, device.title],
+                    trigger="date", run_date=datetime.now() + timedelta(seconds=5),
+                    id=device.ical_url, replace_existing=True)
 scheduler.start()
 
 
@@ -156,13 +157,20 @@ def meta():
   try:
     starttime = datetime.now(kTimezone)
 
+    rendertime = starttime
+    force_time = request.args.get('forceTime', default=None)
+    if force_time is not None:
+      rendertime = parser.parse(force_time)
+      if not rendertime.tzinfo:
+        rendertime = rendertime.astimezone(kTimezone)
+
     device = get_device(request.args.get('mac', default=''))
     title_printable = device.title.split('\n')[0]
     ical_data = get_cached_ical(device.ical_url)
-    nexttime = next_update(ical_data, starttime)
-    next_update_sec = (nexttime - starttime).seconds
+    nexttime = next_update(ical_data, device.title, rendertime)
+    next_update_sec = (nexttime - rendertime).seconds
 
-    schedule_cache(device.ical_url)
+    schedule_cache(device.ical_url, device.title)
 
     try:
       fwVer = int(request.args.get('fwVer', default=''))
@@ -171,7 +179,7 @@ def meta():
       fwVer = sys.maxsize
     run_ota = False
     if (device.ota_ver > fwVer) and (device.ota_data is not None) \
-        and (device.ota_after is None or starttime >= device.ota_after):
+        and (device.ota_after is None or rendertime >= device.ota_after):
       if device not in ota_done_devices:
         run_ota = True
       else:

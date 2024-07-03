@@ -2,7 +2,6 @@ import unittest
 import app
 from test_common import test_get_cached_ical
 from datetime import datetime
-import pytz
 from unittest.mock import patch
 
 app.app.testing = True

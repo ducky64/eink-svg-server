@@ -53,10 +53,3 @@ def events_elts(events: List[Event], current_events: List[Event], start_dt: date
     }))
 
   return elts
-
-def duck_image(currenttime: datetime) -> str:
-  # easter egg logic
-  if currenttime.weekday() >= 4:  # happy duck on Fri / weekend
-    return 'ext_art/sub_duck.svg'
-  else:
-    return 'ext_art/sub_duck_serious.svg'
