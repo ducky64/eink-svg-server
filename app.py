@@ -46,17 +46,17 @@ kDeviceMap = {
     ota_ver=4,
     ota_data=read_file("firmware_750c_Z08_4.bin"),
   ),
-  'ecda3b46bd60': DeviceRecord(  # v1.1-3 dev unit
+  'ecda3b46bd60': DeviceRecord(  # v1.1-3, 7.5" dev unit
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
     template_filename="template_3cb.svg",
     ota_ver=4,
     ota_data=read_file("firmware_750c_Z08_4.bin"),
   ),
-  'ecda3b46254c': DeviceRecord(  # v1.1-1
+  'ecda3b46254c': DeviceRecord(  # v1.1-1, 13.3" dev unit
     title="MAXWELL ROOM\nRoom 57-124 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
-    template_filename="template_3cb.svg",
+    template_filename="template_1330c.svg",
   ),
   '': DeviceRecord(  # fallback
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
