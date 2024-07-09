@@ -49,7 +49,6 @@ def events_elts(events: List[Event], currenttime: datetime, start_dt: datetime, 
     fill = '#000000'
     if ev_end <= currenttime:
       fill = 'url(#Checkerboard)'  # past event
-      # text_stroke = '#000000'
     elif ev_start <= currenttime and ev_end > currenttime:
       fill = '#ff0000'  # active event
 
