@@ -46,4 +46,3 @@ class MetaScheduleTestCase(unittest.TestCase):
       response = client.get('/meta')
       self.assertEqual(response.status_code, 200)
       self.assertEqual(response.json['nextUpdateSec'], 110*60)
-      

@@ -78,8 +78,6 @@ kDeviceMap = {
     ota_data=read_file("firmware_750c_Z08_4.bin"),
   ),
   'ecda3b46254c': DeviceRecord(  # v1.1-1, 13.3" dev unit
-    # title="MAXWELL ROOM\nRoom 57-124 ENGR IV",
-    # ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
     template_filename="template_1330c.svg",
