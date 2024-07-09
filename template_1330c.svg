@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="7.2339608"
-     inkscape:cx="-151.50759"
-     inkscape:cy="51.0094"
+     inkscape:zoom="2.5575914"
+     inkscape:cx="435.37057"
+     inkscape:cy="518.84754"
      inkscape:window-width="2338"
      inkscape:window-height="1647"
-     inkscape:window-x="2580"
-     inkscape:window-y="224"
+     inkscape:window-x="821"
+     inkscape:window-y="353"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="g21567-5">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -127,7 +127,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="120.00002"
            y="586.98145"
-           id="tspan12961-5">  events_elts(events, current_events, start_dt, end_dt),</tspan><tspan
+           id="tspan12961-5">  events_elts(events, currenttime, start_dt, end_dt),</tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="120.00002"
@@ -154,7 +154,9 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="160"
          y="48"
-         id="tspan20981">{day.day} {kWdayMap[day.weekday()]}</tspan></text>
+         id="tspan20981">{day.day}<tspan
+   style="font-weight:normal"
+   id="tspan1"> {kWdayMap[day.weekday()]}</tspan></tspan></text>
     <g
        id="g25"
        transform="translate(264,-8)">
@@ -226,33 +228,33 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1381.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan22"><tspan
+         id="tspan23"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
            id="tspan2"># pysvglabel: init
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan24"><tspan
+         id="tspan26"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan23">from caltemplate_helpers import *
+           id="tspan24">from caltemplate_helpers import *
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan27"><tspan
+         id="tspan28"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan26">from datetime import datetime, timedelta
+           id="tspan27">from datetime import datetime, timedelta
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan29"><tspan
+         id="tspan30"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan28">
+           id="tspan29">
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan31"><tspan
+         id="tspan32"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan30">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+           id="tspan31">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
 </tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -263,33 +265,33 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1225.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan33"><tspan
+         id="tspan34"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan32"># pysvglabel: row
+           id="tspan33"># pysvglabel: row
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan35"><tspan
+         id="tspan36"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan34">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan35">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan37"><tspan
+         id="tspan38"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan36"> + timedelta(hours=kStartHr)
+           id="tspan37"> + timedelta(hours=kStartHr)
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan39"><tspan
+         id="tspan40"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan38">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan39">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan41"><tspan
+         id="tspan42"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan40"> + timedelta(hours=kEndHr)</tspan></tspan></text>
+           id="tspan41"> + timedelta(hours=kEndHr)</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text41218"

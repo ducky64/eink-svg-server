@@ -24,6 +24,12 @@ class MetaScheduleTestCase(unittest.TestCase):
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
       # before 8am event
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 50, 0).astimezone(app.kTimezone)
+      response = client.get('/meta')
+      self.assertEqual(response.status_code, 200)
+      self.assertEqual(response.json['nextUpdateSec'], 10*60)
+
+      # start of 4pm event
       mock_datetime.now.return_value = datetime(2024, 7, 1, 15, 20, 0).astimezone(app.kTimezone)
       response = client.get('/meta')
       self.assertEqual(response.status_code, 200)
@@ -35,8 +41,8 @@ class MetaScheduleTestCase(unittest.TestCase):
       self.assertEqual(response.status_code, 200)
       self.assertEqual(response.json['nextUpdateSec'], 30*60)
 
-      # end of 7pm event
-      mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 50, 0).astimezone(app.kTimezone)
+      # end of late nighter
+      mock_datetime.now.return_value = datetime(2024, 7, 1, 20, 10, 0).astimezone(app.kTimezone)
       response = client.get('/meta')
       self.assertEqual(response.status_code, 200)
-      self.assertEqual(response.json['nextUpdateSec'], 10*60)
+      self.assertEqual(response.json['nextUpdateSec'], 110*60)
