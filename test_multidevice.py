@@ -11,12 +11,12 @@ kDeviceMap = {
   'a1b1': app.DeviceRecord(
     title="TestCalendar",
     ical_url="TestCalendar.ics",
-    template_filename="template_3cb.svg",
+    template_filename="template_750c.svg",
   ),
   'a2b2': app.DeviceRecord(
     title="EmptyCalendar",
     ical_url="EmptyCalendar.ics",
-    template_filename="template_3cb.svg",
+    template_filename="template_750c.svg",
   ),
 }
 

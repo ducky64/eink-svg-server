@@ -13,7 +13,7 @@ kDeviceMap = {
   '': app.DeviceRecord(
     title="TESLA ROOM",
     ical_url="TestCalendar.ics",
-    template_filename="template_3cb.svg",
+    template_filename="template_750c.svg",
   ),
 }
 

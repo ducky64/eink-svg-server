@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
-   sodipodi:docname="template_3cb.svg"
+   sodipodi:docname="template_750c.svg"
    inkscape:export-filename="template.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="3.6169804"
-     inkscape:cx="107.41004"
-     inkscape:cy="630.36007"
+     inkscape:zoom="2.5575914"
+     inkscape:cx="216.02356"
+     inkscape:cy="577.88747"
      inkscape:window-width="2338"
      inkscape:window-height="1647"
      inkscape:window-x="2680"
      inkscape:window-y="316"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g21567-4">
+     inkscape:current-layer="g21567-5">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -116,12 +116,12 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="120.00002"
            y="573.64807"
-           id="tspan12953-7">  'sub_event_3cb.svg',</tspan><tspan
+           id="tspan12953-7">  'sub_event_750c.svg',</tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="120.00002"
            y="586.98145"
-           id="tspan12961-5">  events_elts(events, current_events, start_dt, end_dt),</tspan><tspan
+           id="tspan12961-5">  events_elts(events, currenttime, start_dt, end_dt),</tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="120.00002"
@@ -224,33 +224,33 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1381.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan3"><tspan
+         id="tspan22"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan1"># pysvglabel: init
+           id="tspan2"># pysvglabel: init
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan5"><tspan
+         id="tspan24"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan4">from caltemplate_helpers import *
+           id="tspan23">from caltemplate_helpers import *
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan7"><tspan
+         id="tspan27"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan6">from datetime import datetime, timedelta
+           id="tspan26">from datetime import datetime, timedelta
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan9"><tspan
+         id="tspan29"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan8">
+           id="tspan28">
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan11"><tspan
+         id="tspan31"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan10">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+           id="tspan30">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
 </tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -261,33 +261,33 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1225.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan13"><tspan
+         id="tspan33"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan12"># pysvglabel: row
+           id="tspan32"># pysvglabel: row
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan15"><tspan
+         id="tspan35"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan14">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan34">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan17"><tspan
+         id="tspan37"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan16"> + timedelta(hours=kStartHr)
+           id="tspan36"> + timedelta(hours=kStartHr)
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan19"><tspan
+         id="tspan39"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan18">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan38">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan21"><tspan
+         id="tspan41"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan20"> + timedelta(hours=kEndHr)</tspan></tspan></text>
+           id="tspan40"> + timedelta(hours=kEndHr)</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text41218"
