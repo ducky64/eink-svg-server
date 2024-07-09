@@ -55,4 +55,4 @@ class EasterEggTestCase(unittest.TestCase):
 
       mock_datetime.now.return_value = datetime(2024, 7, 3, 18, 30, 0).astimezone(app.kTimezone)
       response = client.get('/meta')
-      self.assertEqual(response.json['nextUpdateSec'], 90*60)
+      self.assertEqual(response.json['nextUpdateSec'], 6.5*60*60)

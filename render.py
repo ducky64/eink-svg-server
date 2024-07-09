@@ -87,7 +87,6 @@ def next_update(calendar: icalendar.cal.Component, title: str, currenttime: date
     day_start + timedelta(hours=caltemplate_helpers.kStartHr),
     day_start + timedelta(hours=12),
     day_start + timedelta(hours=16),
-    day_start + timedelta(hours=caltemplate_helpers.kEndHr),
     day_start + timedelta(hours=25)  # next day
   ])
   event_times += [egg[0] for egg in eggs] + [egg[1] for egg in eggs]  # add easter eggs
