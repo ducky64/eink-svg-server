@@ -29,7 +29,7 @@ def eastereggs(title: str, currenttime: datetime) -> List[Tuple[datetime, dateti
     eggs.append((day_start, day_start+timedelta(hours=25), 'ext_art/sub_duck.svg'))
   if day_start.weekday() == 2 and title.lower().startswith('TESLA ROOM'.lower()):  # board games night
     eggs.append((day_start + timedelta(hours=18, minutes=30),
-                 day_start+timedelta(hours=20), 'ext_art/sub_duck_boardgames.svg'))
+                 day_start+timedelta(hours=25), 'ext_art/sub_duck_boardgames.svg'))
   return eggs
 
 
@@ -40,13 +40,9 @@ def render(template_filename: str, calendar: icalendar.cal.Component, title: str
 
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
-  events = recurring_ical_events.of(calendar).between(day_start, day_start + timedelta(days=1))
-
-  # don't highlight current events past the end cutoff
-  if currenttime.hour < caltemplate_helpers.kEndHr:
-    current_events = recurring_ical_events.of(calendar).between(currenttime, currenttime)
-  else:
-    current_events = []
+  events = recurring_ical_events.of(calendar).between(day_start + timedelta(hours=caltemplate_helpers.kStartHr),
+                                                      day_start + timedelta(hours=caltemplate_helpers.kEndHr))
+  current_events = recurring_ical_events.of(calendar).between(currenttime, currenttime)
 
   duck_image = 'ext_art/sub_duck_serious.svg'  # default
   eggs = eastereggs(title, currenttime)
@@ -80,22 +76,18 @@ def next_update(calendar: icalendar.cal.Component, title: str, currenttime: date
   """Returns the next update time for some calendar"""
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
-  events = recurring_ical_events.of(calendar).between(day_start, day_start + timedelta(days=1))
+  events = recurring_ical_events.of(calendar).between(day_start + timedelta(hours=caltemplate_helpers.kStartHr),
+                                                      day_start + timedelta(hours=caltemplate_helpers.kEndHr))
   eggs = eastereggs(title, currenttime)
 
   # compute the next update time
-  endtime = day_start.replace(hour=caltemplate_helpers.kEndHr)
   event_times = list(chain.from_iterable([[event.get('DTSTART').dt, event.get('DTEND').dt] for event in events]))
-  past_end_events = [time for time in event_times if time > endtime]
-  event_times = [time for time in event_times if time <= endtime]  # prune out events past the end
-  if past_end_events:  # if there were events past the end, replace it with one at the end
-    event_times.append(endtime)
   event_times.extend([  # refresh a couple times a day
-    day_start.replace(hour=1),
-    day_start.replace(hour=caltemplate_helpers.kStartHr),
-    day_start.replace(hour=12),
-    day_start.replace(hour=16),
-    day_start.replace(hour=1) + timedelta(days=1)  # next day
+    day_start + timedelta(hours=1),
+    day_start + timedelta(hours=caltemplate_helpers.kStartHr),
+    day_start + timedelta(hours=12),
+    day_start + timedelta(hours=16),
+    day_start + timedelta(hours=25)  # next day
   ])
   event_times += [egg[0] for egg in eggs] + [egg[1] for egg in eggs]  # add easter eggs
   event_times = [time for time in event_times if time > currenttime]

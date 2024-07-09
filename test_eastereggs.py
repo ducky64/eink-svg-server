@@ -13,7 +13,7 @@ kDeviceMap = {
   '': app.DeviceRecord(
     title="TESLA ROOM",
     ical_url="TestCalendar.ics",
-    template_filename="template_3cb.svg",
+    template_filename="template_750c.svg",
   ),
 }
 
@@ -27,7 +27,7 @@ class EasterEggTestCase(unittest.TestCase):
           app.app.test_client() as client):
       apply_instance_mock.return_value = ET.Element('g')  # return something structurally valid to not crash
 
-      mock_datetime.now.return_value = datetime(2024, 7, 5, 8, 00, 0).astimezone(app.kTimezone)
+      mock_datetime.now.return_value = datetime(2024, 7, 5, 8, 0, 0).astimezone(app.kTimezone)
       client.get('/image')
       self.assertEqual(apply_instance_mock.call_args.args[0]['duck_image'], 'ext_art/sub_duck.svg')
 
@@ -36,6 +36,10 @@ class EasterEggTestCase(unittest.TestCase):
       self.assertEqual(apply_instance_mock.call_args.args[0]['duck_image'], 'ext_art/sub_duck_serious.svg')
 
       mock_datetime.now.return_value = datetime(2024, 7, 3, 18, 30, 0).astimezone(app.kTimezone)
+      client.get('/image')
+      self.assertEqual(apply_instance_mock.call_args.args[0]['duck_image'], 'ext_art/sub_duck_boardgames.svg')
+
+      mock_datetime.now.return_value = datetime(2024, 7, 3, 23, 30, 0).astimezone(app.kTimezone)
       client.get('/image')
       self.assertEqual(apply_instance_mock.call_args.args[0]['duck_image'], 'ext_art/sub_duck_boardgames.svg')
 
@@ -51,4 +55,4 @@ class EasterEggTestCase(unittest.TestCase):
 
       mock_datetime.now.return_value = datetime(2024, 7, 3, 18, 30, 0).astimezone(app.kTimezone)
       response = client.get('/meta')
-      self.assertEqual(response.json['nextUpdateSec'], 90*60)
+      self.assertEqual(response.json['nextUpdateSec'], 6.5*60*60)
