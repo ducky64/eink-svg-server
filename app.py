@@ -42,26 +42,52 @@ kDeviceMap = {
   'ecda3b46255c': DeviceRecord(  # v1.1-3
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
-    template_filename="template_3cb.svg",
-    ota_ver=4,
-    ota_data=read_file("firmware_750c_Z08_4.bin"),
+    template_filename="template_750c.svg",
   ),
+  'ecda3b46251c': DeviceRecord(  # v1.1-4
+    title="MAXWELL ROOM\nRoom 57-124 ENGR IV",
+    ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
+    template_filename="template_1330c.svg",
+  ),
+  'ecda3b46bdbc': DeviceRecord(  # v1.1-5
+    title="ELLIOTT ROOM\nRoom 53-135 ENGR IV",
+    ical_url="https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0@group.calendar.google.com/public/basic.ics",
+    template_filename="template_1330c.svg",
+  ),
+  'ecda3b462568': DeviceRecord(  # v1.1-6
+    title="FARADAY ROOM\nRoom 67-124 ENGR IV",
+    ical_url="https://calendar.google.com/calendar/ical/al52nlvv3gm3skf1es7dk0u8t8@group.calendar.google.com/public/basic.ics",
+    template_filename="template_1330c.svg",
+  ),
+  'ecda3b46bd78': DeviceRecord(  # v1.1-7
+    title="TESLA ROOM\nRoom 53-125 ENGR IV",
+    ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
+    template_filename="template_1330c.svg",
+  ),
+  # 'ecda3b46bdcc': DeviceRecord(  # v1.1-8
+  # ),
+  # 'ecda3b4624c8': DeviceRecord(  # v1.1-9
+  # ),
+  # 'ecda3b4624d8': DeviceRecord(  # v1.1-10
+  # ),
   'ecda3b46bd60': DeviceRecord(  # v1.1-3, 7.5" dev unit
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
-    ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
-    template_filename="template_3cb.svg",
+    ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
+    template_filename="template_750c.svg",
     ota_ver=4,
     ota_data=read_file("firmware_750c_Z08_4.bin"),
   ),
   'ecda3b46254c': DeviceRecord(  # v1.1-1, 13.3" dev unit
-    title="MAXWELL ROOM\nRoom 57-124 ENGR IV",
-    ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
+    # title="MAXWELL ROOM\nRoom 57-124 ENGR IV",
+    # ical_url="https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
+    title="TESLA ROOM\nRoom 53-125 ENGR IV",
+    ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
     template_filename="template_1330c.svg",
   ),
   '': DeviceRecord(  # fallback
     title="TESLA ROOM\nRoom 53-125 ENGR IV",
     ical_url="https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
-    template_filename="template_3cb.svg",
+    template_filename="template_750c.svg",
   )
 }
 
