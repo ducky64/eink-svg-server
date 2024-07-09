@@ -47,10 +47,9 @@ def events_elts(events: List[Event], currenttime: datetime, start_dt: datetime, 
       ev_end = end_dt
 
     fill = '#000000'
-    text_stroke = 'none'
     if ev_end <= currenttime:
       fill = 'url(#Checkerboard)'  # past event
-      text_stroke = '#000000'
+      # text_stroke = '#000000'
     elif ev_start <= currenttime and ev_end > currenttime:
       fill = '#ff0000'  # active event
 
@@ -58,7 +57,7 @@ def events_elts(events: List[Event], currenttime: datetime, start_dt: datetime, 
       'title': event.get('SUMMARY'),
       'size_frac': (ev_end - ev_start).seconds * scale,
       'fill': fill,
-      'text_stroke': text_stroke,
+      'text_stroke': 'none',  # text background unused
     }))
 
   return elts
