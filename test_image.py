@@ -8,12 +8,12 @@ app.app.testing = True
 
 
 # test all the templates to make sure they all work
-kAllTemplates = ["../template_750c.svg", "../template_1330c.svg"]
+kAllTemplates = ['template_750c.svg', 'template_1330c.svg']
 devices = app.DeviceMap({
   filename: app.DeviceRecord(
     title="TestCalendar",
     ical_url="TestCalendar.ics",
-    template_filename=filename,
+    template_filename="../" + filename,  # path is config-relative
   )
   for filename in kAllTemplates
 })

@@ -14,11 +14,11 @@ import pathlib
 
 from render import render as label_render, next_update
 
-
-app = Flask(__name__)
-
 import logging
 logging.basicConfig(level=logging.INFO)
+
+
+app = Flask(__name__)
 
 
 class DeviceRecord(BaseModel):
@@ -117,7 +117,7 @@ def image():
 
     device = devices.root[request.args.get('mac', default='')]
     ical_data = get_cached_ical(device.ical_url)
-    png_data = label_render(kConfigFilename.parent / device.template_filename, ical_data, device.title, rendertime)
+    png_data = label_render(str(kConfigFilename.parent / device.template_filename), ical_data, device.title, rendertime)
 
     endtime = datetime.now(kTimezone)
     runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
@@ -184,6 +184,7 @@ def ota():
     device = devices.root[device_mac]
     ota_done_devices.add(device_mac)
     title_printable = device.title.split('\n')[0]
+    assert device.ota_filename is not None
     with open(kConfigFilename.parent / device.ota_filename, 'rb') as f:
       ota_data = f.read()
     app.logger.info(f"ota: {title_printable}: {len(ota_data)} B")
