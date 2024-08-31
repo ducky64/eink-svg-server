@@ -29,7 +29,7 @@ class ImageTestCase(unittest.TestCase):
       for filename in kAllTemplates:
         response = client.get(f'/image?mac={filename}')
         self.assertEqual(response.status_code, 200)
-        with open(f'test_inuse_{filename}.png', 'wb') as f:
+        with open(f'test/test_inuse_{filename}.png', 'wb') as f:
           f.write(response.data)
         # with open('ref_inuse.png', 'rb') as f:  # result seems to be platform-dependent
         #   self.assertEqual(f.read(), response.data)
@@ -43,7 +43,7 @@ class ImageTestCase(unittest.TestCase):
       for filename in kAllTemplates:
         response = client.get(f'/image?mac={filename}')
         self.assertEqual(response.status_code, 200)
-        with open(f'test_empty_{filename}.png', 'wb') as f:
+        with open(f'test/test_empty_{filename}.png', 'wb') as f:
           f.write(response.data)
         # with open('ref_empty.png', 'rb') as f:  # result seems to be platform-dependent
         #   self.assertEqual(f.read(), response.data)

@@ -35,7 +35,7 @@ class MetaOtaTestCase(unittest.TestCase):
         title="",
         ical_url="TestCalendar.ics",
         template_filename="",
-        ota_filename="test_ota.bin",
+        ota_filename="../test/test_ota.bin",
         ota_ver=5,
       ),
     })
@@ -67,7 +67,7 @@ class MetaOtaTestCase(unittest.TestCase):
         title="",
         ical_url="TestCalendar.ics",
         template_filename="",
-        ota_filename="test_ota.bin",
+        ota_filename="../test/test_ota.bin",
         ota_ver=5,
         ota_after=datetime(2024, 7, 1, 8, 0, 0).astimezone(app.kTimezone)
       ),
@@ -91,7 +91,7 @@ class MetaOtaTestCase(unittest.TestCase):
         title="",
         ical_url="TestCalendar.ics",
         template_filename="",
-        ota_filename="test_ota.bin",
+        ota_filename="../test/test_ota.bin",
         ota_ver=5,
       ),
     })
