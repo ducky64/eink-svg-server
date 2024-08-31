@@ -57,4 +57,4 @@ jobs:
     - name: Docker build
       run: docker build -t eink-svg-server .
     - name: Unittest
-      run: docker run eink-svg-server python -m unittest discover
+      run: docker run --mount type=bind,src="$(pwd)/config",dst=/usr/app/config eink-svg-server python -m unittest discover
