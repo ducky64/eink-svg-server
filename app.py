@@ -87,7 +87,7 @@ def schedule_cache(url: str, title: str):
 
 for mac, device in devices.root.items():
   scheduler.add_job(func=schedule_cache, args=[device.ical_url, device.title],
-                    trigger="date", run_date=datetime.now() + timedelta(seconds=5),
+                    trigger="date", run_date=datetime.now() + timedelta(seconds=3),
                     id=device.ical_url, replace_existing=True)
 scheduler.start()
 
