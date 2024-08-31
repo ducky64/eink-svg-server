@@ -1,0 +1,62 @@
+{
+  "ecda3b46255c": {
+    "notes": "v1.1-3",
+    "title": "TESLA ROOM\nRoom 53-125 ENGR IV",
+    "ical_url": "https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg%40group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_750c.svg"
+  },
+  "ecda3b46251c": {
+    "notes": "v1.1-4",
+    "title": "MAXWELL ROOM\nRoom 57-124 ENGR IV",
+    "ical_url": "https://calendar.google.com/calendar/ical/bf1sneoveru7n49gbf5ig6hj0c@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  },
+  "ecda3b46bdbc": {
+    "notes": "v1.1-5",
+    "title": "ELLIOTT ROOM\nRoom 53-135 ENGR IV",
+    "ical_url": "https://calendar.google.com/calendar/ical/gv8rblqs5t8hm6br9muf9uo2f0@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  },
+  "ecda3b462568": {
+    "notes": "v1.1-6",
+    "title": "FARADAY ROOM\nRoom 67-124 ENGR IV",
+    "ical_url": "https://calendar.google.com/calendar/ical/al52nlvv3gm3skf1es7dk0u8t8@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  },
+  "ecda3b46bd78": {
+    "notes": "v1.1-7",
+    "title": "TESLA ROOM\nRoom 53-125 ENGR IV",
+    "ical_url": "https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  },
+  "ecda3b46bdcc": {
+    "notes": "v1.1-8",
+    "title": "blank",
+    "ical_url": "https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  },
+  "ecda3b4624c8": {
+    "notes": "v1.1-9",
+    "title": "blank",
+    "ical_url": "https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  },
+  "ecda3b4624d8": {
+    "notes": "v1.1-10",
+    "title": "blank",
+    "ical_url": "https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  },
+  "ecda3b46bd60": {
+    "notes": "v1.1-2, 7.5 dev",
+    "title": "US Holidays\n= )",
+    "ical_url": "https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_750c.svg"
+  },
+  "ecda3b46254c": {
+    "notes": "v1.1-1, 13.3 dev",
+    "title": "TESLA ROOM\nRoom 53-125 ENGR IV",
+    "ical_url": "https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  }
+}
