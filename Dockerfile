@@ -11,7 +11,9 @@ COPY pysvglabel/ ./pysvglabel/
 COPY ext_art/ ./ext_art/
 
 COPY *.py *.svg ./
-COPY test *.ics ./
+COPY *.ics ./
+COPY test/ ./test/
+
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV TZ=America/Los_Angeles
 
