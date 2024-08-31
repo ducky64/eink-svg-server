@@ -35,15 +35,6 @@ class DeviceMap(RootModel):
   root: Dict[str, DeviceRecord]
 
 
-def read_file(filename: str) -> Optional[bytes]:
-  try:
-    with open(filename, 'rb') as file:
-      return file.read()
-  except FileNotFoundError:
-    app.logger.exception(f"file does not exist: {filename}")
-    return None
-
-
 kConfigFilename = pathlib.Path('config/config.json')
 with open(kConfigFilename) as f:
   devices = DeviceMap.model_validate_json(f.read())
