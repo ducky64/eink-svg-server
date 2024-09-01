@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="96"
+   width="128"
    height="128"
-   viewBox="0 0 96 128"
+   viewBox="0 0 128 128"
    version="1.1"
    id="svg5"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
@@ -30,9 +30,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="20.460731"
-     inkscape:cx="38.488361"
-     inkscape:cy="107.62079"
+     inkscape:zoom="7.2339608"
+     inkscape:cx="57.990361"
+     inkscape:cy="87.296574"
      inkscape:window-width="2338"
      inkscape:window-height="1647"
      inkscape:window-x="2514"
@@ -49,6 +49,14 @@
        originy="32"
        visible="true"
        empspacing="8" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="128"
+       height="128"
+       id="page1"
+       margin="0 0 0 0"
+       bleed="0" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -224,58 +232,58 @@
         <path
            id="Sketch_w0008"
            d="m 3.9059519,-41.196915 -2.612562,8.612463"
-           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1053);stroke-width:4.23333329;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1053);stroke-width:4.23333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
         <path
            id="Sketch_w0001"
            d="M -4.5254561,14.586545 A 30,30 0 0 0 -12.559613,5.6729431 30,30 0 0 1 -24.700226,-16.863611 30,30 0 0 0 -31.008229,-33.722112 31.5,27.699278 43.315951 0 1 8.9745449,14.586545"
-           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient1033);stroke-width:2.11666664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient1033);stroke-width:2.11667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
         <path
            id="Sketch_w0002"
            d="m 13.041467,18.2005 a 15,15 0 0 1 9.970368,-0.532989 15,15 0 0 0 -7.426995,6.673234"
-           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient1045);stroke-width:2.11666664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient1045);stroke-width:2.11667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
         <path
            id="Sketch_w0003"
            d="M -5.5969621,2.1115191 A 30,30 0 0 1 -19.046958,-26.703445 30,30 0 0 1 8.5514739,-3.7221117"
-           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1039);stroke-width:2.11666664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1039);stroke-width:2.11667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
         <path
            id="Sketch_w0005"
            d="m 1.6066989,-49.175836 a 1.5,1.5 0 0 0 0,3 1.5,1.5 0 1 0 0,3 22.5,22.5 0 0 1 -11.9999999,-3 22.5,22.5 0 0 1 11.9999999,-3"
-           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient1059);stroke-width:2.11666664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient1059);stroke-width:2.11667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
         <path
            id="Sketch_w0006"
            d="m 14.405953,-38.196915 a 1.5,1.5 0 0 1 0,-3 1.5,1.5 0 1 1 0,-3 22.5,22.5 0 0 0 -12.0000011,3 22.5,22.5 0 0 0 12.0000011,3"
-           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient1057);stroke-width:2.11666664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient1057);stroke-width:2.11667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
         <path
            id="Sketch_w0007"
            d="m -8.893301,-46.175836 -0.8821538,8.956662 -0.5881032,5.971108"
-           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1319);stroke-width:4.23333329;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1319);stroke-width:4.23333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            inkscape:connector-curvature="0" />
         <circle
            cx="2.2245438"
            cy="26.277889"
            r="13.5"
-           style="fill:none;fill-opacity:1;stroke:url(#linearGradient1041);stroke-width:2.11666664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-opacity:1;stroke:url(#linearGradient1041);stroke-width:2.11667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            id="circle5" />
         <path
            id="Sketch_w0004"
            d="m 9.6223219,30.054345 a 3,3 0 0 1 -5.795555,0"
-           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1043);stroke-width:2.11666664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1043);stroke-width:2.11667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
         <path
            id="Sketch_w0011"
            d="M -9.643301,-46.175836 H 0.85669888"
-           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1061);stroke-width:1.05833332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1061);stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
         <path
            id="Sketch_w0012"
            d="M 3.1559519,-41.196915 H 13.655953"
-           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1055);stroke-width:1.05833332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient1055);stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
            inkscape:connector-curvature="0" />
       </g>
     </g>
