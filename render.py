@@ -1,5 +1,5 @@
 from itertools import chain
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from typing import List, Tuple
 
 import recurring_ical_events  # type: ignore
@@ -33,16 +33,22 @@ def eastereggs(title: str, currenttime: datetime) -> List[Tuple[datetime, dateti
   return eggs
 
 
-def render(template_filename: str, calendar: icalendar.cal.Component, title: str, currenttime: datetime) -> bytes:
+def render(template_filename: str, calendars: List[icalendar.Calendar], events: List[icalendar.Event], title: str, currenttime: datetime) -> bytes:
   """Renders the calendar to a PNG, given the ical url and title, returning the PNG data"""
   template = SvgTemplate(template_filename)
   label = template._create_instance()
 
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
-  events = recurring_ical_events.of(calendar).between(day_start,
-                                                      day_start + timedelta(days=2))
-  current_events = recurring_ical_events.of(calendar).between(currenttime, currenttime)
+
+  all_events = list(chain.from_iterable([recurring_ical_events.of(cal).between(day_start, day_start + timedelta(days=2))
+                                         for cal in calendars] + [events]))
+  events = [event for event in all_events if isinstance(event.get('DTSTART').dt, datetime)]  # filter all-day events
+  day_events = [event for event in all_events if isinstance(event.get('DTSTART').dt, date) and
+                event.get('DTSTART').dt == currenttime.date() and
+                'first day of' not in event.get('SUMMARY').lower()]  # a bit of a hack to clean up holiday display
+  current_events = [event for event in events
+                    if event.get('DTSTART').dt <= currenttime and event.get('DTEND').dt > currenttime]
 
   duck_image = 'ext_art/sub_duck_serious.svg'  # default
   eggs = eastereggs(title, currenttime)
@@ -54,6 +60,7 @@ def render(template_filename: str, calendar: icalendar.cal.Component, title: str
     'title': title,
     'current_events': current_events,
     'events': events,
+    'day_events': day_events,
     'day': day_start,  # type: ignore
     'currenttime': currenttime,  # type: ignore
     'duck_image': duck_image,
@@ -72,7 +79,7 @@ def render(template_filename: str, calendar: icalendar.cal.Component, title: str
   return png_data
 
 
-def next_update(calendar: icalendar.cal.Component, title: str, currenttime: datetime) -> datetime:
+def next_update(calendar: icalendar.Calendar, title: str, currenttime: datetime) -> datetime:
   """Returns the next update time for some calendar"""
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)

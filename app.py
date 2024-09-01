@@ -1,6 +1,6 @@
 from typing import NamedTuple, Dict, Set
 
-from datetime import datetime, timedelta
+from datetime import datetime, date, timedelta
 from dateutil import parser  # type: ignore
 import pytz  # type: ignore
 from typing import Optional
@@ -11,6 +11,7 @@ from urllib.request import urlopen
 import icalendar
 from apscheduler.schedulers.background import BackgroundScheduler  # type: ignore
 import pathlib
+import recurring_ical_events  # type: ignore
 
 from render import render as label_render, next_update
 
@@ -40,21 +41,35 @@ with open(kConfigFilename) as f:
   devices = DeviceMap.model_validate_json(f.read())
 
 
+kHolidaysUrl = 'https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics'
 kTimezone = pytz.timezone('America/Los_Angeles')
 kCacheValidTime = timedelta(minutes=10)  # cache is stale after this time
 
+
+def filter_holiday_events(events: list[icalendar.Event]) -> list[icalendar.Event]:
+  """Cleans up holidays and shortens names"""
+  out = []
+  for event in events:
+    if 'first day of' in event.get('SUMMARY').lower():
+      continue
+    if 'Daylight Saving Time' in event.get('SUMMARY'):
+      event['SUMMARY'] = event.get('SUMMARY').replace('Daylight Saving Time', 'DST')
+    if '(' in event.get('SUMMARY'):
+      event['SUMMARY'] = event.get('SUMMARY').split('(')[0].strip()
+    out.append(event)
+  return out
 
 ota_done_devices: Set[str] = set()
 
 
 class ICalCacheRecord(NamedTuple):
   fetch_time: datetime
-  calendar: icalendar.cal.Component  # ical data
+  calendar: icalendar.Calendar
 
 ical_cache: Dict[str, ICalCacheRecord] = {}
 
 
-def get_cached_ical(url: str) -> icalendar.cal.Component:
+def get_cached_ical(url: str) -> icalendar.Calendar:
   record = ical_cache.get(url, None)
   fetch_time = datetime.now()
   if record is None or ((fetch_time - record.fetch_time) > kCacheValidTime):
@@ -71,10 +86,12 @@ scheduler = BackgroundScheduler()
 def schedule_cache(url: str, title: str):
   starttime = datetime.now(kTimezone)
   ical_data = get_cached_ical(url)
+  get_cached_ical(kHolidaysUrl)  # always update holidays
   nexttime = next_update(ical_data, title, starttime) - timedelta(minutes=5)
   app.logger.info(f"cache: next {url} at {nexttime}")
   scheduler.add_job(func=schedule_cache, args=[url, title], trigger="date", run_date=nexttime,
                     id=url, replace_existing=True)
+
 
 for mac, device in devices.root.items():
   scheduler.add_job(func=schedule_cache, args=[device.ical_url, device.title],
@@ -107,8 +124,12 @@ def image():
         rendertime = rendertime.astimezone(kTimezone)
 
     device = devices.root[request.args.get('mac', default='')]
-    ical_data = get_cached_ical(device.ical_url)
-    png_data = label_render(str(kConfigFilename.parent / device.template_filename), ical_data, device.title, rendertime)
+    all_cals = [get_cached_ical(device.ical_url)]
+    holiday_events = filter_holiday_events(
+      recurring_ical_events.of(get_cached_ical(kHolidaysUrl)).between(rendertime, rendertime + timedelta(days=2))
+    )
+    png_data = label_render(str(kConfigFilename.parent / device.template_filename),
+                            all_cals, holiday_events, device.title, rendertime)
 
     endtime = datetime.now(kTimezone)
     runtime = (endtime - starttime).seconds + (endtime - starttime).microseconds / 1e6
