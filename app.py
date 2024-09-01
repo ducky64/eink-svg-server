@@ -1,6 +1,6 @@
 from typing import NamedTuple, Dict, Set
 
-from datetime import datetime, date, timedelta
+from datetime import datetime, timedelta
 from dateutil import parser  # type: ignore
 import pytz  # type: ignore
 from typing import Optional
