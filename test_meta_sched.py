@@ -57,3 +57,15 @@ class MetaScheduleTestCase(unittest.TestCase):
       response = client.get('/meta')
       self.assertEqual(response.status_code, 200)
       self.assertEqual(response.json['nextUpdateSec'], 150*60)
+
+      # don't update hourly on weekends
+      mock_datetime.now.return_value = datetime(2024, 7, 6, 11, 00, 0).astimezone(app.kTimezone)
+      response = client.get('/meta')
+      self.assertEqual(response.status_code, 200)
+      self.assertEqual(response.json['nextUpdateSec'], 14*60*60)
+
+      # don't update hourly on weekends
+      mock_datetime.now.return_value = datetime(2024, 7, 7, 11, 00, 0).astimezone(app.kTimezone)
+      response = client.get('/meta')
+      self.assertEqual(response.status_code, 200)
+      self.assertEqual(response.json['nextUpdateSec'], 14*60*60)
