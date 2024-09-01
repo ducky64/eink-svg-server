@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="11.31371"
-     inkscape:cx="93.028727"
-     inkscape:cy="67.219332"
+     inkscape:zoom="4.0000004"
+     inkscape:cx="108.87499"
+     inkscape:cy="102.12499"
      inkscape:window-width="2648"
      inkscape:window-height="1786"
      inkscape:window-x="2674"
      inkscape:window-y="143"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="g6">
     <inkscape:grid
        type="xygrid"
        id="grid21772"
@@ -103,7 +103,7 @@
          height="32"
          x="0"
          y="0"
-         ry="8" />
+         ry="16" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
@@ -119,26 +119,21 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="47.066666"
            y="29.333376"
-           id="tspan4">StyleModifier({'fill': fill}),</tspan><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="47.066666"
-           y="42.666752"
            id="tspan6">DimensionModifier(</tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="47.066666"
-           y="56.000126"
+           y="42.666752"
            id="tspan47810">  set={'height': _area_height * size_frac}</tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="47.066666"
-           y="69.333504"
+           y="56.000126"
            id="tspan47808">)</tspan><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="47.066666"
-           y="82.666878"
+           y="69.333504"
            id="tspan8">)</tspan></text>
     </g>
   </g>
