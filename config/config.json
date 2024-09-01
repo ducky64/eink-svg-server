@@ -1,0 +1,14 @@
+{
+  "ecda3b46bd60": {
+    "notes": "v1.1-2, 7.5 dev",
+    "title": "US Holidays\n= )",
+    "ical_url": "https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_750c.svg"
+  },
+  "ecda3b46254c": {
+    "notes": "v1.1-1, 13.3 dev",
+    "title": "TESLA ROOM\nRoom 53-125 ENGR IV",
+    "ical_url": "https://calendar.google.com/calendar/ical/ogo00tv2chnq8m02539314helg@group.calendar.google.com/public/basic.ics",
+    "template_filename": "../template_1330c.svg"
+  }
+}
