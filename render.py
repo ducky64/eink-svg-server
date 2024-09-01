@@ -40,8 +40,8 @@ def render(template_filename: str, calendar: icalendar.cal.Component, title: str
 
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
-  events = recurring_ical_events.of(calendar).between(day_start + timedelta(hours=caltemplate_helpers.kStartHr),
-                                                      day_start + timedelta(hours=caltemplate_helpers.kEndHr))
+  events = recurring_ical_events.of(calendar).between(day_start,
+                                                      day_start + timedelta(days=2))
   current_events = recurring_ical_events.of(calendar).between(currenttime, currenttime)
 
   duck_image = 'ext_art/sub_duck_serious.svg'  # default
