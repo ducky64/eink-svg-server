@@ -75,7 +75,7 @@ def get_cached_ical(url: str) -> icalendar.Calendar:
   if record is None or ((fetch_time - record.fetch_time) > kCacheValidTime):
     app.logger.info(f"cache: refill: {url}")
     data = urlopen(url).read()
-    calendar = icalendar.Calendar.from_ical(data)
+    calendar: icalendar.Calendar = icalendar.Calendar.from_ical(data)  # type: ignore
     record = ICalCacheRecord(fetch_time, calendar)
     ical_cache[url] = record
   return record.calendar
