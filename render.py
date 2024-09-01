@@ -89,13 +89,13 @@ def next_update(calendar: icalendar.Calendar, title: str, currenttime: datetime)
 
   # compute the next update time
   event_times = list(chain.from_iterable([[event.get('DTSTART').dt, event.get('DTEND').dt] for event in events]))
-  event_times.extend([  # refresh a couple times a day
+  event_times.extend([  # refresh hourly
     day_start + timedelta(hours=1),
-    day_start + timedelta(hours=caltemplate_helpers.kStartHr),
-    day_start + timedelta(hours=12),
-    day_start + timedelta(hours=16),
     day_start + timedelta(hours=25)  # next day
   ])
+  if day_start.weekday() < 5:  # weekdays only
+    event_times.extend(map(lambda hour: day_start + timedelta(hours=hour),
+                           range(caltemplate_helpers.kStartHr, caltemplate_helpers.kEndHr + 1)))  # refresh on end hour
   event_times += [egg[0] for egg in eggs] + [egg[1] for egg in eggs]  # add easter eggs
   event_times = [time for time in event_times if time > currenttime]
   nexttime = sorted(event_times)[0]
