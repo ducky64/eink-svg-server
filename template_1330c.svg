@@ -29,9 +29,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="3.6169804"
-     inkscape:cx="554.7445"
-     inkscape:cy="107.68651"
+     inkscape:zoom="7.2339609"
+     inkscape:cx="87.573047"
+     inkscape:cy="887.96444"
      inkscape:window-width="2335"
      inkscape:window-height="1788"
      inkscape:window-x="1989"
@@ -264,24 +264,18 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        x="0"
-       y="952"
+       y="956"
        id="text4644-5-8"><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="0"
-         y="952"
+         y="956"
          id="tspan25-9">made with     at UCLA ECE • ducky64.github.io/ecal-docs</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="81.824219"
-       y="952"
-       id="text4644-5-8-9"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-         x="81.824219"
-         y="952"
-         id="tspan25-9-9">♥</tspan></text>
+    <path
+       style="font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round"
+       d="m 86.136719,944.34375 q 1.585937,0 2.492187,1.83594 0.328125,0.72656 0.34375,1.10937 h 0.02344 q 0.273437,-1.26562 0.992187,-2.10156 0.84375,-0.84375 1.898438,-0.84375 1.632812,0 2.617187,1.75 0.25,0.64844 0.25,1.21875 0,1.95312 -1.625,3.72656 L 88.996094,956 h -0.04687 l -4.390625,-5.38281 q -1.3125,-1.60157 -1.3125,-3.30469 0,-1.64844 1.554687,-2.61719 0.65625,-0.35156 1.335938,-0.35156 z"
+       id="text4644-5-8-9"
+       aria-label="♥" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:63.9999px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
