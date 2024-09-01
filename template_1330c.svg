@@ -30,14 +30,14 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="2.8284271"
-     inkscape:cx="236.88077"
-     inkscape:cy="38.714096"
+     inkscape:cx="583.00954"
+     inkscape:cy="100.23239"
      inkscape:window-width="2335"
      inkscape:window-height="1788"
      inkscape:window-x="2090"
      inkscape:window-y="141"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g2">
+     inkscape:current-layer="layer4">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -423,7 +423,7 @@
        y="48"
        id="text4644-4-8"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="672"
          y="48"
          id="tspan20981-4-4">{nday.day:#02d}</tspan></text>
