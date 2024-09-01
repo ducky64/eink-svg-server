@@ -7,23 +7,23 @@ from unittest.mock import patch
 app.app.testing = True
 
 
-kDeviceMap = {
+devices = app.DeviceMap({
   'a1b1': app.DeviceRecord(
     title="TestCalendar",
     ical_url="TestCalendar.ics",
-    template_filename="template_750c.svg",
+    template_filename="../template_750c.svg",
   ),
   'a2b2': app.DeviceRecord(
     title="EmptyCalendar",
     ical_url="EmptyCalendar.ics",
-    template_filename="template_750c.svg",
+    template_filename="../template_750c.svg",
   ),
-}
+})
 
 class MultiDeviceTestCase(unittest.TestCase):
   def test_multidevice(self):
     with (patch('app.datetime') as mock_datetime,
-          patch.object(app, 'kDeviceMap', kDeviceMap),
+          patch.object(app, 'devices', devices),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
       mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(app.kTimezone)

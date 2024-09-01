@@ -2,25 +2,24 @@ import unittest
 import app
 from test_common import test_get_cached_ical
 from datetime import datetime
-import pytz
 from unittest.mock import patch
 
 app.app.testing = True
 
 
-kDeviceMap = {
+devices = app.DeviceMap({
   '': app.DeviceRecord(
     title="TestCalendar",
     ical_url="TestCalendar.ics",
     template_filename="",
   ),
-}
+})
 
 
 class MetaScheduleTestCase(unittest.TestCase):
   def test_nextevent(self):
     with (patch('app.datetime') as mock_datetime,
-          patch.object(app, 'kDeviceMap', kDeviceMap),
+          patch.object(app, 'devices', devices),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
       # before 8am event

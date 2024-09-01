@@ -1,9 +1,7 @@
 # Project-specific
 cache.ics
-temp.png
-temp.svg
 
-test_*.png
+test/test_*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
