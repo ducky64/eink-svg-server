@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.2787957"
-     inkscape:cx="439.86698"
-     inkscape:cy="424.22726"
+     inkscape:zoom="1.8084902"
+     inkscape:cx="377.93956"
+     inkscape:cy="277.85608"
      inkscape:window-width="2335"
      inkscape:window-height="1788"
-     inkscape:window-x="1989"
-     inkscape:window-y="203"
+     inkscape:window-x="1900"
+     inkscape:window-y="119"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer4">
+     inkscape:current-layer="layer1">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -66,8 +66,8 @@
     <rect
        x="0"
        y="966.86218"
-       width="659.99994"
-       height="223.28989"
+       width="659.99992"
+       height="283.28988"
        id="rect882-9" />
   </defs>
   <g
@@ -88,17 +88,6 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="160"
-       y="48"
-       id="text4644"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-         x="160"
-         y="48"
-         id="tspan20981">{day.day:#02d}</tspan></text>
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        id="rect8135-9"
@@ -118,17 +107,6 @@
          x="224"
          y="48"
          id="tspan20981-3">{kWdayMap[day.weekday()]}</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="224"
-       y="28"
-       id="text4644-35-1"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none;font-size:21.33333333px"
-         x="224"
-         y="28"
-         id="tspan20981-3-0">{kWdayMap[day.weekday()]}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
@@ -162,7 +140,7 @@
        style="font-size:15px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';text-align:start;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect882);display:inline;fill:none;stroke:#000000;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-6.5368652"
        y="0"
-       transform="matrix(1.0666668,0,0,1.0666668,0,-1381.4957)"><tspan
+       transform="matrix(1.0666668,0,0,1.0666668,-0.22656253,-1525.3394)"><tspan
          x="0"
          y="980.15206"
          id="tspan3"><tspan
@@ -199,7 +177,7 @@
        style="font-size:15px;line-height:125%;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';text-align:start;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect882-9);display:inline;fill:none;stroke:#000000;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-6.5368652"
        y="0"
-       transform="matrix(1.0666668,0,0,1.0666668,0,-1225.4957)"><tspan
+       transform="matrix(1.0666668,0,0,1.0666668,-0.22656253,-1397.3394)"><tspan
          x="0"
          y="980.15206"
          id="tspan13"><tspan
@@ -234,19 +212,61 @@
          y="1073.9021"
          id="tspan23"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan22">nstart_dt = start_dt + timedelta(days=1)
+           id="tspan22">nday = day + timedelta(days=1)
 </tspan></tspan><tspan
          x="0"
          y="1092.6521"
          id="tspan25"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan24">nend_dt = end_dt + timedelta(days=1)
+           id="tspan24">nstart_dt = start_dt + timedelta(days=1)
 </tspan></tspan><tspan
          x="0"
          y="1111.4021"
          id="tspan27"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan26">nday = nstart_dt.day</tspan></tspan></text>
+           id="tspan26">nend_dt = end_dt + timedelta(days=1)
+</tspan></tspan><tspan
+         x="0"
+         y="1130.1521"
+         id="tspan29"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan28">hour = currenttime.hour
+</tspan></tspan><tspan
+         x="0"
+         y="1148.9021"
+         id="tspan31"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan30">if (hour &lt; kStartHr or hour &gt;= kEndHr or day.weekday() &gt;= 5):
+</tspan></tspan><tspan
+         x="0"
+         y="1167.6521"
+         id="tspan43"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan32">  hour = &quot;&quot;
+</tspan></tspan><tspan
+         x="0"
+         y="1186.4021"
+         id="tspan45"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan44">  ampm = &quot;&quot;
+</tspan></tspan><tspan
+         x="0"
+         y="1205.1521"
+         id="tspan47"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan46">else:
+</tspan></tspan><tspan
+         x="0"
+         y="1223.9021"
+         id="tspan49"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan48">  ampm = &quot;a&quot; if hour &lt; 12 else &quot;p&quot;
+</tspan></tspan><tspan
+         x="0"
+         y="1242.6521"
+         id="tspan51"><tspan
+           style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
+           id="tspan50">  hour = 12 if hour%12 == 0 else hour%12</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text41218"
@@ -307,6 +327,46 @@
          x="64"
          y="-12"
          id="tspan25-5">{split_title(title)[1]}</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="InUse"
+     style="display:inline">
+    <g
+       id="g25"
+       transform="translate(264,-8)">
+      <rect
+         style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         id="rect4425-2"
+         width="192"
+         height="56"
+         x="152"
+         y="8"
+         ry="15.118111" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         x="160"
+         y="60"
+         id="text4644-5-6-3-6-4-3"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="160"
+           y="60"
+           id="tspan12959-0-5">🐍StyleModifier({'fill': '#ff0000' if current_events else '#ffffff'})</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="512"
+       y="48"
+       id="text4644-3"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-dasharray:none"
+         x="512"
+         y="48"
+         id="tspan20981-6">IN USE</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -389,14 +449,13 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="672"
          y="48"
-         id="tspan20981-4-4">{nday:#02d}</tspan></text>
+         id="tspan20981-4-4">{nday.day:#02d}</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="DayCalendar"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <g
        id="g21567-5"
        transform="translate(40,-56)"
@@ -500,44 +559,44 @@
        x="160"
        y="64"
        ry="15.118111" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="160"
+       y="48"
+       id="text4644"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         x="160"
+         y="48"
+         id="tspan20981">{day.day:#02d}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="224"
+       y="28"
+       id="text4644-35-1"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         x="224"
+         y="28"
+         id="tspan20981-3-0">{kWdayMap[day.weekday()]}</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="InUse">
-    <g
-       id="g25"
-       transform="translate(264,-8)">
-      <rect
-         style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-         id="rect4425-2"
-         width="192"
-         height="56"
-         x="152"
-         y="8"
-         ry="15.118111" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-         x="160"
-         y="60"
-         id="text4644-5-6-3-6-4-3"><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="160"
-           y="60"
-           id="tspan12959-0-5">🐍StyleModifier({'fill': '#ff0000' if current_events else '#ffffff'})</tspan></text>
-    </g>
+     id="layer6"
+     inkscape:label="Hour"
+     style="display:inline">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="512"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="12"
        y="48"
-       id="text4644-3"><tspan
+       id="text4644-6"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-dasharray:none"
-         x="512"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         x="12"
          y="48"
-         id="tspan20981-6">IN USE</tspan></text>
+         id="tspan20981-67">{hour}{ampm}</tspan></text>
   </g>
 </svg>
