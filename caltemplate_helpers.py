@@ -41,16 +41,17 @@ def events_elts(events: List[Event], currenttime: datetime, start_dt: datetime, 
     ev_end: datetime = event.get('DTEND').dt
     if ev_end < start_dt or ev_start > end_dt:  # drop events out-of-range
       continue
-    if ev_start < start_dt:  # clamp events to range
-      ev_start = start_dt
-    if ev_end > end_dt:
-      ev_end = end_dt
 
-    fill = '#000000'
+    fill = '#000000'  # calculate fill based on actual time
     if ev_end <= currenttime:
       fill = 'url(#Checkerboard)'  # past event
     elif ev_start <= currenttime and ev_end > currenttime:
       fill = '#ff0000'  # active event
+
+    if ev_start < start_dt:  # clamp events render size to range
+      ev_start = start_dt
+    if ev_end > end_dt:
+      ev_end = end_dt
 
     elts.append(((ev_start - start_dt).seconds * scale, {
       'title': event.get('SUMMARY'),
