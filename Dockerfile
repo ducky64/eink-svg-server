@@ -4,10 +4,14 @@ RUN apk add build-base cairo cairo-dev pkgconfig font-opensans tzdata
 
 WORKDIR /usr/app
 
+COPY pysvglabel/ ./pysvglabel/
+WORKDIR /usr/app/pysvglabel
+RUN pip install -r requirements.txt
+WORKDIR /usr/app
+
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-COPY pysvglabel/ ./pysvglabel/
 COPY ext_art/ ./ext_art/
 
 COPY *.py *.svg ./
