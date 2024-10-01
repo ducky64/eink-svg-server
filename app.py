@@ -39,7 +39,7 @@ class DeviceMap(RootModel):
 kConfigFilename = pathlib.Path('config/config.json')
 with open(kConfigFilename) as f:
   devices = DeviceMap.model_validate_json(f.read())
-
+app.logger.info(f"Loaded device map: {devices}")
 
 kHolidaysUrl = 'https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics'
 kTimezone = pytz.timezone('America/Los_Angeles')
