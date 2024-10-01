@@ -44,7 +44,7 @@ def events_elts(events: List[Event], currenttime: datetime, start_dt: datetime, 
 
     fill = '#000000'  # calculate fill based on actual time
     if ev_end <= currenttime:
-      fill = 'url(#Checkerboard)'  # past event
+      fill = '#999999'  # past event, grey but palette-mode friendly
     elif ev_start <= currenttime and ev_end > currenttime:
       fill = '#ff0000'  # active event
 

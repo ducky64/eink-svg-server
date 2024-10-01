@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="230.51681"
-     inkscape:cy="368.04908"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="248.90159"
+     inkscape:cy="522.37513"
      inkscape:window-width="2335"
      inkscape:window-height="1788"
      inkscape:window-x="2906"
      inkscape:window-y="237"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer4">
+     inkscape:current-layer="g25-6">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -345,6 +345,10 @@
            y="60"
            id="tspan14">🐍Hide(not current_events)</tspan></text>
     </g>
+    <g
+       id="g25-6"
+       transform="translate(-256,548)"
+       style="display:inline" />
   </g>
   <g
      inkscape:groupmode="layer"
