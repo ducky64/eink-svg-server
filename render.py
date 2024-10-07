@@ -45,8 +45,7 @@ def render(template_filename: str, calendars: List[icalendar.Calendar], events: 
                                          for cal in calendars] + [events]))
   events = [event for event in all_events if isinstance(event.get('DTSTART').dt, datetime)]  # filter all-day events
   day_events = [event for event in all_events if isinstance(event.get('DTSTART').dt, date) and
-                event.get('DTSTART').dt == currenttime.date() and
-                'first day of' not in event.get('SUMMARY').lower()]  # a bit of a hack to clean up holiday display
+                event.get('DTSTART').dt == currenttime.date()]
   current_events = [event for event in events
                     if event.get('DTSTART').dt <= currenttime and event.get('DTEND').dt > currenttime]
 
