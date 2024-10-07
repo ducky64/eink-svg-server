@@ -29,9 +29,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="6.1794274"
-     inkscape:cx="556.60497"
-     inkscape:cy="824.51005"
+     inkscape:zoom="2.1847575"
+     inkscape:cx="339.85465"
+     inkscape:cy="740.58562"
      inkscape:window-width="3840"
      inkscape:window-height="2081"
      inkscape:window-x="1491"
@@ -127,7 +127,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="48"
          y="952"
-         id="tspan25-9-0">{split_title(title)[0]} {split_title(title)[1]}</tspan></text>
+         id="tspan25-9-0">{calname}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:63.9999px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"

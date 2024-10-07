@@ -34,7 +34,7 @@ def eastereggs(title: str, currenttime: datetime) -> List[Tuple[datetime, dateti
 
 
 def render(template_filename: str, calendars: List[icalendar.Calendar], events: List[icalendar.Event], title: str, currenttime: datetime) -> bytes:
-  """Renders the calendar to a PNG, given the ical url and title, returning the PNG data"""
+  """Renders the calendar to a PNG, given the icals, returning the PNG data"""
   template = SvgTemplate(template_filename)
   label = template._create_instance()
 
@@ -58,6 +58,7 @@ def render(template_filename: str, calendars: List[icalendar.Calendar], events: 
 
   instance = template.apply_instance({
     'title': title,
+    'calname': calendars[0]["X-WR-CALNAME"],
     'current_events': current_events,  # type: ignore
     'events': events,  # type: ignore
     'day_events': day_events,  # type: ignore
