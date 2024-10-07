@@ -57,7 +57,7 @@ def render(template_filename: str, calendars: List[icalendar.Calendar], events: 
 
   instance = template.apply_instance({
     'title': title,
-    'calname': calendars[0]["X-WR-CALNAME"],
+    'calname': calendars[0].get("X-WR-CALNAME", ''),
     'current_events': current_events,  # type: ignore
     'events': events,  # type: ignore
     'day_events': day_events,  # type: ignore
