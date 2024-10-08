@@ -29,7 +29,7 @@ class MultiDeviceTestCase(unittest.TestCase):
       mock_datetime.now.return_value = datetime(2024, 7, 1, 8, 0, 0).astimezone(app.kTimezone)
       response = client.get('/meta?mac=a1b1')
       self.assertEqual(response.status_code, 200)
-      self.assertEqual(response.json['nextUpdateSec'], 60*60)  # event end at 9pm
+      self.assertEqual(response.json['nextUpdateSec'], 1*60*60)  # event end at 9pm
 
       response = client.get('/meta?mac=a2b2')
       self.assertEqual(response.status_code, 200)

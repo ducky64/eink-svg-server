@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="512"
-   height="864"
-   viewBox="0 0 512 863.99996"
+   width="480"
+   height="856"
+   viewBox="0 0 480 856"
    version="1.1"
    id="svg5"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="8.0000005"
-     inkscape:cx="117.18749"
-     inkscape:cy="21.687499"
+     inkscape:zoom="2.0000001"
+     inkscape:cx="409.74998"
+     inkscape:cy="207.24999"
      inkscape:window-width="2648"
      inkscape:window-height="1786"
-     inkscape:window-x="2547"
-     inkscape:window-y="74"
+     inkscape:window-x="2083"
+     inkscape:window-y="188"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g3">
+     inkscape:current-layer="g6">
     <inkscape:grid
        type="xygrid"
        id="grid21772"
@@ -50,35 +50,7 @@
        empspacing="8" />
   </sodipodi:namedview>
   <defs
-     id="defs2">
-    <pattern
-       inkscape:collect="always"
-       style="fill:#000000"
-       patternUnits="userSpaceOnUse"
-       width="100"
-       height="100"
-       patternTransform="scale(0.02)"
-       id="Checkerboard"
-       inkscape:stockid="Checkerboard"
-       preserveAspectRatio="xMidYMid"
-       inkscape:isstock="true"
-       inkscape:label="Checkerboard">
-      <rect
-         style="stroke:none"
-         x="0"
-         y="0"
-         width="50"
-         height="50"
-         id="rect209" />
-      <rect
-         style="stroke:none"
-         x="50"
-         y="50"
-         width="50"
-         height="50"
-         id="rect211" />
-    </pattern>
-  </defs>
+     id="defs2" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -97,9 +69,9 @@
     <g
        id="g6">
       <rect
-         style="fill:url(#Checkerboard);fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:#999999;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
          id="rect4425"
-         width="512"
+         width="480"
          height="32"
          x="0"
          y="0"
@@ -145,7 +117,7 @@
        id="g3">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          x="7.9374962"
          y="21.710938"
          id="text4644-5-6-3-1">{title}</text>
@@ -170,12 +142,12 @@
        id="g1">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          x="7.9374962"
          y="21.710938"
          id="text4644-5-6-3-1-9"><tspan
            sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
            x="7.9374962"
            y="21.710938"
            id="tspan6611-9-3-1">{title}</tspan></text>
