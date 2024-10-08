@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="4.369515"
-     inkscape:cx="563.79255"
-     inkscape:cy="710.60518"
+     inkscape:zoom="6.1794274"
+     inkscape:cx="131.97016"
+     inkscape:cy="109.39525"
      inkscape:window-width="3840"
      inkscape:window-height="2081"
      inkscape:window-x="1491"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="layer6">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -148,39 +148,39 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1589.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan12"><tspan
+         id="tspan8"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan2"># pysvglabel: init
+           id="tspan6"># pysvglabel: init
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan16"><tspan
+         id="tspan10"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan15">from caltemplate_helpers import *
+           id="tspan9">from caltemplate_helpers import *
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan18"><tspan
+         id="tspan53"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan17">from datetime import datetime, timedelta
+           id="tspan11">from datetime import datetime, timedelta
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan20"><tspan
+         id="tspan55"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan19">import qrcode
+           id="tspan54">import qrcode
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan22"><tspan
+         id="tspan57"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan21">
+           id="tspan56">
 </tspan></tspan><tspan
          x="0"
          y="1073.9021"
-         id="tspan24"><tspan
+         id="tspan59"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan23">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+           id="tspan58">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
 </tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -191,81 +191,81 @@
        transform="matrix(1.0666668,0,0,1.0666668,-0.22656253,-1397.3394)"><tspan
          x="0"
          y="980.15206"
-         id="tspan26"><tspan
+         id="tspan61"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan25"># pysvglabel: row
+           id="tspan60"># pysvglabel: row
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan28"><tspan
+         id="tspan63"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan27">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan62">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan30"><tspan
+         id="tspan65"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan29"> + timedelta(hours=kStartHr)
+           id="tspan64"> + timedelta(hours=kStartHr)
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan32"><tspan
+         id="tspan67"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan31">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan66">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan34"><tspan
+         id="tspan69"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan33"> + timedelta(hours=kEndHr)
+           id="tspan68"> + timedelta(hours=kEndHr)
 </tspan></tspan><tspan
          x="0"
          y="1073.9021"
-         id="tspan36"><tspan
+         id="tspan71"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan35">nday = day + timedelta(days=1)
+           id="tspan70">nday = day + timedelta(days=1)
 </tspan></tspan><tspan
          x="0"
          y="1092.6521"
-         id="tspan38"><tspan
+         id="tspan73"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan37">nstart_dt = start_dt + timedelta(days=1)
+           id="tspan72">nstart_dt = start_dt + timedelta(days=1)
 </tspan></tspan><tspan
          x="0"
          y="1111.4021"
-         id="tspan40"><tspan
+         id="tspan75"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan39">nend_dt = end_dt + timedelta(days=1)
+           id="tspan74">nend_dt = end_dt + timedelta(days=1)
 </tspan></tspan><tspan
          x="0"
          y="1130.1521"
-         id="tspan42"><tspan
+         id="tspan77"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan41">
+           id="tspan76">
 </tspan></tspan><tspan
          x="0"
          y="1148.9021"
-         id="tspan44"><tspan
+         id="tspan79"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan43">hour = currenttime.hour
+           id="tspan78">hour = currenttime.hour
 </tspan></tspan><tspan
          x="0"
          y="1167.6521"
-         id="tspan46"><tspan
+         id="tspan81"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan45">ampm = &quot;AM&quot; if hour &lt; 12 else &quot;PM&quot;
+           id="tspan80">ampm = &quot;AM&quot; if hour &lt; 12 else &quot;PM&quot;
 </tspan></tspan><tspan
          x="0"
          y="1186.4021"
-         id="tspan48"><tspan
+         id="tspan83"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan47">hour = 12 if hour%12 == 0 else hour%12
+           id="tspan82">hour = 12 if hour%12 == 0 else hour%12
 </tspan></tspan><tspan
          x="0"
          y="1205.1521"
-         id="tspan52"><tspan
+         id="tspan85"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan51">dayeventtext = ', '.join(map(lambda x: x.get('SUMMARY'), day_events))</tspan></tspan></text>
+           id="tspan84">dayeventtext = ', '.join(map(lambda x: x.get('SUMMARY'), day_events))</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text41218"
@@ -435,6 +435,54 @@
            y="548.3335"
            id="tspan12959-0-0">)</tspan></text>
     </g>
+    <g
+       id="g21567-8"
+       transform="translate(331.99998,-56)"
+       style="display:inline">
+      <rect
+         style="fill:#bfbfbf;fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         id="rect9937-5"
+         width="63.999996"
+         height="432"
+         x="104.00002"
+         y="120" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         x="120.00002"
+         y="376"
+         id="text4644-5-6-3-6-5"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="120.00002"
+           y="376"
+           id="tspan6611-9-9-5">🐍SubtemplateArray(</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="120.00002"
+           y="389.33337"
+           id="tspan12953-74">  'sub_timelabel.svg',</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="120.00002"
+           y="402.66675"
+           id="tspan12961-4">  time_elts(start_dt, end_dt),</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="120.00002"
+           y="416.00012"
+           id="tspan12955-1">  align=Align.RIGHT,</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="120.00002"
+           y="429.3335"
+           id="tspan12957-7">  vertical=True</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="120.00002"
+           y="442.66687"
+           id="tspan12959-00">)</tspan></text>
+    </g>
     <rect
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        id="rect4425-26"
@@ -578,54 +626,6 @@
          x="612"
          y="28"
          id="tspan20981-3-0-5">{kWdayMap[nday.weekday()]}</tspan></text>
-    <g
-       id="g21567-8"
-       transform="translate(331.99998,-56)"
-       style="display:inline">
-      <rect
-         style="fill:#bfbfbf;fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-         id="rect9937-5"
-         width="63.999996"
-         height="432"
-         x="104.00002"
-         y="120" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-         x="120.00002"
-         y="376"
-         id="text4644-5-6-3-6-5"><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="120.00002"
-           y="376"
-           id="tspan6611-9-9-5">🐍SubtemplateArray(</tspan><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="120.00002"
-           y="389.33337"
-           id="tspan12953-74">  'sub_timelabel.svg',</tspan><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="120.00002"
-           y="402.66675"
-           id="tspan12961-4">  time_elts(start_dt, end_dt),</tspan><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="120.00002"
-           y="416.00012"
-           id="tspan12955-1">  align=Align.RIGHT,</tspan><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="120.00002"
-           y="429.3335"
-           id="tspan12957-7">  vertical=True</tspan><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="120.00002"
-           y="442.66687"
-           id="tspan12959-00">)</tspan></text>
-    </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
