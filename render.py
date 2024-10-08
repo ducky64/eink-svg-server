@@ -33,7 +33,8 @@ def eastereggs(title: str, currenttime: datetime) -> List[Tuple[datetime, dateti
   return eggs
 
 
-def render(template_filename: str, calendars: List[icalendar.Calendar], events: List[icalendar.Event], title: str, currenttime: datetime) -> bytes:
+def render(template_filename: str, calendars: List[icalendar.Calendar], events: List[icalendar.Event], title: str,
+           show_hours: bool, currenttime: datetime) -> bytes:
   """Renders the calendar to a PNG, given the icals, returning the PNG data"""
   template = SvgTemplate(template_filename)
   label = template._create_instance()
@@ -64,6 +65,7 @@ def render(template_filename: str, calendars: List[icalendar.Calendar], events: 
     'day': day_start,  # type: ignore
     'currenttime': currenttime,  # type: ignore
     'duck_image': duck_image,
+    'show_hours': show_hours,  # type: ignore
   }, [], 0)
   label.append(instance)
   root = ET.ElementTree(label).getroot()
@@ -79,7 +81,7 @@ def render(template_filename: str, calendars: List[icalendar.Calendar], events: 
   return png_data
 
 
-def next_update(calendar: icalendar.Calendar, title: str, currenttime: datetime) -> datetime:
+def next_update(calendar: icalendar.Calendar, title: str, show_hours: bool, currenttime: datetime) -> datetime:
   """Returns the next update time for some calendar"""
   currenttime = currenttime + kFudgeAdvanceTime
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -89,13 +91,20 @@ def next_update(calendar: icalendar.Calendar, title: str, currenttime: datetime)
 
   # compute the next update time
   event_times = list(chain.from_iterable([[event.get('DTSTART').dt, event.get('DTEND').dt] for event in events]))
-  event_times.extend([  # refresh hourly
+  event_times.extend([
     day_start + timedelta(hours=1),
     day_start + timedelta(hours=25)  # next day
   ])
   if day_start.weekday() < 5:  # weekdays only
-    event_times.extend(map(lambda hour: day_start + timedelta(hours=hour),
-                           range(caltemplate_helpers.kStartHr, caltemplate_helpers.kEndHr + 1)))  # refresh on end hour
+    if show_hours:  # refresh hourly
+      event_times.extend(map(lambda hour: day_start + timedelta(hours=hour),
+                             range(caltemplate_helpers.kStartHr, caltemplate_helpers.kEndHr + 1)))  # refresh on end hour
+    else:  # refresh a couple times a day - potentially to be removed later
+      event_times.extend([
+        day_start + timedelta(hours=caltemplate_helpers.kStartHr),
+        day_start + timedelta(hours=12),
+        day_start + timedelta(hours=16),
+      ])
   event_times += [egg[0] for egg in eggs] + [egg[1] for egg in eggs]  # add easter eggs
   event_times = [time for time in event_times if time > currenttime]
   nexttime = sorted(event_times)[0]

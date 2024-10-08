@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="6.1794274"
-     inkscape:cx="131.97016"
-     inkscape:cy="109.39525"
-     inkscape:window-width="3840"
-     inkscape:window-height="2081"
-     inkscape:window-x="1491"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer6">
+     inkscape:zoom="2.1847575"
+     inkscape:cx="61.10518"
+     inkscape:cy="223.36575"
+     inkscape:window-width="1918"
+     inkscape:window-height="2071"
+     inkscape:window-x="1492"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g2">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -148,39 +148,39 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1589.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan8"><tspan
+         id="tspan12"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan6"># pysvglabel: init
+           id="tspan2"># pysvglabel: init
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan10"><tspan
+         id="tspan16"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan9">from caltemplate_helpers import *
+           id="tspan15">from caltemplate_helpers import *
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan53"><tspan
+         id="tspan18"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan11">from datetime import datetime, timedelta
+           id="tspan17">from datetime import datetime, timedelta
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan55"><tspan
+         id="tspan20"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan54">import qrcode
+           id="tspan19">import qrcode
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan57"><tspan
+         id="tspan22"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan56">
+           id="tspan21">
 </tspan></tspan><tspan
          x="0"
          y="1073.9021"
-         id="tspan59"><tspan
+         id="tspan24"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan58">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+           id="tspan23">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
 </tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -191,81 +191,81 @@
        transform="matrix(1.0666668,0,0,1.0666668,-0.22656253,-1397.3394)"><tspan
          x="0"
          y="980.15206"
-         id="tspan61"><tspan
+         id="tspan26"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan60"># pysvglabel: row
+           id="tspan25"># pysvglabel: row
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan63"><tspan
+         id="tspan28"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan62">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan27">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan65"><tspan
+         id="tspan30"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan64"> + timedelta(hours=kStartHr)
+           id="tspan29"> + timedelta(hours=kStartHr)
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan67"><tspan
+         id="tspan32"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan66">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan31">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan69"><tspan
+         id="tspan34"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan68"> + timedelta(hours=kEndHr)
+           id="tspan33"> + timedelta(hours=kEndHr)
 </tspan></tspan><tspan
          x="0"
          y="1073.9021"
-         id="tspan71"><tspan
+         id="tspan36"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan70">nday = day + timedelta(days=1)
+           id="tspan35">nday = day + timedelta(days=1)
 </tspan></tspan><tspan
          x="0"
          y="1092.6521"
-         id="tspan73"><tspan
+         id="tspan38"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan72">nstart_dt = start_dt + timedelta(days=1)
+           id="tspan37">nstart_dt = start_dt + timedelta(days=1)
 </tspan></tspan><tspan
          x="0"
          y="1111.4021"
-         id="tspan75"><tspan
+         id="tspan40"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan74">nend_dt = end_dt + timedelta(days=1)
+           id="tspan39">nend_dt = end_dt + timedelta(days=1)
 </tspan></tspan><tspan
          x="0"
          y="1130.1521"
-         id="tspan77"><tspan
+         id="tspan42"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan76">
+           id="tspan41">
 </tspan></tspan><tspan
          x="0"
          y="1148.9021"
-         id="tspan79"><tspan
+         id="tspan44"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan78">hour = currenttime.hour
+           id="tspan43">hour = currenttime.hour
 </tspan></tspan><tspan
          x="0"
          y="1167.6521"
-         id="tspan81"><tspan
+         id="tspan46"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan80">ampm = &quot;AM&quot; if hour &lt; 12 else &quot;PM&quot;
+           id="tspan45">ampm = &quot;AM&quot; if hour &lt; 12 else &quot;PM&quot;
 </tspan></tspan><tspan
          x="0"
          y="1186.4021"
-         id="tspan83"><tspan
+         id="tspan48"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan82">hour = 12 if hour%12 == 0 else hour%12
+           id="tspan47">hour = 12 if hour%12 == 0 else hour%12
 </tspan></tspan><tspan
          x="0"
          y="1205.1521"
-         id="tspan85"><tspan
+         id="tspan52"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan84">dayeventtext = ', '.join(map(lambda x: x.get('SUMMARY'), day_events))</tspan></tspan></text>
+           id="tspan51">dayeventtext = ', '.join(map(lambda x: x.get('SUMMARY'), day_events))</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text41218"
@@ -663,9 +663,11 @@
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="0"
            y="48"
-           id="tspan20981-67">{hour}<tspan
-   style="font-weight:normal;font-size:21.3333px"
-   id="tspan50"> {ampm}</tspan></tspan></text>
+           id="tspan20981-67"><tspan
+             style="font-weight:normal"
+             id="tspan9">{hour}</tspan><tspan
+             style="font-weight:normal;font-size:21.3333px"
+             id="tspan50"> {ampm}</tspan></tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
@@ -676,7 +678,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="12"
            y="64"
-           id="tspan14-1">🐍Hide(not (kStartHr &lt;= currenttime.hour &lt; kEndHr and day.weekday() &lt; 5))</tspan></text>
+           id="tspan14-1">🐍Hide(not show_hours or not (kStartHr &lt;= currenttime.hour &lt; kEndHr and day.weekday() &lt; 5))</tspan></text>
     </g>
   </g>
   <g
