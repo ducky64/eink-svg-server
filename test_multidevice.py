@@ -33,4 +33,4 @@ class MultiDeviceTestCase(unittest.TestCase):
 
       response = client.get('/meta?mac=a2b2')
       self.assertEqual(response.status_code, 200)
-      self.assertEqual(response.json['nextUpdateSec'], 1*60*60)  # update hourly
+      self.assertEqual(response.json['nextUpdateSec'], 4*60*60)  # update interval at 4pm
