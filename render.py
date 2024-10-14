@@ -90,7 +90,8 @@ def next_update(calendar: icalendar.Calendar, title: str, show_hours: bool, curr
   eggs = eastereggs(title, currenttime)
 
   # compute the next update time
-  event_times = list(chain.from_iterable([[event.get('DTSTART').dt, event.get('DTEND').dt] for event in events]))
+  event_times = list(chain.from_iterable([[event.get('DTSTART').dt, event.get('DTEND').dt]
+                                          for event in events if isinstance(event.get('DTSTART').dt, datetime)]))
   event_times.extend([
     day_start + timedelta(hours=1),
     day_start + timedelta(hours=25)  # next day
