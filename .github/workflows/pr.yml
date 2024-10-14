@@ -18,6 +18,8 @@ jobs:
     - uses: actions/setup-python@v1
       with:
         python-version: '3.11'
+    - name: install system dependencies
+      run: apt install -y libcairo2-dev
     - name: install pysvglabel dependencies
       run: pip install -r pysvglabel/requirements.txt
     - name: install dependencies
@@ -44,6 +46,8 @@ jobs:
     - uses: actions/setup-python@v1
       with:
         python-version: '3.11'
+    - name: install system dependencies
+      run: apt install -y libcairo2-dev
     - name: install pysvglabel dependencies
       run: pip install -r pysvglabel/requirements.txt
     - name: install dependencies
