@@ -30,14 +30,14 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="1.8084902"
-     inkscape:cx="137.96038"
-     inkscape:cy="152.33702"
-     inkscape:window-width="1450"
-     inkscape:window-height="1250"
-     inkscape:window-x="2326"
-     inkscape:window-y="402"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="g2">
+     inkscape:cx="389.55146"
+     inkscape:cy="307.99172"
+     inkscape:window-width="3840"
+     inkscape:window-height="2081"
+     inkscape:window-x="1491"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -151,12 +151,12 @@
        y="48"
        id="text4644"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="160"
          y="48"
-         id="tspan20981">{day.day}<tspan
-   style="font-weight:normal"
-   id="tspan1"> {kWdayMap[day.weekday()]}</tspan></tspan></text>
+         id="tspan20981"><tspan
+   style="font-weight:bold"
+   id="tspan1">{day.day}</tspan> {kWdayMap[day.weekday()]}</tspan></text>
     <g
        id="g25"
        transform="translate(264,-8)">
@@ -188,14 +188,14 @@
        id="text4644-5"
        transform="rotate(90)"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="64"
          y="-72"
          id="tspan21054">{split_title(title)[0]}</tspan><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="64"
-         y="-12"
+         y="-11.294143"
          id="tspan25">{split_title(title)[1]}</tspan></text>
     <text
        xml:space="preserve"
@@ -204,7 +204,7 @@
        y="952"
        id="text4644-5-8"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
          x="0"
          y="952"
          id="tspan25-9">ducky64.github.io/ecal-docs</tspan></text>
@@ -228,33 +228,33 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1381.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan33"><tspan
+         id="tspan5"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan2"># pysvglabel: init
+           id="tspan4"># pysvglabel: init
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan35"><tspan
+         id="tspan7"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan34">from caltemplate_helpers import *
+           id="tspan6">from caltemplate_helpers import *
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan37"><tspan
+         id="tspan9"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan36">from datetime import datetime, timedelta
+           id="tspan8">from datetime import datetime, timedelta
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan39"><tspan
+         id="tspan11"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan38">
+           id="tspan10">
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan41"><tspan
+         id="tspan13"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan40">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
+           id="tspan12">sheet = LabelSheet(page=(448, 600)*px, space=(0, 0)*inch, count=(0, 0))
 </tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -265,57 +265,57 @@
        transform="matrix(1.0666668,0,0,1.0666668,0,-1225.4957)"><tspan
          x="0"
          y="980.15206"
-         id="tspan43"><tspan
+         id="tspan15"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan42"># pysvglabel: row
+           id="tspan14"># pysvglabel: row
 </tspan></tspan><tspan
          x="0"
          y="998.90206"
-         id="tspan45"><tspan
+         id="tspan17"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan44">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan16">start_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1017.6521"
-         id="tspan47"><tspan
+         id="tspan19"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan46"> + timedelta(hours=kStartHr)
+           id="tspan18"> + timedelta(hours=kStartHr)
 </tspan></tspan><tspan
          x="0"
          y="1036.4021"
-         id="tspan49"><tspan
+         id="tspan21"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan48">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
+           id="tspan20">end_dt = day.replace(minute=0, hour=0, second=0, microsecond=0)\
 </tspan></tspan><tspan
          x="0"
          y="1055.1521"
-         id="tspan51"><tspan
+         id="tspan23"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan50"> + timedelta(hours=kEndHr)
+           id="tspan22"> + timedelta(hours=kEndHr)
 </tspan></tspan><tspan
          x="0"
          y="1073.9021"
-         id="tspan53"><tspan
+         id="tspan26"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan52">
+           id="tspan24">
 </tspan></tspan><tspan
          x="0"
          y="1092.6521"
-         id="tspan55"><tspan
+         id="tspan28"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan54">hour = currenttime.hour
+           id="tspan27">hour = currenttime.hour
 </tspan></tspan><tspan
          x="0"
          y="1111.4021"
-         id="tspan57"><tspan
+         id="tspan30"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan56">ampm = &quot;AM&quot; if hour &lt; 12 else &quot;PM&quot;
+           id="tspan29">ampm = &quot;AM&quot; if hour &lt; 12 else &quot;PM&quot;
 </tspan></tspan><tspan
          x="0"
          y="1130.1521"
-         id="tspan59"><tspan
+         id="tspan32"><tspan
            style="font-family:'Open Sans';-inkscape-font-specification:'Open Sans';fill:#000000;stroke:none"
-           id="tspan58">hour = 12 if hour%12 == 0 else hour%12</tspan></tspan></text>
+           id="tspan31">hour = 12 if hour%12 == 0 else hour%12</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text41218"
@@ -327,7 +327,7 @@
        y="48"
        id="text4644-3"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-dasharray:none"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-dasharray:none"
          x="544"
          y="48"
          id="tspan20981-6">IN USE</tspan></text>
@@ -428,11 +428,11 @@
          y="48"
          id="text4644-6"><tspan
            sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
            x="12"
            y="48"
            id="tspan20981-67">{hour}<tspan
-   style="font-weight:normal;font-size:21.3333px"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial"
    id="tspan3"> {ampm}</tspan></tspan></text>
       <text
          xml:space="preserve"
