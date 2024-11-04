@@ -21,7 +21,7 @@ from labelcore import SvgTemplate
 kFudgeAdvanceTime = timedelta(minutes=5)  # add this for the "current" time to account for clock drift and whatnot
 
 
-def eastereggs(title: str, currenttime: datetime) -> List[Tuple[datetime, datetime, str]]:
+def eastereggs(title: str, currenttime: datetime, day_events: List[icalendar.Event]) -> List[Tuple[datetime, datetime, str]]:
   """Returns a list of easter eggs for the duck image. as (start, end, image) tuples."""
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
   eggs: List[Tuple[datetime, datetime, str]] = []
@@ -30,6 +30,9 @@ def eastereggs(title: str, currenttime: datetime) -> List[Tuple[datetime, dateti
   if day_start.weekday() == 2 and title.lower().startswith('TESLA ROOM'.lower()):  # board games night
     eggs.append((day_start + timedelta(hours=18, minutes=30),
                  day_start+timedelta(hours=25), 'ext_art/sub_duck_boardgames.svg'))
+  if any('election day' in event.get('SUMMARY').lower() for event in day_events):
+    eggs.append((day_start,
+                 day_start+timedelta(hours=25), 'ext_art/sub_duck_vote.svg'))
   return eggs
 
 
@@ -51,7 +54,7 @@ def render(template_filename: str, calendars: List[icalendar.Calendar], events: 
                     if event.get('DTSTART').dt <= currenttime and event.get('DTEND').dt > currenttime]
 
   duck_image = 'ext_art/sub_duck_serious.svg'  # default
-  eggs = eastereggs(title, currenttime)
+  eggs = eastereggs(title, currenttime, day_events)
   for egg in eggs:
     if currenttime >= egg[0] and currenttime < egg[1]:
       duck_image = egg[2]
@@ -87,7 +90,7 @@ def next_update(calendar: icalendar.Calendar, title: str, show_hours: bool, curr
   day_start = currenttime.replace(hour=0, minute=0, second=0, microsecond=0)
   events = recurring_ical_events.of(calendar).between(day_start + timedelta(hours=caltemplate_helpers.kStartHr),
                                                       day_start + timedelta(hours=caltemplate_helpers.kEndHr))
-  eggs = eastereggs(title, currenttime)
+  eggs = eastereggs(title, currenttime, [])
 
   # compute the next update time
   event_times = list(chain.from_iterable([[event.get('DTSTART').dt, event.get('DTEND').dt]
