@@ -63,4 +63,10 @@ jobs:
     - name: Docker build
       run: docker build -t eink-svg-server .
     - name: Unittest
-      run: docker run --mount type=bind,src="$(pwd)/config",dst=/usr/app/config eink-svg-server python -m unittest discover
+      run: docker run --mount type=bind,src="$(pwd)/config",dst=/usr/app/config --mount type=bind,src="$(pwd)/test",dst=/usr/app/test eink-svg-server python -m unittest discover
+    - name: Upload test images
+      uses: actions/upload-artifact@v4
+      with:
+        name: docker-test-images
+        path: |
+          test/*.png
