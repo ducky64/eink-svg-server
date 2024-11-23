@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2.8284273"
-     inkscape:cx="255.79587"
-     inkscape:cy="221.50119"
+     inkscape:zoom="5.6568546"
+     inkscape:cx="80.168226"
+     inkscape:cy="102.79564"
      inkscape:window-width="2648"
      inkscape:window-height="1786"
      inkscape:window-x="2083"
      inkscape:window-y="188"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g6">
+     inkscape:current-layer="g3">
     <inkscape:grid
        type="xygrid"
        id="grid21772"
@@ -117,7 +117,7 @@
        id="g3">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          x="7.9374962"
          y="21.710938"
          id="text4644-5-6-3-1">{title}</text>
@@ -142,12 +142,12 @@
        id="g1">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          x="7.9374962"
          y="21.710938"
          id="text4644-5-6-3-1-9"><tspan
            sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
            x="7.9374962"
            y="21.710938"
            id="tspan6611-9-3-1">{title}</tspan></text>

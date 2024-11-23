@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2.8284273"
-     inkscape:cx="261.80627"
-     inkscape:cy="1.9445435"
+     inkscape:zoom="11.313709"
+     inkscape:cx="63.241859"
+     inkscape:cy="30.803337"
      inkscape:window-width="2648"
      inkscape:window-height="1786"
      inkscape:window-x="2547"
      inkscape:window-y="74"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g6">
+     inkscape:current-layer="layer1">
     <inkscape:grid
        type="xygrid"
        id="grid21772"
@@ -120,7 +120,9 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          x="7.9374962"
          y="21.710938"
-         id="text4644-5-6-3-1">{title}</text>
+         id="text4644-5-6-3-1"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+           id="tspan1">{title}</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
@@ -147,7 +149,7 @@
          y="21.710938"
          id="text4644-5-6-3-1-9"><tspan
            sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
            x="7.9374962"
            y="21.710938"
            id="tspan6611-9-3-1">{title}</tspan></text>
