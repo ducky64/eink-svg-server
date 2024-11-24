@@ -29,15 +29,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="4.369515"
-     inkscape:cx="518.70745"
-     inkscape:cy="272.11258"
+     inkscape:zoom="2.1847575"
+     inkscape:cx="124.27008"
+     inkscape:cy="364.80021"
      inkscape:window-width="3368"
      inkscape:window-height="2071"
      inkscape:window-x="1500"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g21567-4-0">
+     inkscape:current-layer="layer3">
     <inkscape:grid
        type="xygrid"
        id="grid1775"
@@ -86,9 +86,54 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="InUse"
+     style="display:inline">
+    <g
+       id="g25"
+       transform="translate(308,56)">
+      <rect
+         style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         id="rect4425-2"
+         width="272"
+         height="56"
+         x="92"
+         y="8"
+         ry="16" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         x="248"
+         y="56"
+         id="text4644-3"><tspan
+           style="font-weight:bold"
+           id="tspan2">IN USE</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         x="160"
+         y="60"
+         id="text4644-5-6-3-6-4-3"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+           x="160"
+           y="60"
+           id="tspan14">🐍Hide(not current_events)</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="DayCalendar"
      style="display:inline">
+    <rect
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect4425"
+       width="384.00003"
+       height="864"
+       x="47.999977"
+       y="64"
+       ry="16" />
     <g
        id="g21567-5"
        transform="translate(-72.000008,-56)"
@@ -137,9 +182,43 @@
            y="626.98157"
            id="tspan12959-0">)</tspan></text>
     </g>
+    <text
+       xml:space="preserve"
+       style="display:inline;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="96"
+       y="48"
+       id="text4644"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         x="96"
+         y="48"
+         id="tspan20981">{day.day:#02d}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="display:inline;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="160"
+       y="28"
+       id="text4644-35-1"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         x="160"
+         y="28"
+         id="tspan20981-3-0">{kWdayMap[day.weekday()]}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="display:inline;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="160"
+       y="48"
+       id="text4644-35"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
+         x="160"
+         y="48"
+         id="tspan20981-3">{dayeventtext}</tspan></text>
     <g
        id="g21567"
-       transform="translate(-104.00002,-56)">
+       transform="translate(-104.00002,-56)"
+       style="display:inline">
       <rect
          style="fill:#bfbfbf;fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
          id="rect9937"
@@ -184,47 +263,14 @@
            y="546.66693"
            id="tspan12959">)</tspan></text>
     </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="96"
-       y="48"
-       id="text4644"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-         x="96"
-         y="48"
-         id="tspan20981">{day.day:#02d}</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="160"
-       y="28"
-       id="text4644-35-1"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-         x="160"
-         y="28"
-         id="tspan20981-3-0">{kWdayMap[day.weekday()]}</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="160"
-       y="48"
-       id="text4644-35"><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:arial;-inkscape-font-specification:arial;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-         x="160"
-         y="48"
-         id="tspan20981-3">{dayeventtext}</tspan></text>
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       id="rect4425"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect4425-9"
        width="384.00003"
        height="864"
-       x="47.999977"
+       x="48"
        y="64"
-       ry="15.118111" />
+       ry="16" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -356,7 +402,7 @@
        height="432"
        x="484"
        y="496"
-       ry="15.118111"
+       ry="16"
        clip-path="none" />
   </g>
   <g
@@ -527,51 +573,6 @@
          id="tspan20">Booking</tspan></text>
   </g>
   <g
-     inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="InUse"
-     style="display:inline">
-    <g
-       id="g25"
-       transform="translate(308,56)">
-      <rect
-         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-         id="rect4425-2-6"
-         width="344"
-         height="56"
-         x="148"
-         y="8"
-         ry="15.118111" />
-      <rect
-         style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-         id="rect4425-2"
-         width="192"
-         height="56"
-         x="152"
-         y="8"
-         ry="15.118111" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-         x="248"
-         y="56"
-         id="text4644-3"><tspan
-           style="font-weight:bold"
-           id="tspan2">IN USE</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:end;text-anchor:end;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-         x="160"
-         y="60"
-         id="text4644-5-6-3-6-4-3"><tspan
-           sodipodi:role="line"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Bold';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-           x="160"
-           y="60"
-           id="tspan14">🐍Hide(not current_events)</tspan></text>
-    </g>
-  </g>
-  <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
@@ -598,19 +599,19 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       x="815.32788"
-       y="489.45258"
+       x="811.32788"
+       y="489.45255"
        id="text4644-5-8-81-8"><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-         x="815.32788"
-         y="489.45258"
-         id="tspan7-7">this is open-source</tspan><tspan
+         x="811.32788"
+         y="489.45255"
+         id="tspan7-7">an open-source</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-dasharray:none"
-         x="815.32788"
+         x="817.25494"
          y="516.1192"
-         id="tspan17">check it out here:</tspan></text>
+         id="tspan17">project on GitHub </tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.002;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
