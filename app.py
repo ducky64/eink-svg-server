@@ -44,8 +44,7 @@ kConfigFilename = pathlib.Path('config/config.json')
 try:
   with open(kConfigFilename) as f:
     config = ServerConfig.model_validate_json(f.read())
-except ValidationError as e:
-  # load old-style config
+except ValidationError as e:  # load old-style config
   class DeviceMap(RootModel):
     root: Dict[str, DeviceRecord]
   with open(kConfigFilename) as f:
