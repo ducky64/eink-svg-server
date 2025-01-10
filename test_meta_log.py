@@ -19,7 +19,7 @@ class MetaLoggingTestCase(unittest.TestCase):
       os.remove(self.TEST_FILE)
 
     # note, testing of CsvLogger edge cases in its own dedicated test
-    devices = app.DeviceMap({
+    config = app.ServerConfig(devices={
       'abcd': app.DeviceRecord(
         title="",
         ical_url="TestCalendar.ics",
@@ -28,7 +28,7 @@ class MetaLoggingTestCase(unittest.TestCase):
     })
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'meta_csv', CsvLogger(self.TEST_FILE, app.meta_csv._default_headers)),
-          patch.object(app, 'devices', devices),
+          patch.object(app, 'config', config),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
       mock_datetime.now.return_value = datetime(2024, 7, 1, 0, 0, 0).astimezone(app.kTimezone)

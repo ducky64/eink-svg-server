@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 app.app.testing = True
 
 
-devices = app.DeviceMap({
+config = app.ServerConfig(devices={
   '': app.DeviceRecord(
     title="TESLA ROOM",
     ical_url="TestCalendar.ics",
@@ -21,7 +21,7 @@ devices = app.DeviceMap({
 class EasterEggTestCase(unittest.TestCase):
   def test_image(self):
     with (patch('app.datetime') as mock_datetime,
-          patch.object(app, 'devices', devices),
+          patch.object(app, 'config', config),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           patch.object(labelcore.SvgTemplate, 'apply_instance') as apply_instance_mock,
           app.app.test_client() as client):
@@ -46,7 +46,7 @@ class EasterEggTestCase(unittest.TestCase):
   def test_meta(self):
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'meta_csv', MagicMock()),
-          patch.object(app, 'devices', devices),
+          patch.object(app, 'config', config),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
       # check board games night duck gets scheduled
