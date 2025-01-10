@@ -2,7 +2,7 @@ import unittest
 import app
 from test_common import test_get_cached_ical
 from datetime import datetime
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 
 app.app.testing = True
 
@@ -19,6 +19,7 @@ devices = app.DeviceMap({
 class MetaScheduleTestCase(unittest.TestCase):
   def test_nextevent(self):
     with (patch('app.datetime') as mock_datetime,
+          patch.object(app, 'meta_csv', MagicMock()),
           patch.object(app, 'devices', devices),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           app.app.test_client() as client):
