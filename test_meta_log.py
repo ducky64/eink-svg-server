@@ -24,8 +24,8 @@ class MetaLoggingTestCase(unittest.TestCase):
         title="",
         ical_url="TestCalendar.ics",
         template_filename="",
-      ),
-    })
+      )
+    }, admin_password='password')
     with (patch('app.datetime') as mock_datetime,
           patch.object(app, 'meta_csv', CsvLogger(self.TEST_FILE, app.meta_csv._default_headers)),
           patch.object(app, 'config', config),
@@ -37,8 +37,16 @@ class MetaLoggingTestCase(unittest.TestCase):
       mock_datetime.now.return_value = datetime(2024, 7, 1, 6, 0, 0).astimezone(app.kTimezone)
       client.get('/meta?mac=abcd&fwVer=5&vbat=3850')
 
-      with open(self.TEST_FILE, 'r') as f:
-        self.assertEqual(f.read(), """timestamp,mac,vbat,fwVer,boot,rst,part,rssi,lastDisplayTime
+      EXPECTED_DATA = """timestamp,mac,vbat,fwVer,boot,rst,part,rssi,lastDisplayTime
 1719817200.0,abcd,3900,5,,,,,
 1719838800.0,abcd,3850,5,,,,,
-""")
+"""
+
+      with open(self.TEST_FILE, 'r') as f:
+        self.assertEqual(f.read(), EXPECTED_DATA)
+
+      resp = client.get('/admin/meta_csv?password=password')
+      self.assertEqual(resp.data, EXPECTED_DATA.encode('utf-8'))
+
+      resp = client.get('/admin/meta_csv?password=xxx')
+      self.assertEqual(resp.status_code, 403)
