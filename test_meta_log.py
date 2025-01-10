@@ -4,7 +4,7 @@ import app
 from csv_logger import CsvLogger
 from test_common import test_get_cached_ical
 from datetime import datetime
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
 app.app.testing = True
 
