@@ -2,6 +2,7 @@
 cache.ics
 
 test/test_*.png
+test/test.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
