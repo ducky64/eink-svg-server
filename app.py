@@ -1,11 +1,12 @@
+import os
 from typing import NamedTuple, Dict, Set
 
 from datetime import datetime, timedelta
 from dateutil import parser  # type: ignore
 import pytz  # type: ignore
 from typing import Optional
-from flask import Flask, jsonify, send_file, request, abort
-from pydantic import BaseModel, RootModel
+from flask import Flask, jsonify, send_file, request, abort, Response
+from pydantic import BaseModel, RootModel, ValidationError
 import io
 from urllib.request import urlopen
 import icalendar
@@ -13,6 +14,7 @@ from apscheduler.schedulers.background import BackgroundScheduler  # type: ignor
 import pathlib
 import recurring_ical_events  # type: ignore
 
+from csv_logger import CsvLogger
 from render import render as label_render, next_update
 
 import logging
@@ -33,18 +35,34 @@ class DeviceRecord(BaseModel):
   show_hours: bool = False  # whether to display hours
 
 
-class DeviceMap(RootModel):
-  root: Dict[str, DeviceRecord]
+class ServerConfig(BaseModel):
+  devices: Dict[str, DeviceRecord]
+  admin_password: Optional[str] = None  # None or empty means admin functionality disabled
 
 
 kConfigFilename = pathlib.Path('config/config.json')
-with open(kConfigFilename) as f:
-  devices = DeviceMap.model_validate_json(f.read())
-app.logger.info(f"Loaded device map: {devices}")
+try:
+  with open(kConfigFilename) as f:
+    config = ServerConfig.model_validate_json(f.read())
+except ValidationError as e:  # load old-style config
+  class DeviceMap(RootModel):
+    root: Dict[str, DeviceRecord]
+  with open(kConfigFilename) as f:
+    devices_map = DeviceMap.model_validate_json(f.read())
+  config = ServerConfig(devices=devices_map.root)
+app.logger.info(f"Loaded config: {config}")
 
 kHolidaysUrl = 'https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics'
 kTimezone = pytz.timezone('America/Los_Angeles')
 kCacheValidTime = timedelta(minutes=10)  # cache is stale after this time
+
+
+PERSIST_DIR = "persist"
+os.makedirs(PERSIST_DIR, exist_ok=True)
+
+CSV_FILENAME = f"{PERSIST_DIR}/log.csv"
+meta_csv = CsvLogger(CSV_FILENAME, ['timestamp', 'mac', 'vbat', 'fwVer', 'boot', 'rst', 'part', 'rssi',
+                                    'lastDisplayTime'])
 
 
 def filter_holiday_events(events: list[icalendar.Event]) -> list[icalendar.Event]:
@@ -94,7 +112,7 @@ def schedule_cache(url: str, title: str):
                     id=url, replace_existing=True)
 
 
-for mac, device in devices.root.items():
+for mac, device in config.devices.items():
   scheduler.add_job(func=schedule_cache, args=[device.ical_url, device.title],
                     trigger="date", run_date=datetime.now() + timedelta(seconds=3),
                     id=device.ical_url, replace_existing=True)
@@ -108,12 +126,12 @@ class MetaResponse(BaseModel):
 
 
 @app.route("/version", methods=['GET'])
-def version():
-  return "0.3"
+def version() -> str:
+  return "0.4"
 
 
 @app.route("/image", methods=['GET'])
-def image():
+def image() -> Response:
   try:
     starttime = datetime.now(kTimezone)
 
@@ -124,7 +142,7 @@ def image():
       if not rendertime.tzinfo:
         rendertime = rendertime.astimezone(kTimezone)
 
-    device = devices.root[request.args.get('mac', default='')]
+    device = config.devices[request.args.get('mac', default='')]
     all_cals = [get_cached_ical(device.ical_url)]
     holiday_events = filter_holiday_events(
       recurring_ical_events.of(get_cached_ical(kHolidaysUrl)).between(rendertime, rendertime + timedelta(days=2))
@@ -145,9 +163,13 @@ def image():
 
 
 @app.route("/meta", methods=['GET'])
-def meta():
+def meta() -> Response:
   try:
     starttime = datetime.now(kTimezone)
+
+    log_data = request.args.copy()
+    log_data['timestamp'] = starttime.timestamp()
+    meta_csv.log(log_data)
 
     rendertime = starttime
     force_time = request.args.get('forceTime', default=None)
@@ -157,7 +179,7 @@ def meta():
         rendertime = rendertime.astimezone(kTimezone)
 
     device_mac = request.args.get('mac', default='')
-    device = devices.root[device_mac]
+    device = config.devices[device_mac]
     title_printable = device.title.split('\n')[0]
     ical_data = get_cached_ical(device.ical_url)
     nexttime = next_update(ical_data, device.title, device.show_hours, rendertime)
@@ -191,10 +213,10 @@ def meta():
 
 
 @app.route("/ota", methods=['GET'])
-def ota():
+def ota() -> Response:
   try:
     device_mac = request.args.get('mac', default='')
-    device = devices.root[device_mac]
+    device = config.devices[device_mac]
     ota_done_devices.add(device_mac)
     title_printable = device.title.split('\n')[0]
     assert device.ota_filename is not None
@@ -206,3 +228,11 @@ def ota():
   except Exception as e:
     app.logger.exception(f"ota: exception: {repr(e)}")
     abort(400)
+
+
+@app.route("/admin/meta_csv", methods=['GET'])
+def admin_meta_csv() -> Response:
+  if not config.admin_password or request.args.get('password', default=None) != config.admin_password:
+    abort(403)
+  file_io = io.BytesIO(meta_csv.read().encode('utf-8'))
+  return send_file(file_io, mimetype='text/csv')

@@ -2,14 +2,14 @@ import unittest
 import app
 from test_common import test_get_cached_ical
 from datetime import datetime
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 
 app.app.testing = True
 
 
 class MetaOtaTestCase(unittest.TestCase):
   def test_ota_empty(self):
-    devices = app.DeviceMap({
+    config = app.ServerConfig(devices={
       '': app.DeviceRecord(
         title="",
         ical_url="TestCalendar.ics",
@@ -17,7 +17,8 @@ class MetaOtaTestCase(unittest.TestCase):
       ),
     })
     with (patch('app.datetime') as mock_datetime,
-          patch.object(app, 'devices', devices),
+          patch.object(app, 'meta_csv', MagicMock()),
+          patch.object(app, 'config', config),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           patch.object(app, 'ota_done_devices', set()),  # clear OTA records
           app.app.test_client() as client):
@@ -30,7 +31,7 @@ class MetaOtaTestCase(unittest.TestCase):
       self.assertEqual(response.json['ota'], False)
 
   def test_ota(self):
-    devices = app.DeviceMap({
+    config = app.ServerConfig(devices={
       '': app.DeviceRecord(
         title="",
         ical_url="TestCalendar.ics",
@@ -40,7 +41,8 @@ class MetaOtaTestCase(unittest.TestCase):
       ),
     })
     with (patch('app.datetime') as mock_datetime,
-          patch.object(app, 'devices', devices),
+          patch.object(app, 'meta_csv', MagicMock()),
+          patch.object(app, 'config', config),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           patch.object(app, 'ota_done_devices', set()),  # clear OTA records
           app.app.test_client() as client):
@@ -62,7 +64,7 @@ class MetaOtaTestCase(unittest.TestCase):
       self.assertEqual(response.data, b"this is real firmware data, I swear")
 
   def test_ota_after(self):
-    devices = app.DeviceMap({
+    config = app.ServerConfig(devices={
       '': app.DeviceRecord(
         title="",
         ical_url="TestCalendar.ics",
@@ -73,7 +75,8 @@ class MetaOtaTestCase(unittest.TestCase):
       ),
     })
     with (patch('app.datetime') as mock_datetime,
-          patch.object(app, 'devices', devices),
+          patch.object(app, 'meta_csv', MagicMock()),
+          patch.object(app, 'config', config),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           patch.object(app, 'ota_done_devices', set()),  # clear OTA records
           app.app.test_client() as client):
@@ -86,7 +89,7 @@ class MetaOtaTestCase(unittest.TestCase):
       self.assertEqual(response.json['ota'], True)
 
   def test_ota_antiretry(self):
-    devices = app.DeviceMap({
+    config = app.ServerConfig(devices={
       '': app.DeviceRecord(
         title="",
         ical_url="TestCalendar.ics",
@@ -96,7 +99,8 @@ class MetaOtaTestCase(unittest.TestCase):
       ),
     })
     with (patch('app.datetime') as mock_datetime,
-          patch.object(app, 'devices', devices),
+          patch.object(app, 'meta_csv', MagicMock()),
+          patch.object(app, 'config', config),
           patch.object(app, 'get_cached_ical', test_get_cached_ical),
           patch.object(app, 'ota_done_devices', set()),  # clear OTA records
           app.app.test_client() as client):
