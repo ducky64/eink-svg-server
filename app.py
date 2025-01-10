@@ -37,7 +37,7 @@ class DeviceRecord(BaseModel):
 
 class ServerConfig(BaseModel):
   devices: Dict[str, DeviceRecord]
-  admin_password: Optional[str] = ""  # None or empty means admin functionality disabled
+  admin_password: Optional[str] = None  # None or empty means admin functionality disabled
 
 
 kConfigFilename = pathlib.Path('config/config.json')
