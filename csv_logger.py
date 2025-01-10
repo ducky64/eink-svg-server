@@ -25,7 +25,10 @@ class CsvLogger:
     # read the headers
     with open(self._filename, 'r', newline='') as f:
       dictreader = csv.DictReader(f)
-      fieldnames = list(dictreader.fieldnames)
+      if dictreader.fieldnames is None:
+        fieldnames = []
+      else:
+        fieldnames = list(dictreader.fieldnames)
 
     with open(self._filename, 'a', newline='') as f:
       missing_fields = set(data.keys()) - set(fieldnames)

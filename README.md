@@ -6,3 +6,5 @@ This can be run directly (`flask run --port 80 --host 0.0.0.0`) or in the includ
 If run directly, the device configurations (mapping device MAC to ical) are loaded from the `config` folder.
 If run in Docker, a folder including `config.json` (and any other supporting files, like custom templates) must be mounted to `/usr/app/config` in the container.
 The config schema is listed as a pydantic model in `app.py`.
+
+The `persist` directory can also be mounted so logged data is visible externally.
