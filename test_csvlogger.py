@@ -41,3 +41,11 @@ class CsvLoggerTestCase(unittest.TestCase):
     logger.log({"a": "4", "d": "5", "c": "6"})
     with open(self.TEST_FILE, 'r') as f:
       self.assertEqual(f.read(), "a,b,c\n1,2,3\n4,,6\n")
+
+  def test_read(self):
+    logger = CsvLogger(self.TEST_FILE, ["a", "b", "c"])
+    os.makedirs(self.TEST_DIR, exist_ok=True)
+    with open(self.TEST_FILE, 'w') as f:
+      f.write("a,b,c\n1,2,3\n")
+
+    assert logger.read() == "a,b,c\n1,2,3\n"

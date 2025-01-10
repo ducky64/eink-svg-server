@@ -36,3 +36,10 @@ class CsvLogger:
         logger.warn(f"missing fields in file: {missing_fields}")
       dictwriter = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
       dictwriter.writerow(data)
+
+  def read(self) -> str:
+    if not os.path.exists(self._filename):
+      return ""
+
+    with open(self._filename, 'r') as f:
+      return f.read()
