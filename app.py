@@ -62,7 +62,8 @@ os.makedirs(PERSIST_DIR, exist_ok=True)
 
 CSV_FILENAME = f"{PERSIST_DIR}/log.csv"
 meta_csv = CsvLogger(CSV_FILENAME, ['timestamp', 'mac', 'vbat', 'fwVer', 'boot', 'rst', 'part', 'rssi',
-                                    'lastDisplayTime'])
+                                    'lastDisplayTime', 'fail'])
+meta_csv.update_headers()
 
 
 def filter_holiday_events(events: list[icalendar.Event]) -> list[icalendar.Event]:
@@ -127,7 +128,7 @@ class MetaResponse(BaseModel):
 
 @app.route("/version", methods=['GET'])
 def version() -> str:
-  return "0.4"
+  return "0.5"
 
 
 @app.route("/image", methods=['GET'])
