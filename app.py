@@ -128,7 +128,7 @@ class MetaResponse(BaseModel):
 
 @app.route("/version", methods=['GET'])
 def version() -> str:
-  return "0.4"
+  return "0.5"
 
 
 @app.route("/image", methods=['GET'])
