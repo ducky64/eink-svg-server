@@ -72,6 +72,7 @@ def render(template_filename: str, calendars: List[icalendar.Calendar], events: 
   }, [], 0)
   label.append(instance)
   root = ET.ElementTree(label).getroot()
+  assert root is not None
 
   png_data = cairosvg.svg2png(bytestring=ET.tostring(root, 'utf-8'))
 
