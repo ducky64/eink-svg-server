@@ -37,9 +37,9 @@ class MetaLoggingTestCase(unittest.TestCase):
       mock_datetime.now.return_value = datetime(2024, 7, 1, 6, 0, 0).astimezone(app.kTimezone)
       client.get('/meta?mac=abcd&fwVer=5&vbat=3850')
 
-      EXPECTED_DATA = """timestamp,mac,vbat,fwVer,boot,rst,part,rssi,lastDisplayTime
-1719817200.0,abcd,3900,5,,,,,
-1719838800.0,abcd,3850,5,,,,,
+      EXPECTED_DATA = """timestamp,mac,vbat,fwVer,boot,rst,part,rssi,lastDisplayTime,fail
+1719817200.0,abcd,3900,5,,,,,,
+1719838800.0,abcd,3850,5,,,,,,
 """
 
       with open(self.TEST_FILE, 'r') as f:

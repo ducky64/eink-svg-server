@@ -62,7 +62,7 @@ os.makedirs(PERSIST_DIR, exist_ok=True)
 
 CSV_FILENAME = f"{PERSIST_DIR}/log.csv"
 meta_csv = CsvLogger(CSV_FILENAME, ['timestamp', 'mac', 'vbat', 'fwVer', 'boot', 'rst', 'part', 'rssi',
-                                    'lastDisplayTime'])
+                                    'lastDisplayTime', 'fail'])
 
 
 def filter_holiday_events(events: list[icalendar.Event]) -> list[icalendar.Event]:
