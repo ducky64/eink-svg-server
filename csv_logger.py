@@ -23,7 +23,7 @@ class CsvLogger:
     with open(self._filename, 'r', newline='') as f:
       dictreader = csv.DictReader(f)
       if dictreader.fieldnames is None:
-        logger.warn(f"fieldnames is None")
+        logger.warning(f"fieldnames is None")
         return
       fieldnames = set(dictreader.fieldnames)
       rows = list(dictreader)
@@ -57,7 +57,7 @@ class CsvLogger:
     with open(self._filename, 'a', newline='') as f:
       missing_fields = set(data.keys()) - set(fieldnames)
       if missing_fields:
-        logger.warn(f"missing fields in file: {missing_fields}")
+        logger.warning(f"missing fields in file: {missing_fields}")
       dictwriter = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
       dictwriter.writerow(data)
 
