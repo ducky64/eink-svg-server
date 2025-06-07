@@ -32,6 +32,22 @@ class CsvLoggerTestCase(unittest.TestCase):
     with open(self.TEST_FILE, 'r') as f:
       self.assertEqual(f.read(), "a,b,c\n1,2,3\n5,6,4\n9,7,8\n")
 
+  def test_update_headers(self):
+    os.makedirs(self.TEST_DIR, exist_ok=True)
+    with open(self.TEST_FILE, 'w') as f:
+      f.write("a,b,c\n1,2,3\n")
+
+    logger = CsvLogger(self.TEST_FILE, ["a", "b", "d", "c"])
+    logger.update_headers()
+    with open(self.TEST_FILE, 'r') as f:
+      self.assertEqual(f.read(), "a,b,d,c\n1,2,,3\n")
+
+    logger.log({"c": "4", "a": "5", "b": "6", "d": "7"})
+    with open(self.TEST_FILE, 'r') as f:
+      self.assertEqual(f.read(), "a,b,d,c\n1,2,,3\n5,6,7,4\n")
+
+    logger.update_headers()
+
   def test_extrafield(self):
     logger = CsvLogger(self.TEST_FILE, ["a", "b", "c"])
     os.makedirs(self.TEST_DIR, exist_ok=True)
