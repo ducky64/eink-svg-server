@@ -34,7 +34,7 @@ class CsvLogger:
 
       logger.info(f"rewriting {self._filename} with additional headers: {missing_fields}")
       with open(self._filename, 'w', newline='') as f:
-        dictwriter = csv.DictWriter(f, fieldnames=list(dictreader.fieldnames) + missing_fields, extrasaction='ignore')
+        dictwriter = csv.DictWriter(f, fieldnames=list(dictreader.fieldnames) + missing_fields, extrasaction='raise')
         dictwriter.writeheader()
         for row in rows:
           dictwriter.writerow(row)
