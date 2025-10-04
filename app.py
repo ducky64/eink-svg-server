@@ -179,7 +179,9 @@ def meta() -> Response:
     log_data = request.args.copy()
     log_data['timestamp'] = starttime.timestamp()
     meta_csv.log(log_data)
-    last_seen[request.args.get('mac', default='')] = DeviceStats(starttime, request.args.copy())
+    mac = request.args.get('mac')
+    if mac:
+      last_seen[mac] = DeviceStats(starttime, request.args.copy())
 
     rendertime = starttime
     force_time = request.args.get('forceTime', default=None)
