@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <title>E-ink Server</title>
+</head>
+
+<body>
+    <p>Up {{uptime}}</p>
+    <table>
+        <thead>
+        <tr>
+            {% for column in columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in items %}
+        <tr>
+            {% for column in columns %}
+            <td>{{ row[column] | replace('\n', '<br>') | safe }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,11 +1,11 @@
 import os
-from typing import NamedTuple, Dict, Set
+from typing import NamedTuple, Dict, Set, List
 
 from datetime import datetime, timedelta
 from dateutil import parser  # type: ignore
 import pytz  # type: ignore
 from typing import Optional
-from flask import Flask, jsonify, send_file, request, abort, Response
+from flask import Flask, jsonify, send_file, request, abort, Response, render_template
 from pydantic import BaseModel, RootModel, ValidationError
 import io
 from urllib.request import urlopen
@@ -55,15 +55,23 @@ app.logger.info(f"Loaded config: {config}")
 kHolidaysUrl = 'https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics'
 kTimezone = pytz.timezone('America/Los_Angeles')
 kCacheValidTime = timedelta(minutes=10)  # cache is stale after this time
+server_start_time = datetime.now(kTimezone)
 
 
 PERSIST_DIR = "persist"
 os.makedirs(PERSIST_DIR, exist_ok=True)
 
 CSV_FILENAME = f"{PERSIST_DIR}/log.csv"
-meta_csv = CsvLogger(CSV_FILENAME, ['timestamp', 'mac', 'vbat', 'fwVer', 'boot', 'rst', 'part', 'rssi',
-                                    'lastDisplayTime', 'fail'])
+ARG_COLUMNS = ['mac', 'vbat', 'fwVer', 'boot', 'rst', 'part', 'rssi', 'lastDisplayTime', 'fail']
+meta_csv = CsvLogger(CSV_FILENAME, ['timestamp'] + ARG_COLUMNS)
 meta_csv.update_headers()
+
+
+class DeviceStats(NamedTuple):
+  timestamp: datetime
+  args: Dict[str, str]  # all args from last meta request
+
+last_seen: Dict[str, DeviceStats] = {}  # mac -> stats
 
 
 def filter_holiday_events(events: list[icalendar.Event]) -> list[icalendar.Event]:
@@ -171,6 +179,7 @@ def meta() -> Response:
     log_data = request.args.copy()
     log_data['timestamp'] = starttime.timestamp()
     meta_csv.log(log_data)
+    last_seen[request.args.get('mac', default='')] = DeviceStats(starttime, request.args.copy())
 
     rendertime = starttime
     force_time = request.args.get('forceTime', default=None)
@@ -229,6 +238,31 @@ def ota() -> Response:
   except Exception as e:
     app.logger.exception(f"ota: exception: {repr(e)}")
     abort(400)
+
+
+@app.route("/admin/status", methods=['GET'])
+def admin_status() -> str:
+  if not config.admin_password or request.args.get('password', default=None) != config.admin_password:
+    abort(403)
+  items: List[Dict[str, str]] = []
+  for mac, device in config.devices.items():
+    stats = last_seen.get(mac, None)
+    seen = ""
+    if stats is not None:
+      seen = stats.timestamp.strftime('%Y-%m-%d %H:%M:%S')
+      seen += f"\n{(datetime.now(kTimezone) - stats.timestamp)} ago"
+    item = {
+      'title': device.title,
+      'mac': mac,
+      'seen': seen,
+    }
+    item.update(stats.args if stats is not None else {})
+    items.append(item)
+  return render_template("status.html",
+                         uptime=str(datetime.now(kTimezone) - server_start_time),
+                         columns=['title', 'seen'] + ARG_COLUMNS,
+                         items=items
+                         )
 
 
 @app.route("/admin/meta_csv", methods=['GET'])
