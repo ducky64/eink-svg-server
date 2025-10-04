@@ -19,6 +19,7 @@ COPY ext_art/ ./ext_art/
 
 COPY *.py *.svg ./
 COPY *.ics ./
+COPY templates/ ./templates/
 COPY test/ ./test/
 
 ENV FLASK_RUN_HOST=0.0.0.0
