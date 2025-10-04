@@ -36,7 +36,7 @@ class MetaStatusTestCase(unittest.TestCase):
       resp = client.get('/admin/status?password=password')
       assert "3900" in resp.data.decode('utf-8')
       assert "2024-07-01 00:00:00" in resp.data.decode('utf-8')
-      assert "3:00:00 ago" in resp.data.decode('utf-8')\
+      assert "3:00:00 ago" in resp.data.decode('utf-8')
 
       mock_datetime.now.return_value = datetime(2024, 7, 1, 6, 0, 0).astimezone(app.kTimezone)
       client.get('/meta?mac=abcd&fwVer=5&vbat=3850')
